@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["pod", "crear pod", "grupo contenedores"],
+    "command": "podman pod create [opciones] <nombre>",
+    "example": "podman pod create --name mi-pod -p 8080:80",
+    "description": "Crea un nuevo pod (grupo de contenedores que comparten recursos)."
+  },
+  {
+    "keywords": ["listar pods", "pod ps", "pods"],
+    "command": "podman pod ps [opciones]",
+    "example": "podman pod ps",
+    "description": "Lista los pods existentes."
+  },
+  {
+    "keywords": ["ejecutar en pod", "run in pod", "contenedor en pod"],
+    "command": "podman run --pod <pod> <imagen>",
+    "example": "podman run -d --pod mi-pod --name web nginx:alpine",
+    "description": "Ejecuta un contenedor dentro de un pod existente."
+  },
+  {
+    "keywords": ["detener pod", "pod stop"],
+    "command": "podman pod stop <pod>",
+    "example": "podman pod stop mi-pod",
+    "description": "Detiene todos los contenedores de un pod."
+  },
+  {
+    "keywords": ["iniciar pod", "pod start"],
+    "command": "podman pod start <pod>",
+    "example": "podman pod start mi-pod",
+    "description": "Inicia todos los contenedores de un pod."
+  },
+  {
+    "keywords": ["eliminar pod", "pod rm"],
+    "command": "podman pod rm <pod>",
+    "example": "podman pod rm -f mi-pod",
+    "description": "Elimina un pod (con -f, incluso si está en ejecución)."
+  },
+  {
+    "keywords": ["inspeccionar pod", "pod inspect"],
+    "command": "podman pod inspect <pod>",
+    "example": "podman pod inspect mi-pod",
+    "description": "Muestra información detallada del pod."
+  },
+  {
+    "keywords": ["stats pod", "estadísticas pod", "recursos"],
+    "command": "podman pod stats <pod>",
+    "example": "podman pod stats mi-pod",
+    "description": "Muestra estadísticas de uso de recursos del pod."
+  }
+]

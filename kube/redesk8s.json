@@ -1,0 +1,38 @@
+[
+  {
+    "keywords": ["service", "exponer", "crear service"],
+    "command": "kubectl expose ...",
+    "example": "kubectl expose deployment web --type=NodePort --port=80",
+    "description": "Expone un deployment como servicio (ver recursos.json)."
+  },
+  {
+    "keywords": ["ingress", "entrada", "http", "reglas"],
+    "command": "kubectl create ingress <nombre> --rule=<host>/<path>=<servicio>:<puerto>",
+    "example": "kubectl create ingress web-ingress --rule=\"ejemplo.com/*=web:80,tls=ejemplo-tls\"",
+    "description": "Crea un recurso Ingress para enrutamiento HTTP/HTTPS."
+  },
+  {
+    "keywords": ["get ingress", "listar ingress"],
+    "command": "kubectl get ingress",
+    "example": "kubectl get ingress -o wide",
+    "description": "Lista los Ingress del namespace."
+  },
+  {
+    "keywords": ["network policy", "política de red", "firewall"],
+    "command": "kubectl apply -f <networkpolicy.yaml>",
+    "example": "cat <<EOF | kubectl apply -f -\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: deny-all\nspec:\n  podSelector: {}\n  policyTypes:\n  - Ingress\nEOF",
+    "description": "Aplica una política de red para controlar el tráfico entre pods."
+  },
+  {
+    "keywords": ["endpoints", "puntos finales servicio"],
+    "command": "kubectl get endpoints <servicio>",
+    "example": "kubectl get endpoints web",
+    "description": "Muestra los endpoints (direcciones IP) que respaldan un servicio."
+  },
+  {
+    "keywords": ["port-forward svc", "redirigir servicio"],
+    "command": "kubectl port-forward service/<servicio> <puerto-local>:<puerto-servicio>",
+    "example": "kubectl port-forward svc/web 8888:80",
+    "description": "Redirige un puerto local a un servicio."
+  }
+]

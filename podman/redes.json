@@ -1,0 +1,62 @@
+[
+  {
+    "keywords": ["redes", "network", "listar redes"],
+    "command": "podman network ls",
+    "example": "podman network ls",
+    "description": "Lista las redes disponibles."
+  },
+  {
+    "keywords": ["crear red", "network create"],
+    "command": "podman network create <nombre>",
+    "example": "podman network create --subnet 10.10.0.0/16 mi-red",
+    "description": "Crea una nueva red definida por el usuario."
+  },
+  {
+    "keywords": ["conectar red", "network connect"],
+    "command": "podman network connect <red> <contenedor>",
+    "example": "podman network connect mi-red web",
+    "description": "Conecta un contenedor a una red."
+  },
+  {
+    "keywords": ["desconectar red", "network disconnect"],
+    "command": "podman network disconnect <red> <contenedor>",
+    "example": "podman network disconnect mi-red web",
+    "description": "Desconecta un contenedor de una red."
+  },
+  {
+    "keywords": ["eliminar red", "network rm"],
+    "command": "podman network rm <red>",
+    "example": "podman network rm mi-red",
+    "description": "Elimina una red."
+  },
+  {
+    "keywords": ["volumen", "volume", "crear volumen"],
+    "command": "podman volume create <nombre>",
+    "example": "podman volume create datos",
+    "description": "Crea un nuevo volumen para persistencia de datos."
+  },
+  {
+    "keywords": ["listar volúmenes", "volume ls"],
+    "command": "podman volume ls",
+    "example": "podman volume ls",
+    "description": "Lista los volúmenes existentes."
+  },
+  {
+    "keywords": ["montar volumen", "run with volume", "-v"],
+    "command": "podman run -v <volumen>:<ruta> <imagen>",
+    "example": "podman run -d -v datos:/var/lib/postgresql/data postgres",
+    "description": "Monta un volumen en el contenedor."
+  },
+  {
+    "keywords": ["inspeccionar volumen", "volume inspect"],
+    "command": "podman volume inspect <volumen>",
+    "example": "podman volume inspect datos",
+    "description": "Muestra información detallada del volumen."
+  },
+  {
+    "keywords": ["eliminar volumen", "volume rm"],
+    "command": "podman volume rm <volumen>",
+    "example": "podman volume rm datos",
+    "description": "Elimina un volumen (solo si no está en uso)."
+  }
+]

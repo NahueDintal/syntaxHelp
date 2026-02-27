@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["contexto", "context", "cambiar contexto", "kubeconfig"],
+    "command": "kubectl config use-context <nombre-contexto>",
+    "example": "kubectl config use-context minikube",
+    "description": "Cambia el contexto actual (cluster/usuario/namespace)."
+  },
+  {
+    "keywords": ["get contexts", "listar contextos"],
+    "command": "kubectl config get-contexts",
+    "example": "kubectl config get-contexts",
+    "description": "Lista todos los contextos disponibles."
+  },
+  {
+    "keywords": ["namespace", "espacio de nombres", "cambiar namespace"],
+    "command": "kubectl config set-context --current --namespace=<namespace>",
+    "example": "kubectl config set-context --current --namespace=produccion",
+    "description": "Cambia el namespace por defecto para el contexto actual."
+  },
+  {
+    "keywords": ["get namespaces", "listar namespaces", "ns"],
+    "command": "kubectl get namespaces",
+    "example": "kubectl get ns",
+    "description": "Lista todos los namespaces del cluster."
+  },
+  {
+    "keywords": ["configmap", "crear configmap", "variables configuración"],
+    "command": "kubectl create configmap <nombre> --from-literal=<clave>=<valor>",
+    "example": "kubectl create configmap app-config --from-literal=color=azul --from-file=config.properties",
+    "description": "Crea un ConfigMap con datos de configuración."
+  },
+  {
+    "keywords": ["get configmaps", "listar configmaps", "cm"],
+    "command": "kubectl get configmaps",
+    "example": "kubectl get cm",
+    "description": "Lista los ConfigMaps en el namespace actual."
+  },
+  {
+    "keywords": ["secret", "secreto", "crear secret"],
+    "command": "kubectl create secret generic <nombre> --from-literal=<clave>=<valor>",
+    "example": "kubectl create secret generic db-secret --from-literal=password=secreto",
+    "description": "Crea un Secret para información sensible (contraseñas, tokens)."
+  },
+  {
+    "keywords": ["get secrets", "listar secrets"],
+    "command": "kubectl get secrets",
+    "example": "kubectl get secrets",
+    "description": "Lista los Secrets en el namespace actual."
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["pod", "crear pod", "ejecutar pod"],
+    "command": "kubectl run <nombre> --image=<imagen> [opciones]",
+    "example": "kubectl run nginx --image=nginx:alpine --port=80",
+    "description": "Ejecuta un pod directamente (forma imperativa)."
+  },
+  {
+    "keywords": ["get pods", "listar pods", "ver pods"],
+    "command": "kubectl get pods [opciones]",
+    "example": "kubectl get pods -n kube-system -o wide",
+    "description": "Lista los pods en el namespace actual (o especificado con -n)."
+  },
+  {
+    "keywords": ["describe pod", "detalles pod"],
+    "command": "kubectl describe pod <nombre>",
+    "example": "kubectl describe pod nginx",
+    "description": "Muestra información detallada de un pod, incluyendo eventos."
+  },
+  {
+    "keywords": ["deployment", "crear deployment", "aplicación"],
+    "command": "kubectl create deployment <nombre> --image=<imagen>",
+    "example": "kubectl create deployment web --image=nginx:alpine --replicas=3",
+    "description": "Crea un deployment que gestiona réplicas de pods."
+  },
+  {
+    "keywords": ["get deployments", "listar deployments"],
+    "command": "kubectl get deployments",
+    "example": "kubectl get deployments -o wide",
+    "description": "Lista los deployments en el namespace actual."
+  },
+  {
+    "keywords": ["service", "exponer", "servicio", "clusterip", "nodeport"],
+    "command": "kubectl expose deployment <nombre> --port=<puerto> --target-port=<puerto> --type=<tipo>",
+    "example": "kubectl expose deployment web --port=80 --target-port=80 --type=LoadBalancer",
+    "description": "Expone un deployment como un servicio (ClusterIP, NodePort, LoadBalancer)."
+  },
+  {
+    "keywords": ["get services", "svc", "listar servicios"],
+    "command": "kubectl get services",
+    "example": "kubectl get svc -o wide",
+    "description": "Lista los servicios en el namespace actual."
+  },
+  {
+    "keywords": ["delete", "eliminar", "borrar recurso"],
+    "command": "kubectl delete <tipo> <nombre>",
+    "example": "kubectl delete pod nginx",
+    "description": "Elimina uno o más recursos."
+  }
+]

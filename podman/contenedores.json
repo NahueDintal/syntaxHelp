@@ -1,0 +1,62 @@
+[
+  {
+    "keywords": ["ejecutar", "run", "crear contenedor", "iniciar"],
+    "command": "podman run [opciones] <imagen> [comando]",
+    "example": "podman run -d --name web -p 8080:80 nginx:alpine",
+    "description": "Crea y ejecuta un contenedor a partir de una imagen."
+  },
+  {
+    "keywords": ["listar", "ps", "contenedores", "running", "todos"],
+    "command": "podman ps [opciones]",
+    "example": "podman ps -a --format \"table {{.Names}}\\t{{.Status}}\"",
+    "description": "Lista los contenedores (con -a, todos; sin -a, solo en ejecución)."
+  },
+  {
+    "keywords": ["detener", "stop", "parar"],
+    "command": "podman stop <contenedor>",
+    "example": "podman stop web",
+    "description": "Detiene uno o más contenedores en ejecución."
+  },
+  {
+    "keywords": ["iniciar", "start", "arrancar"],
+    "command": "podman start <contenedor>",
+    "example": "podman start web",
+    "description": "Inicia un contenedor detenido."
+  },
+  {
+    "keywords": ["eliminar", "rm", "remove container"],
+    "command": "podman rm <contenedor>",
+    "example": "podman rm -f web",
+    "description": "Elimina uno o más contenedores (con -f, incluso si están ejecutándose)."
+  },
+  {
+    "keywords": ["logs", "registros", "ver salida"],
+    "command": "podman logs [opciones] <contenedor>",
+    "example": "podman logs -f --tail 50 web",
+    "description": "Muestra los logs del contenedor. -f para seguir en tiempo real."
+  },
+  {
+    "keywords": ["ejecutar comando", "exec", "dentro del contenedor"],
+    "command": "podman exec -it <contenedor> <comando>",
+    "example": "podman exec -it web /bin/sh",
+    "description": "Ejecuta un comando dentro de un contenedor en ejecución (modo interactivo con -it)."
+  },
+  {
+    "keywords": ["copiar", "cp", "archivos"],
+    "command": "podman cp <origen> <destino>",
+    "example": "podman cp archivo.conf web:/etc/nginx/conf.d/",
+    "description": "Copia archivos entre el host y el contenedor."
+  },
+  {
+    "keywords": ["inspeccionar", "inspect container"],
+    "command": "podman inspect <contenedor>",
+    "example": "podman inspect web | jq '.[0].NetworkSettings.IPAddress'",
+    "description": "Muestra información detallada del contenedor."
+  },
+  {
+    "keywords": ["pausar", "pause", "reanudar", "unpause"],
+    "command": "podman pause <contenedor> / podman unpause <contenedor>",
+    "example": "podman pause web",
+    "description": "Pausa o reanuda todos los procesos de un contenedor."
+  }
+]

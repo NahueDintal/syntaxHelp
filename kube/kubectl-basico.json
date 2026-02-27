@@ -1,0 +1,56 @@
+[
+  {
+    "keywords": ["get", "listar", "recursos", "todos"],
+    "command": "kubectl get <recurso>",
+    "example": "kubectl get pods,services,deployments",
+    "description": "Lista uno o más tipos de recursos."
+  },
+  {
+    "keywords": ["logs", "ver logs", "registros pod"],
+    "command": "kubectl logs <pod> [-c <contenedor>] [opciones]",
+    "example": "kubectl logs -f --tail 50 web-pod-7b9f6d8b5f-abcde",
+    "description": "Muestra los logs de un pod (con -f, seguir en tiempo real)."
+  },
+  {
+    "keywords": ["exec", "ejecutar comando", "dentro del pod"],
+    "command": "kubectl exec -it <pod> -- <comando>",
+    "example": "kubectl exec -it nginx-pod -- /bin/sh",
+    "description": "Ejecuta un comando dentro de un contenedor en un pod."
+  },
+  {
+    "keywords": ["port-forward", "redirigir puerto", "acceso local"],
+    "command": "kubectl port-forward <pod> <puerto-local>:<puerto-pod>",
+    "example": "kubectl port-forward svc/web-service 8080:80",
+    "description": "Redirige un puerto local a un puerto del pod/servicio."
+  },
+  {
+    "keywords": ["cp", "copiar archivos", "pod"],
+    "command": "kubectl cp <origen> <destino>",
+    "example": "kubectl cp ./config.txt default/nginx-pod:/etc/nginx/conf.d/",
+    "description": "Copia archivos entre el host y el contenedor."
+  },
+  {
+    "keywords": ["apply", "aplicar configuración", "manifiesto"],
+    "command": "kubectl apply -f <archivo.yaml>",
+    "example": "kubectl apply -f deployment.yaml -f service.yaml",
+    "description": "Aplica una configuración desde un archivo YAML/JSON (crea o actualiza)."
+  },
+  {
+    "keywords": ["delete -f", "eliminar por archivo"],
+    "command": "kubectl delete -f <archivo.yaml>",
+    "example": "kubectl delete -f deployment.yaml",
+    "description": "Elimina los recursos definidos en un archivo."
+  },
+  {
+    "keywords": ["edit", "editar recurso"],
+    "command": "kubectl edit <tipo> <nombre>",
+    "example": "kubectl edit deployment web",
+    "description": "Edita un recurso directamente en el editor."
+  },
+  {
+    "keywords": ["api-resources", "recursos api", "tipos disponibles"],
+    "command": "kubectl api-resources",
+    "example": "kubectl api-resources | grep pod",
+    "description": "Lista todos los tipos de recursos disponibles en la API."
+  }
+]

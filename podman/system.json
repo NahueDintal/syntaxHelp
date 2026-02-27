@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["info", "sistema", "podman info"],
+    "command": "podman info",
+    "example": "podman info | grep -A 5 \"Storage\"",
+    "description": "Muestra información del sistema Podman (almacenamiento, registros, etc.)."
+  },
+  {
+    "keywords": ["versión", "version"],
+    "command": "podman version",
+    "example": "podman version",
+    "description": "Muestra las versiones de Podman y sus componentes."
+  },
+  {
+    "keywords": ["estadísticas", "stats", "recursos"],
+    "command": "podman stats [opciones] [contenedor...]",
+    "example": "podman stats --all --no-stream",
+    "description": "Muestra estadísticas en vivo de uso de CPU, memoria, red de los contenedores."
+  },
+  {
+    "keywords": ["eventos", "events", "monitor"],
+    "command": "podman events [opciones]",
+    "example": "podman events --since 5m --filter type=container",
+    "description": "Muestra eventos en tiempo real del daemon Podman."
+  },
+  {
+    "keywords": ["login", "logout", "registro", "autenticación"],
+    "command": "podman login <registro> / podman logout <registro>",
+    "example": "podman login docker.io",
+    "description": "Inicia/cierra sesión en un registro de contenedores."
+  },
+  {
+    "keywords": ["system prune", "limpiar", "espacio"],
+    "command": "podman system prune [opciones]",
+    "example": "podman system prune -a --volumes",
+    "description": "Elimina recursos no utilizados (contenedores detenidos, imágenes, volúmenes)."
+  },
+  {
+    "keywords": ["guardar imagen", "save", "exportar"],
+    "command": "podman save -o <archivo.tar> <imagen>",
+    "example": "podman save -o nginx.tar nginx:alpine",
+    "description": "Guarda una imagen en un archivo tar."
+  },
+  {
+    "keywords": ["cargar imagen", "load", "importar"],
+    "command": "podman load -i <archivo.tar>",
+    "example": "podman load -i nginx.tar",
+    "description": "Carga una imagen desde un archivo tar."
+  }
+]

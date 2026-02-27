@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["imagen", "image", "pull", "descargar", "docker pull"],
+    "command": "podman pull <imagen>[:tag]",
+    "example": "podman pull docker.io/library/nginx:alpine",
+    "description": "Descarga una imagen desde un registro (Docker Hub, quay.io, etc.)."
+  },
+  {
+    "keywords": ["imagenes", "images", "listar", "ls", "lista"],
+    "command": "podman images [opciones]",
+    "example": "podman images --format \"table {{.Repository}}\\t{{.Tag}}\"",
+    "description": "Lista las imágenes disponibles localmente."
+  },
+  {
+    "keywords": ["construir", "build", "dockerfile", "containerfile", "imagen personalizada"],
+    "command": "podman build -t <nombre>:<tag> <ruta>",
+    "example": "podman build -t mi-app:latest .",
+    "description": "Construye una imagen a partir de un Dockerfile o Containerfile."
+  },
+  {
+    "keywords": ["eliminar imagen", "rmi", "remove image", "borrar"],
+    "command": "podman rmi <imagen>[:tag]",
+    "example": "podman rmi nginx:alpine",
+    "description": "Elimina una o más imágenes locales."
+  },
+  {
+    "keywords": ["buscar", "search", "registro", "docker hub"],
+    "command": "podman search <término>",
+    "example": "podman search postgres --limit 5",
+    "description": "Busca imágenes en los registros configurados."
+  },
+  {
+    "keywords": ["inspeccionar", "inspect", "metadatos", "detalles"],
+    "command": "podman inspect <imagen>",
+    "example": "podman inspect nginx | jq '.[0].Config.Env'",
+    "description": "Muestra información detallada de una imagen (JSON)."
+  },
+  {
+    "keywords": ["push", "subir", "registro", "docker push"],
+    "command": "podman push <imagen> <registro>/<repo>/<imagen>:tag",
+    "example": "podman push mi-app docker.io/usuario/mi-app:latest",
+    "description": "Sube una imagen a un registro remoto."
+  },
+  {
+    "keywords": ["etiquetar", "tag", "alias"],
+    "command": "podman tag <imagen-origen> <imagen-destino>[:tag]",
+    "example": "podman tag nginx:alpine mi-nginx:prod",
+    "description": "Asigna un nuevo nombre/tag a una imagen existente."
+  }
+]

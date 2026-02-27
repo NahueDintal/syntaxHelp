@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["describe", "detalles", "diagnóstico"],
+    "command": "kubectl describe <tipo> <nombre>",
+    "example": "kubectl describe pod nginx",
+    "description": "Muestra estado detallado y eventos de un recurso (clave para debugging)."
+  },
+  {
+    "keywords": ["logs", "ver logs", "últimas líneas"],
+    "command": "kubectl logs <pod> [opciones]",
+    "example": "kubectl logs --previous nginx-pod",
+    "description": "Con --previous, muestra logs del contenedor anterior (si reinició)."
+  },
+  {
+    "keywords": ["exec", "shell", "inspeccionar"],
+    "command": "kubectl exec -it <pod> -- /bin/sh",
+    "example": "kubectl exec -it nginx-pod -- ls -la /usr/share/nginx/html",
+    "description": "Accede al contenedor para inspeccionar archivos, procesos, etc."
+  },
+  {
+    "keywords": ["events", "eventos", "sucesos"],
+    "command": "kubectl get events [--sort-by='.lastTimestamp']",
+    "example": "kubectl get events --all-namespaces --watch",
+    "description": "Muestra los eventos del cluster, ordenados por tiempo."
+  },
+  {
+    "keywords": ["logs de sistema", "kube-system"],
+    "command": "kubectl logs -n kube-system <pod-del-sistema>",
+    "example": "kubectl logs -n kube-system kube-apiserver-minikube",
+    "description": "Accede a logs de componentes del sistema (kube-apiserver, etcd, etc.)."
+  },
+  {
+    "keywords": ["top", "recursos", "cpu", "memoria"],
+    "command": "kubectl top <tipo>",
+    "example": "kubectl top pods\nkubectl top nodes",
+    "description": "Muestra métricas de uso de recursos (requiere Metrics Server)."
+  },
+  {
+    "keywords": ["debug", "depuración", "pod temporal"],
+    "command": "kubectl debug <pod> -it --image=<imagen>",
+    "example": "kubectl debug nginx-pod -it --image=nicolaka/netshoot",
+    "description": "Crea un pod temporal para depuración compartiendo el namespace del objetivo."
+  },
+  {
+    "keywords": ["cluster-info", "información cluster"],
+    "command": "kubectl cluster-info",
+    "example": "kubectl cluster-info | grep -A 2 \"control plane\"",
+    "description": "Muestra las direcciones de los componentes del plano de control."
+  }
+]

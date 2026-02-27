@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["scale", "escalar", "replicas"],
+    "command": "kubectl scale deployment <nombre> --replicas=<número>",
+    "example": "kubectl scale deployment web --replicas=5",
+    "description": "Cambia el número de réplicas de un deployment."
+  },
+  {
+    "keywords": ["autoscale", "autoescalado", "hpa"],
+    "command": "kubectl autoscale deployment <nombre> --min=<min> --max=<max> --cpu-percent=<porcentaje>",
+    "example": "kubectl autoscale deployment web --min=2 --max=10 --cpu-percent=80",
+    "description": "Configura autoescalado basado en CPU."
+  },
+  {
+    "keywords": ["rollout status", "estado despliegue"],
+    "command": "kubectl rollout status deployment <nombre>",
+    "example": "kubectl rollout status deployment web",
+    "description": "Muestra el estado del despliegue en curso."
+  },
+  {
+    "keywords": ["rollout history", "historial versiones"],
+    "command": "kubectl rollout history deployment <nombre>",
+    "example": "kubectl rollout history deployment web --revision=2",
+    "description": "Muestra el historial de revisiones de un deployment."
+  },
+  {
+    "keywords": ["rollout undo", "revertir", "rollback"],
+    "command": "kubectl rollout undo deployment <nombre> [--to-revision=<revisión>]",
+    "example": "kubectl rollout undo deployment web --to-revision=1",
+    "description": "Revierte a una versión anterior del deployment."
+  },
+  {
+    "keywords": ["set image", "actualizar imagen", "cambiar versión"],
+    "command": "kubectl set image deployment/<nombre> <contenedor>=<nueva-imagen>",
+    "example": "kubectl set image deployment/web nginx=nginx:1.25",
+    "description": "Actualiza la imagen de un contenedor en un deployment."
+  },
+  {
+    "keywords": ["rollout pause", "pausar despliegue"],
+    "command": "kubectl rollout pause deployment <nombre>",
+    "example": "kubectl rollout pause deployment web",
+    "description": "Pausa un deployment para hacer cambios múltiples."
+  },
+  {
+    "keywords": ["rollout resume", "reanudar despliegue"],
+    "command": "kubectl rollout resume deployment <nombre>",
+    "example": "kubectl rollout resume deployment web",
+    "description": "Reanuda un deployment pausado."
+  }
+]
