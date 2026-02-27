@@ -1,0 +1,26 @@
+[
+  {
+    "keywords": ["Maven", "pom.xml", "dependencias", "build"],
+    "command": "pom.xml - archivo de configuración de Maven",
+    "example": "<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.ejemplo</groupId>\n    <artifactId>mi-app</artifactId>\n    <version>1.0.0</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.junit.jupiter</groupId>\n            <artifactId>junit-jupiter</artifactId>\n            <version>5.9.2</version>\n            <scope>test</scope>\n        </dependency>\n    </dependencies>\n</project>",
+    "description": "Ejemplo básico de pom.xml con dependencia de JUnit."
+  },
+  {
+    "keywords": ["Maven", "compilar", "package", "install", "comandos"],
+    "command": "mvn clean compile   # compila\nmvn clean package    # empaqueta (jar/war)\nmvn clean install    # instala en repositorio local\nmvn test             # ejecuta tests",
+    "example": "mvn clean package",
+    "description": "Comandos comunes de Maven."
+  },
+  {
+    "keywords": ["Gradle", "build.gradle", "dependencies", "plugins"],
+    "command": "build.gradle (Groovy) o build.gradle.kts (Kotlin)",
+    "example": "plugins {\n    id 'java'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'\n}\n\ntest {\n    useJUnitPlatform()\n}",
+    "description": "Ejemplo básico de build.gradle para Java con JUnit 5."
+  },
+  {
+    "keywords": ["Gradle", "tasks", "build", "test", "run"],
+    "command": "gradle build   # compila y empaqueta\ngradle test    # ejecuta tests\ngradle clean   # limpia build",
+    "example": "gradle build",
+    "description": "Comandos comunes de Gradle."
+  }
+]

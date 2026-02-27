@@ -1,0 +1,38 @@
+[
+  {
+    "keywords": ["LocalDate", "fecha", "hoy", "now", "of"],
+    "command": "LocalDate fecha = LocalDate.now();\nLocalDate fechaEspecifica = LocalDate.of(2025, 3, 1);",
+    "example": "LocalDate hoy = LocalDate.now();\nLocalDate finDeAnio = LocalDate.of(2025, 12, 31);\nSystem.out.println(hoy);",
+    "description": "Fecha sin hora (año, mes, día)."
+  },
+  {
+    "keywords": ["LocalTime", "hora", "ahora", "now"],
+    "command": "LocalTime hora = LocalTime.now();\nLocalTime horaEspecifica = LocalTime.of(14, 30, 0);",
+    "example": "LocalTime ahora = LocalTime.now();\nLocalTime apertura = LocalTime.of(9, 0);",
+    "description": "Hora sin fecha (hora, minuto, segundo, nanosegundo)."
+  },
+  {
+    "keywords": ["LocalDateTime", "fecha y hora", "now"],
+    "command": "LocalDateTime fechaHora = LocalDateTime.now();",
+    "example": "LocalDateTime ahora = LocalDateTime.now();\nLocalDateTime reunion = LocalDateTime.of(2025, 3, 1, 10, 30);",
+    "description": "Combinación de fecha y hora."
+  },
+  {
+    "keywords": ["DateTimeFormatter", "formatear", "parsear", "pattern"],
+    "command": "DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd/MM/yyyy\");\nString texto = fecha.format(formatter);\nLocalDate fechaParseada = LocalDate.parse(\"01/03/2025\", formatter);",
+    "example": "DateTimeFormatter formato = DateTimeFormatter.ofPattern(\"dd/MM/yyyy HH:mm\");\nString salida = LocalDateTime.now().format(formato);\nSystem.out.println(salida);",
+    "description": "Formato y parseo de fechas según un patrón."
+  },
+  {
+    "keywords": ["Period", "diferencia entre fechas", "años", "meses", "días"],
+    "command": "Period period = Period.between(fechaInicio, fechaFin);\nint años = period.getYears();",
+    "example": "LocalDate inicio = LocalDate.of(2020, 1, 1);\nLocalDate fin = LocalDate.now();\nPeriod periodo = Period.between(inicio, fin);\nSystem.out.println(periodo.getYears() + \" años\");",
+    "description": "Diferencia entre dos fechas en años, meses, días."
+  },
+  {
+    "keywords": ["Duration", "duración", "horas", "minutos", "segundos"],
+    "command": "Duration duracion = Duration.between(horaInicio, horaFin);\nlong segundos = duracion.getSeconds();",
+    "example": "LocalTime inicio = LocalTime.of(9, 0);\nLocalTime fin = LocalTime.of(17, 30);\nDuration jornada = Duration.between(inicio, fin);\nSystem.out.println(jornada.toHours() + \" horas\");",
+    "description": "Diferencia entre dos tiempos (hasta nanosegundos)."
+  }
+]

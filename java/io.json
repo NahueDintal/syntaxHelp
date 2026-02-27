@@ -1,0 +1,38 @@
+[
+  {
+    "keywords": ["archivo", "leer", "File", "lectura", "BufferedReader"],
+    "command": "BufferedReader br = new BufferedReader(new FileReader(\"archivo.txt\"));",
+    "example": "try (BufferedReader br = new BufferedReader(new FileReader(\"datos.txt\"))) {\n    String linea;\n    while ((linea = br.readLine()) != null) {\n        System.out.println(linea);\n    }\n} catch (IOException e) { e.printStackTrace(); }",
+    "description": "Lee un archivo de texto línea por línea (try-with-resources cierra automáticamente)."
+  },
+  {
+    "keywords": ["escribir", "archivo", "FileWriter", "BufferedWriter"],
+    "command": "BufferedWriter bw = new BufferedWriter(new FileWriter(\"archivo.txt\"));",
+    "example": "try (BufferedWriter bw = new BufferedWriter(new FileWriter(\"salida.txt\"))) {\n    bw.write(\"Primera línea\");\n    bw.newLine();\n    bw.write(\"Segunda línea\");\n} catch (IOException e) { e.printStackTrace(); }",
+    "description": "Escribe en un archivo de texto."
+  },
+  {
+    "keywords": ["Files", "NIO", "leer todo", "readAllLines"],
+    "command": "List<String> lineas = Files.readAllLines(Paths.get(\"archivo.txt\"));",
+    "example": "import java.nio.file.*;\nList<String> lineas = Files.readAllLines(Paths.get(\"datos.txt\"));\nlineas.forEach(System.out::println);",
+    "description": "Lee todas las líneas de un archivo usando NIO (Java 7+)."
+  },
+  {
+    "keywords": ["Files", "escribir", "write"],
+    "command": "Files.write(Paths.get(\"archivo.txt\"), lineas, StandardOpenOption.CREATE);",
+    "example": "List<String> contenido = Arrays.asList(\"línea1\", \"línea2\");\nFiles.write(Paths.get(\"salida.txt\"), contenido);",
+    "description": "Escribe líneas en un archivo usando NIO."
+  },
+  {
+    "keywords": ["InputStream", "OutputStream", "bytes", "binario"],
+    "command": "InputStream in = new FileInputStream(\"imagen.jpg\"); OutputStream out = new FileOutputStream(\"copia.jpg\");",
+    "example": "try (InputStream in = new FileInputStream(\"origen.jpg\");\n     OutputStream out = new FileOutputStream(\"destino.jpg\")) {\n    byte[] buffer = new byte[1024];\n    int bytesLeidos;\n    while ((bytesLeidos = in.read(buffer)) != -1) {\n        out.write(buffer, 0, bytesLeidos);\n    }\n} catch (IOException e) { e.printStackTrace(); }",
+    "description": "Copia archivos binarios (imágenes, etc.) usando buffers."
+  },
+  {
+    "keywords": ["Scanner", "entrada teclado", "consola", "leer usuario"],
+    "command": "Scanner sc = new Scanner(System.in);",
+    "example": "Scanner sc = new Scanner(System.in);\nSystem.out.print(\"Introduce tu nombre: \");\nString nombre = sc.nextLine();\nSystem.out.print(\"Introduce edad: \");\nint edad = sc.nextInt();",
+    "description": "Lee datos desde la entrada estándar (teclado)."
+  }
+]

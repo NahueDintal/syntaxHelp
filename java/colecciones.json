@@ -1,0 +1,74 @@
+[
+  {
+    "keywords": ["arraylist", "lista", "arraylist", "list"],
+    "command": "ArrayList<tipo> lista = new ArrayList<>();",
+    "example": "ArrayList<String> nombres = new ArrayList<>();\nnombres.add(\"Juan\");\nnombres.add(\"María\");\nString primero = nombres.get(0);",
+    "description": "Lista dinámica. Importar java.util.ArrayList."
+  },
+  {
+    "keywords": ["linkedlist", "lista enlazada"],
+    "command": "LinkedList<tipo> lista = new LinkedList<>();",
+    "example": "LinkedList<Integer> numeros = new LinkedList<>();\nnumeros.addFirst(10);\nnumeros.addLast(20);",
+    "description": "Lista doblemente enlazada. Útil para inserciones/eliminaciones frecuentes. Importar java.util.LinkedList."
+  },
+  {
+    "keywords": ["hashset", "conjunto", "set", "sin duplicados"],
+    "command": "HashSet<tipo> conjunto = new HashSet<>();",
+    "example": "HashSet<String> conjunto = new HashSet<>();\nconjunto.add(\"rojo\");\nconjunto.add(\"azul\");\nboolean existe = conjunto.contains(\"rojo\");",
+    "description": "Conjunto que no permite duplicados. No ordenado. Importar java.util.HashSet."
+  },
+  {
+    "keywords": ["treeset", "conjunto ordenado"],
+    "command": "TreeSet<tipo> conjunto = new TreeSet<>();",
+    "example": "TreeSet<Integer> numeros = new TreeSet<>();\nnumeros.add(5);\nnumeros.add(1);\n// queda ordenado: 1,5",
+    "description": "Conjunto ordenado (según orden natural o Comparator). Importar java.util.TreeSet."
+  },
+  {
+    "keywords": ["hashmap", "mapa", "diccionario", "clave valor"],
+    "command": "HashMap<Clave, Valor> mapa = new HashMap<>();",
+    "example": "HashMap<String, Integer> edad = new HashMap<>();\nedad.put(\"Juan\", 25);\nedad.put(\"María\", 30);\nint edadJuan = edad.get(\"Juan\");",
+    "description": "Mapa clave-valor sin orden. Importar java.util.HashMap."
+  },
+  {
+    "keywords": ["treemap", "mapa ordenado"],
+    "command": "TreeMap<Clave, Valor> mapa = new TreeMap<>();",
+    "example": "TreeMap<String, Integer> mapa = new TreeMap<>();\nmapa.put(\"b\", 2);\nmapa.put(\"a\", 1);\n// ordenado por clave: a, b",
+    "description": "Mapa ordenado por claves. Importar java.util.TreeMap."
+  },
+  {
+    "keywords": ["iterador", "iterator", "recorrer colección"],
+    "command": "Iterator<tipo> it = colección.iterator();\nwhile (it.hasNext()) { tipo elem = it.next(); }",
+    "example": "Iterator<String> it = nombres.iterator();\nwhile (it.hasNext()) {\n    String nom = it.next();\n    System.out.println(nom);\n}",
+    "description": "Recorrer colecciones mediante iterador."
+  },
+  {
+    "keywords": ["foreach", "for each", "recorrer"],
+    "command": "for (tipo elem : colección) { ... }",
+    "example": "for (String nom : nombres) {\n    System.out.println(nom);\n}",
+    "description": "Bucle for-each para recorrer colecciones o arrays."
+  },
+  {
+    "keywords": ["arraylist", "ordenar", "sort", "collections"],
+    "command": "Collections.sort(lista);",
+    "example": "ArrayList<Integer> nums = new ArrayList<>();\nnums.add(5); nums.add(1);\nCollections.sort(nums); // [1,5]",
+    "description": "Ordenar una lista usando Collections.sort()."
+  },
+  {
+    "keywords": ["comparator", "comparar", "orden personalizado"],
+    "command": "Collections.sort(lista, new Comparator<tipo>() { public int compare(tipo a, tipo b) { ... } });",
+    "example": "Collections.sort(personas, new Comparator<Persona>() {\n    public int compare(Persona p1, Persona p2) {\n        return p1.edad - p2.edad;\n    }\n});",
+    "description": "Ordenar con criterio personalizado usando Comparator."
+  },
+  {
+    "keywords": ["array", "convertir", "toarray", "lista a array"],
+    "command": "tipo[] array = lista.toArray(new tipo[0]);",
+    "example": "String[] array = nombres.toArray(new String[0]);",
+    "description": "Convertir una lista a array."
+  },
+  {
+    "keywords": ["arrays", "aslist", "array a lista"],
+    "command": "List<tipo> lista = Arrays.asList(array);",
+    "example": "String[] arr = {\"a\",\"b\"};\nList<String> list = Arrays.asList(arr);",
+    "description": "Convertir un array a lista (lista de tamaño fijo)."
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "keywords": ["clase", "class", "definir clase"],
+    "command": "public class NombreClase { // atributos y métodos }",
+    "example": "public class Persona {\n    String nombre;\n    int edad;\n    public void saludar() {\n        System.out.println(\"Hola\");\n    }\n}",
+    "description": "Definición de una clase."
+  },
+  {
+    "keywords": ["objeto", "instancia", "new", "crear objeto"],
+    "command": "NombreClase objeto = new NombreClase();",
+    "example": "Persona juan = new Persona();",
+    "description": "Creación de un objeto (instancia) de una clase."
+  },
+  {
+    "keywords": ["constructor", "inicializar"],
+    "command": "public NombreClase(parámetros) { // inicialización }",
+    "example": "public Persona(String nombre, int edad) {\n    this.nombre = nombre;\n    this.edad = edad;\n}",
+    "description": "Constructor: método especial que se ejecuta al crear un objeto."
+  },
+  {
+    "keywords": ["this", "referencia", "objeto actual"],
+    "command": "this.atributo o this.metodo()",
+    "example": "this.nombre = nombre; // para distinguir parámetro de atributo",
+    "description": "Referencia al objeto actual."
+  },
+  {
+    "keywords": ["herencia", "extends", "subclase", "superclase"],
+    "command": "public class SubClase extends SuperClase { // ... }",
+    "example": "public class Estudiante extends Persona {\n    String carrera;\n}",
+    "description": "Herencia: una clase hereda de otra."
+  },
+  {
+    "keywords": ["super", "llamar", "constructor padre", "método padre"],
+    "command": "super(...) // llamar a constructor padre\nsuper.metodo() // llamar a método padre",
+    "example": "public Estudiante(String nombre, int edad, String carrera) {\n    super(nombre, edad);\n    this.carrera = carrera;\n}",
+    "description": "Llamada a constructor o métodos de la superclase."
+  },
+  {
+    "keywords": ["interfaz", "interface", "implementar", "implements"],
+    "command": "public interface NombreInterfaz { // métodos abstractos }\npublic class Clase implements Interfaz { // implementar métodos }",
+    "example": "public interface Volador {\n    void volar();\n}\npublic class Pajaro implements Volador {\n    public void volar() { System.out.println(\"Alas\"); }\n}",
+    "description": "Interfaz: contrato que las clases implementan."
+  },
+  {
+    "keywords": ["abstracto", "abstract", "clase abstracta", "método abstracto"],
+    "command": "public abstract class ClaseAbstracta { // ...\n    public abstract void metodoAbstracto();\n}",
+    "example": "public abstract class Animal {\n    public abstract void hacerSonido();\n}",
+    "description": "Clase o método abstracto. No se puede instanciar, puede tener métodos sin implementar."
+  },
+  {
+    "keywords": ["encapsulamiento", "private", "public", "protected", "getter", "setter"],
+    "command": "private tipo atributo;\npublic tipo getAtributo() { return atributo; }\npublic void setAtributo(tipo valor) { this.atributo = valor; }",
+    "example": "private String nombre;\npublic String getNombre() { return nombre; }\npublic void setNombre(String nombre) { this.nombre = nombre; }",
+    "description": "Modificadores de acceso y métodos de acceso (getters/setters)."
+  },
+  {
+    "keywords": ["polimorfismo", "sobrecarga", "overload", "sobrescritura", "override"],
+    "command": "Sobrecarga: mismos nombre, diferentes parámetros.\nSobrescritura: redefinir método en subclase con @Override",
+    "example": "// Sobrecarga\npublic void sumar(int a, int b) {}\npublic void sumar(double a, double b) {}\n// Sobrescritura\n@Override\npublic void hacerSonido() { System.out.println(\"Guau\"); }",
+    "description": "Polimorfismo: sobrecarga (mismo nombre, distintos parámetros) y sobrescritura (redefinir método heredado)."
+  },
+  {
+    "keywords": ["static", "estático", "método de clase", "variable de clase"],
+    "command": "public static tipo nombre; // variable estática\npublic static tipo metodo() { // código }",
+    "example": "public static int contador = 0;\npublic static void main(String[] args) { ... }",
+    "description": "Miembros estáticos: pertenecen a la clase, no a las instancias."
+  },
+  {
+    "keywords": ["final", "constante", "no modificable"],
+    "command": "public final tipo NOMBRE = valor; // constante\npublic final void metodo() { // no se puede sobrescribir }",
+    "example": "public final double PI = 3.1416;",
+    "description": "final: variable constante, método no sobrescribible, clase no heredable."
+  },
+  {
+    "keywords": ["enum", "enumerado", "constantes"],
+    "command": "public enum Nombre { VALOR1, VALOR2 }",
+    "example": "public enum Dia { LUNES, MARTES, MIERCOLES };\nDia hoy = Dia.LUNES;",
+    "description": "Tipo enumerado para definir un conjunto de constantes."
+  }
+]

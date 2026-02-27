@@ -1,0 +1,56 @@
+[
+  {
+    "keywords": ["JUnit 5", "test", "@Test", "assertions", "assertEquals"],
+    "command": "@Test\nvoid nombreTest() { assertEquals(esperado, actual); }",
+    "example": "import org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n\nclass CalculadoraTest {\n    @Test\n    void suma() {\n        assertEquals(5, Calculadora.sumar(2, 3));\n    }\n}",
+    "description": "Test unitario con JUnit 5. La anotación @Test marca el método como prueba."
+  },
+  {
+    "keywords": ["BeforeEach", "@BeforeEach", "setUp", "inicializar"],
+    "command": "@BeforeEach\nvoid setUp() { ... }",
+    "example": "@BeforeEach\nvoid setUp() {\n    calculadora = new Calculadora();\n}",
+    "description": "Método que se ejecuta antes de cada test (JUnit 5)."
+  },
+  {
+    "keywords": ["AfterEach", "@AfterEach", "limpiar"],
+    "command": "@AfterEach\nvoid tearDown() { ... }",
+    "example": "@AfterEach\nvoid tearDown() {\n    baseDeDatos.cerrar();\n}",
+    "description": "Método que se ejecuta después de cada test (JUnit 5)."
+  },
+  {
+    "keywords": ["BeforeAll", "@BeforeAll", "static", "inicialización única"],
+    "command": "@BeforeAll\nstatic void initAll() { ... }",
+    "example": "@BeforeAll\nstatic void initAll() {\n    // preparar recurso compartido (solo una vez)\n}",
+    "description": "Método estático que se ejecuta una vez antes de todos los tests (JUnit 5)."
+  },
+  {
+    "keywords": ["AfterAll", "@AfterAll"],
+    "command": "@AfterAll\nstatic void tearDownAll() { ... }",
+    "example": "@AfterAll\nstatic void tearDownAll() {\n    // liberar recurso compartido\n}",
+    "description": "Método estático que se ejecuta una vez después de todos los tests."
+  },
+  {
+    "keywords": ["assertTrue", "assertFalse", "assertNull", "assertNotNull"],
+    "command": "assertTrue(condición); assertFalse(condición); assertNull(objeto); assertNotNull(objeto);",
+    "example": "assertTrue(lista.isEmpty());\nassertNotNull(resultado);",
+    "description": "Afirmaciones para comprobar condiciones booleanas o nulidad."
+  },
+  {
+    "keywords": ["assertThrows", "excepción esperada"],
+    "command": "assertThrows(ClaseExcepcion.class, () -> { ... });",
+    "example": "assertThrows(IllegalArgumentException.class, () -> {\n    Calculadora.dividir(10, 0);\n});",
+    "description": "Verifica que el código lanza una excepción específica."
+  },
+  {
+    "keywords": ["@ParameterizedTest", "@ValueSource", "test parametrizado"],
+    "command": "@ParameterizedTest\n@ValueSource(strings = {\"a\", \"b\"})\nvoid test(String param) { ... }",
+    "example": "@ParameterizedTest\n@ValueSource(ints = {1, 2, 3})\nvoid testConVarios(int numero) {\n    assertTrue(numero > 0);\n}",
+    "description": "Ejecuta el mismo test con diferentes valores de entrada."
+  },
+  {
+    "keywords": ["@DisplayName", "nombre descriptivo"],
+    "command": "@DisplayName(\"nombre legible\")",
+    "example": "@DisplayName(\"Test de suma\")\n@Test\nvoid suma() { ... }",
+    "description": "Da un nombre legible al test en los informes."
+  }
+]

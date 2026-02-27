@@ -1,0 +1,26 @@
+[
+  {
+    "keywords": ["Class", "getClass", "forName", "obtener clase"],
+    "command": "Class<?> clazz = objeto.getClass();\nClass<?> clazz = Class.forName(\"com.ejemplo.MiClase\");\nClass<?> clazz = MiClase.class;",
+    "example": "Class<?> stringClass = \"hola\".getClass();\nClass<?> integerClass = Integer.class;\nClass<?> claseDinamica = Class.forName(\"java.util.ArrayList\");",
+    "description": "Obtiene el objeto Class que representa un tipo."
+  },
+  {
+    "keywords": ["getDeclaredFields", "campos", "fields", "atributos"],
+    "command": "Field[] fields = clazz.getDeclaredFields();",
+    "example": "Field[] campos = Persona.class.getDeclaredFields();\nfor (Field f : campos) {\n    System.out.println(f.getName() + \" - \" + f.getType());\n}",
+    "description": "Obtiene todos los campos declarados por la clase (públicos, privados, etc.)."
+  },
+  {
+    "keywords": ["setAccessible", "acceso privado", "modificar privado"],
+    "command": "field.setAccessible(true);",
+    "example": "Field campo = Persona.class.getDeclaredField(\"nombre\");\ncampo.setAccessible(true); // permite acceder aunque sea privado\nString valor = (String) campo.get(persona);",
+    "description": "Permite acceder a campos privados (con cuidado)."
+  },
+  {
+    "keywords": ["invoke", "método", "llamar", "Method"],
+    "command": "Method metodo = clazz.getMethod(\"nombre\", parametros...);\nObject resultado = metodo.invoke(objeto, args...);",
+    "example": "Method metodo = String.class.getMethod(\"toUpperCase\");\nString resultado = (String) metodo.invoke(\"hola\");\nSystem.out.println(resultado); // \"HOLA\"",
+    "description": "Invoca un método dinámicamente mediante reflexión."
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "keywords": ["try catch", "capturar", "excepción", "finally"],
+    "command": "try { ... } catch (TipoExcepcion e) { ... } finally { ... }",
+    "example": "try {\n    int resultado = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"División por cero\");\n} finally {\n    System.out.println(\"Siempre se ejecuta\");\n}",
+    "description": "Bloque try-catch-finally para manejar excepciones."
+  },
+  {
+    "keywords": ["throws", "declarar excepción", "propagar"],
+    "command": "public void metodo() throws IOException { ... }",
+    "example": "public void leerArchivo() throws IOException {\n    Files.readAllLines(Paths.get(\"archivo.txt\"));\n}",
+    "description": "Declara que un método puede lanzar una excepción (checked)."
+  },
+  {
+    "keywords": ["throw", "lanzar excepción", "crear excepción"],
+    "command": "throw new TipoExcepcion(\"mensaje\");",
+    "example": "if (edad < 0) {\n    throw new IllegalArgumentException(\"Edad no puede ser negativa\");\n}",
+    "description": "Lanza una excepción explícitamente."
+  },
+  {
+    "keywords": ["try-with-resources", "autocloseable", "cerrar recursos"],
+    "command": "try (Recurso r = new Recurso()) { ... }",
+    "example": "try (BufferedReader br = new BufferedReader(new FileReader(\"file.txt\"))) {\n    // usar br\n} catch (IOException e) {\n    e.printStackTrace();\n}\n// br se cierra automáticamente",
+    "description": "Try-with-resources cierra automáticamente los recursos que implementan AutoCloseable (Java 7+)."
+  },
+  {
+    "keywords": ["excepción personalizada", "extends Exception", "RuntimeException"],
+    "command": "class MiExcepcion extends Exception { ... }",
+    "example": "public class SaldoInsuficienteException extends Exception {\n    public SaldoInsuficienteException(String mensaje) {\n        super(mensaje);\n    }\n}",
+    "description": "Crear una excepción propia (checked heredando de Exception, unchecked de RuntimeException)."
+  }
+]

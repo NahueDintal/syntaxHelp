@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["Thread", "hilo", "run", "start", "extender"],
+    "command": "class MiHilo extends Thread { public void run() { ... } } ... new MiHilo().start();",
+    "example": "class Hilo extends Thread {\n    public void run() {\n        System.out.println(\"Hilo ejecutándose\");\n    }\n}\n...\nnew Hilo().start();",
+    "description": "Crear un hilo extendiendo Thread y sobrescribiendo run()."
+  },
+  {
+    "keywords": ["Runnable", "hilo", "interfaz", "implementar"],
+    "command": "class Tarea implements Runnable { public void run() { ... } } ... new Thread(new Tarea()).start();",
+    "example": "Runnable tarea = () -> System.out.println(\"Hilo con lambda\");\nnew Thread(tarea).start();",
+    "description": "Crear un hilo implementando Runnable (preferible a extender Thread)."
+  },
+  {
+    "keywords": ["ExecutorService", "pool de hilos", "executor", "submit"],
+    "command": "ExecutorService executor = Executors.newFixedThreadPool(4); executor.submit(tarea);",
+    "example": "ExecutorService executor = Executors.newFixedThreadPool(4);\nfor (int i = 0; i < 10; i++) {\n    int id = i;\n    executor.submit(() -> System.out.println(\"Tarea \" + id));\n}\nexecutor.shutdown();",
+    "description": "Pool de hilos que reutiliza hilos para ejecutar tareas."
+  },
+  {
+    "keywords": ["Callable", "Future", "resultado", "tarea con retorno"],
+    "command": "Callable<Tipo> tarea = () -> { ... return valor; }; Future<Tipo> future = executor.submit(tarea);",
+    "example": "Callable<Integer> tarea = () -> {\n    Thread.sleep(1000);\n    return 42;\n};\nFuture<Integer> future = executor.submit(tarea);\nInteger resultado = future.get(); // espera",
+    "description": "Tarea que devuelve un resultado y puede lanzar excepción."
+  },
+  {
+    "keywords": ["synchronized", "sincronizado", "exclusión mutua", "mutex"],
+    "command": "synchronized (objeto) { ... } o synchronized método()",
+    "example": "public synchronized void incrementar() { contador++; }",
+    "description": "Mecanismo de sincronización para evitar condiciones de carrera."
+  },
+  {
+    "keywords": ["volatile", "visibilidad", "variable compartida"],
+    "command": "private volatile boolean flag;",
+    "example": "private volatile boolean ejecutando = true;\n\n// en un hilo\nwhile (ejecutando) { ... }\n\n// en otro hilo\nejecutando = false;",
+    "description": "Garantiza que los cambios en una variable sean visibles para todos los hilos."
+  },
+  {
+    "keywords": ["wait", "notify", "notifyAll", "espera", "notificación", "monitor"],
+    "command": "synchronized(lock) { lock.wait(); } ... synchronized(lock) { lock.notify(); }",
+    "example": "synchronized(lock) {\n    while (!condicion) { lock.wait(); }\n    // hacer algo\n}\n...\nsynchronized(lock) {\n    condicion = true;\n    lock.notifyAll();\n}",
+    "description": "Métodos de comunicación entre hilos (deben llamarse dentro de bloque synchronized)."
+  },
+  {
+    "keywords": ["CompletableFuture", "futuro completable", "programación asíncrona"],
+    "command": "CompletableFuture.supplyAsync(() -> { ... }).thenApply(...).thenAccept(...)",
+    "example": "CompletableFuture.supplyAsync(() -> {\n    return \"Hola\";\n}).thenApply(String::toUpperCase)\n .thenAccept(System.out::println);",
+    "description": "Futuro que puede completarse manualmente y permite encadenar tareas asíncronas."
+  }
+]

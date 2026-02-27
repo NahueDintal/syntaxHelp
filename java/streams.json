@@ -1,0 +1,44 @@
+[
+  {
+    "keywords": ["stream", "api stream", "filter", "map", "collect"],
+    "command": "lista.stream().operaciones().collect(...)",
+    "example": "List<Integer> numeros = Arrays.asList(1,2,3,4,5);\nList<Integer> pares = numeros.stream()\n    .filter(n -> n % 2 == 0)\n    .collect(Collectors.toList());",
+    "description": "Stream API para procesar colecciones de forma funcional."
+  },
+  {
+    "keywords": ["filter", "filtrar", "predicado"],
+    "command": "stream.filter(condición)",
+    "example": "personas.stream().filter(p -> p.getEdad() > 18).collect(...);",
+    "description": "Filtra elementos que cumplen una condición."
+  },
+  {
+    "keywords": ["map", "transformar", "mapear"],
+    "command": "stream.map(función)",
+    "example": "nombres.stream().map(String::toUpperCase).collect(...);",
+    "description": "Transforma cada elemento aplicando una función."
+  },
+  {
+    "keywords": ["collect", "recolectar", "collectors"],
+    "command": "stream.collect(Collectors.toList()) / toSet() / toMap()",
+    "example": "List<String> lista = stream.collect(Collectors.toList());",
+    "description": "Recolecta los elementos del stream en una colección."
+  },
+  {
+    "keywords": ["foreach", "forEach", "iterar stream"],
+    "command": "stream.forEach(acción)",
+    "example": "personas.stream().forEach(p -> System.out.println(p.getNombre()));",
+    "description": "Ejecuta una acción para cada elemento."
+  },
+  {
+    "keywords": ["reduce", "reducir", "acumular"],
+    "command": "stream.reduce(identidad, acumulador)",
+    "example": "int suma = numeros.stream().reduce(0, (a,b) -> a+b);",
+    "description": "Combina elementos en un solo resultado."
+  },
+  {
+    "keywords": ["optional", "opcional", "evitar null"],
+    "command": "Optional<T> opt = Optional.ofNullable(valor);\nopt.ifPresent(v -> ...);",
+    "example": "Optional<String> nombre = Optional.ofNullable(objeto.getNombre());\nString valor = nombre.orElse(\"default\");",
+    "description": "Contenedor que puede o no contener un valor (evita NullPointerException)."
+  }
+]

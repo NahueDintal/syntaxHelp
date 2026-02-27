@@ -1,0 +1,80 @@
+[
+  {
+    "keywords": ["hola mundo", "main", "primer programa", "hello world"],
+    "command": "public class MiClase { public static void main(String[] args) { System.out.println(\"Hola Mundo\"); } }",
+    "example": "// Guardar como MiClase.java\n// Compilar: javac MiClase.java\n// Ejecutar: java MiClase",
+    "description": "Estructura básica de un programa Java. El método main es el punto de entrada."
+  },
+  {
+    "keywords": ["variable", "declarar", "tipos", "int", "double", "string", "boolean"],
+    "command": "tipo nombreVariable = valor;",
+    "example": "int edad = 25;\ndouble precio = 19.99;\nString nombre = \"Juan\";\nboolean esMayor = true;",
+    "description": "Declaración e inicialización de variables. Los tipos más comunes: int, double, String, boolean."
+  },
+  {
+    "keywords": ["if", "else", "condicional", "si", "sino"],
+    "command": "if (condición) { // código } else if (otraCondición) { // código } else { // código }",
+    "example": "if (edad >= 18) {\n    System.out.println(\"Mayor de edad\");\n} else {\n    System.out.println(\"Menor de edad\");\n}",
+    "description": "Estructura condicional if-else."
+  },
+  {
+    "keywords": ["switch", "case", "selección", "múltiple"],
+    "command": "switch (variable) { case valor1: // código break; case valor2: // código break; default: // código }",
+    "example": "switch (dia) {\n    case 1: System.out.println(\"Lunes\"); break;\n    case 2: System.out.println(\"Martes\"); break;\n    default: System.out.println(\"Otro\");\n}",
+    "description": "Selección múltiple. Se usa con tipos int, String, enum, etc."
+  },
+  {
+    "keywords": ["for", "bucle", "iterar", "loop"],
+    "command": "for (inicialización; condición; incremento) { // código }",
+    "example": "for (int i = 0; i < 10; i++) {\n    System.out.println(i);\n}",
+    "description": "Bucle for clásico."
+  },
+  {
+    "keywords": ["for each", "foreach", "bucle", "iterar colección"],
+    "command": "for (tipo elemento : colección) { // código }",
+    "example": "int[] numeros = {1,2,3};\nfor (int num : numeros) {\n    System.out.println(num);\n}",
+    "description": "Bucle for-each para recorrer arrays o colecciones."
+  },
+  {
+    "keywords": ["while", "bucle", "mientras"],
+    "command": "while (condición) { // código }",
+    "example": "int i = 0;\nwhile (i < 10) {\n    System.out.println(i);\n    i++;\n}",
+    "description": "Bucle while: se ejecuta mientras la condición sea verdadera."
+  },
+  {
+    "keywords": ["do while", "hacer mientras"],
+    "command": "do { // código } while (condición);",
+    "example": "int i = 0;\ndo {\n    System.out.println(i);\n    i++;\n} while (i < 10);",
+    "description": "Bucle do-while: se ejecuta al menos una vez."
+  },
+  {
+    "keywords": ["array", "arreglo", "vector"],
+    "command": "tipo[] nombre = new tipo[tamaño];",
+    "example": "int[] numeros = new int[5];\nnumeros[0] = 10;\nint[] otro = {1,2,3};",
+    "description": "Declaración y uso de arrays."
+  },
+  {
+    "keywords": ["operador", "aritmético", "+", "-", "*", "/", "%"],
+    "command": "resultado = operando1 operador operando2;",
+    "example": "int suma = 5 + 3;\nint division = 10 / 2;\nint resto = 10 % 3;",
+    "description": "Operadores aritméticos: +, -, *, /, %."
+  },
+  {
+    "keywords": ["operador", "comparación", "==", "!=", "<", ">", "<=", ">="],
+    "command": "condición usando operadores relacionales",
+    "example": "if (a == b) {}\nif (edad >= 18) {}",
+    "description": "Operadores de comparación: ==, !=, <, >, <=, >=. Devuelven boolean."
+  },
+  {
+    "keywords": ["operador", "lógico", "&&", "||", "!"],
+    "command": "condición1 && condición2 (AND), condición1 || condición2 (OR), !condición (NOT)",
+    "example": "if (edad >= 18 && tienePermiso) {}",
+    "description": "Operadores lógicos para combinar condiciones booleanas."
+  },
+  {
+    "keywords": ["comentario", "//", "/* */"],
+    "command": "// comentario de línea\n/* comentario de bloque */",
+    "example": "// esto es un comentario\n/*\n  esto es\n  un comentario\n  de bloque\n*/",
+    "description": "Comentarios en Java."
+  }
+]

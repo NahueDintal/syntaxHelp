@@ -1,0 +1,38 @@
+[
+  {
+    "keywords": ["conexión", "DriverManager", "getConnection", "JDBC"],
+    "command": "Connection conn = DriverManager.getConnection(url, usuario, password);",
+    "example": "String url = \"jdbc:mysql://localhost:3306/mibd\";\nString user = \"root\";\nString pass = \"1234\";\ntry (Connection conn = DriverManager.getConnection(url, user, pass)) {\n    System.out.println(\"Conectado\");\n} catch (SQLException e) { e.printStackTrace(); }",
+    "description": "Establece conexión con la base de datos."
+  },
+  {
+    "keywords": ["Statement", "consulta", "executeQuery", "SELECT"],
+    "command": "Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(\"SELECT ...\");",
+    "example": "try (Statement stmt = conn.createStatement();\n     ResultSet rs = stmt.executeQuery(\"SELECT id, nombre FROM usuarios\")) {\n    while (rs.next()) {\n        int id = rs.getInt(\"id\");\n        String nombre = rs.getString(\"nombre\");\n        System.out.println(id + \": \" + nombre);\n    }\n}",
+    "description": "Ejecuta una consulta SELECT y procesa el ResultSet."
+  },
+  {
+    "keywords": ["PreparedStatement", "consulta parametrizada", "SQL injection", "seguridad"],
+    "command": "PreparedStatement pstmt = conn.prepareStatement(\"INSERT INTO tabla VALUES (?, ?)\");",
+    "example": "String sql = \"INSERT INTO usuarios (nombre, edad) VALUES (?, ?)\";\ntry (PreparedStatement pstmt = conn.prepareStatement(sql)) {\n    pstmt.setString(1, \"Ana\");\n    pstmt.setInt(2, 25);\n    int filas = pstmt.executeUpdate();\n}",
+    "description": "Consulta preparada, previene inyección SQL y es más eficiente para consultas repetitivas."
+  },
+  {
+    "keywords": ["executeUpdate", "INSERT", "UPDATE", "DELETE"],
+    "command": "int filasAfectadas = stmt.executeUpdate(\"UPDATE ...\");",
+    "example": "String sql = \"UPDATE usuarios SET edad = 26 WHERE nombre = 'Ana'\";\nint filas = stmt.executeUpdate(sql);\nSystem.out.println(\"Filas actualizadas: \" + filas);",
+    "description": "Ejecuta una instrucción que modifica la base de datos (INSERT, UPDATE, DELETE) y devuelve número de filas afectadas."
+  },
+  {
+    "keywords": ["transacción", "commit", "rollback", "autoCommit"],
+    "command": "conn.setAutoCommit(false); conn.commit(); conn.rollback();",
+    "example": "try {\n    conn.setAutoCommit(false);\n    // varias operaciones\n    pstmt1.executeUpdate();\n    pstmt2.executeUpdate();\n    conn.commit();\n} catch (SQLException e) {\n    conn.rollback();\n}",
+    "description": "Control manual de transacciones para garantizar atomicidad."
+  },
+  {
+    "keywords": ["ResultSet", "recorrer", "next", "getInt", "getString"],
+    "command": "while (rs.next()) { int i = rs.getInt(\"columna\"); String s = rs.getString(\"columna\"); }",
+    "example": "ResultSet rs = stmt.executeQuery(\"SELECT * FROM productos\");\nwhile (rs.next()) {\n    int id = rs.getInt(1);           // por índice (empieza en 1)\n    String nombre = rs.getString(\"nombre\"); // por nombre\n    double precio = rs.getDouble(\"precio\");\n}",
+    "description": "Recorre los resultados de una consulta y extrae valores por nombre de columna o índice."
+  }
+]
