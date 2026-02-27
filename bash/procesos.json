@@ -1,0 +1,56 @@
+[
+  {
+    "keywords": ["procesos", "ps", "listar", "estado", "PID"],
+    "command": "ps [opciones]",
+    "example": "ps aux | grep bash",
+    "description": "Muestra información de procesos. aux es una combinación común."
+  },
+  {
+    "keywords": ["top", "procesos", "monitor", "tiempo real", "htop"],
+    "command": "top",
+    "example": "top",
+    "description": "Muestra procesos en tiempo real (interactivo)."
+  },
+  {
+    "keywords": ["kill", "terminar", "matar", "señal", "PID"],
+    "command": "kill [opciones] <PID>",
+    "example": "kill -9 1234",
+    "description": "Envía una señal a un proceso. Por defecto TERM (15). -9 es KILL (forzado)."
+  },
+  {
+    "keywords": ["killall", "matar por nombre", "procesos"],
+    "command": "killall [opciones] <nombre>",
+    "example": "killall firefox",
+    "description": "Mata todos los procesos con el nombre dado."
+  },
+  {
+    "keywords": ["jobs", "trabajos", "background", "foreground", "tareas"],
+    "command": "jobs",
+    "example": "jobs",
+    "description": "Lista los trabajos en segundo plano de la shell actual."
+  },
+  {
+    "keywords": ["bg", "background", "segundo plano", "reanudar"],
+    "command": "bg [%n]",
+    "example": "bg %1",
+    "description": "Reanuda un trabajo detenido en segundo plano."
+  },
+  {
+    "keywords": ["fg", "foreground", "primer plano", "traer"],
+    "command": "fg [%n]",
+    "example": "fg %1",
+    "description": "Trae un trabajo a primer plano."
+  },
+  {
+    "keywords": ["nohup", "no hangup", "ignorar cuelgue", "ejecutar persistente"],
+    "command": "nohup <comando> &",
+    "example": "nohup script.sh &",
+    "description": "Ejecuta un comando ignorando la señal HUP y redirige salida a nohup.out."
+  },
+  {
+    "keywords": ["disown", "desvincular", "shell", "trabajos"],
+    "command": "disown [%n]",
+    "example": "disown %1",
+    "description": "Elimina un trabajo de la tabla de trabajos de la shell, evitando que reciba HUP al cerrar."
+  }
+]

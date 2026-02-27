@@ -1,0 +1,80 @@
+[
+  {
+    "keywords": ["apt", "instalar", "paquete", "deb", "ubuntu", "debian"],
+    "command": "apt install <paquete>",
+    "example": "sudo apt install vim",
+    "description": "Instala un paquete en sistemas basados en Debian (requiere sudo)."
+  },
+  {
+    "keywords": ["apt", "actualizar", "update", "repositorios", "lista"],
+    "command": "apt update",
+    "example": "sudo apt update",
+    "description": "Actualiza la lista de paquetes disponibles desde los repositorios."
+  },
+  {
+    "keywords": ["apt", "upgrade", "actualizar", "sistema", "paquetes"],
+    "command": "apt upgrade",
+    "example": "sudo apt upgrade",
+    "description": "Actualiza todos los paquetes instalados a sus últimas versiones."
+  },
+  {
+    "keywords": ["apt", "eliminar", "remove", "desinstalar"],
+    "command": "apt remove <paquete>",
+    "example": "sudo apt remove vim",
+    "description": "Elimina un paquete pero deja los archivos de configuración."
+  },
+  {
+    "keywords": ["apt", "purge", "eliminar todo", "configuración"],
+    "command": "apt purge <paquete>",
+    "example": "sudo apt purge vim",
+    "description": "Elimina un paquete y sus archivos de configuración."
+  },
+  {
+    "keywords": ["apt", "search", "buscar", "paquete"],
+    "command": "apt search <término>",
+    "example": "apt search editor",
+    "description": "Busca paquetes que coincidan con el término."
+  },
+  {
+    "keywords": ["apt", "show", "información", "detalles"],
+    "command": "apt show <paquete>",
+    "example": "apt show vim",
+    "description": "Muestra información detallada de un paquete."
+  },
+  {
+    "keywords": ["dnf", "yum", "instalar", "rpm", "fedora", "centos", "redhat"],
+    "command": "dnf install <paquete>",
+    "example": "sudo dnf install vim",
+    "description": "Instala un paquete en sistemas Red Hat/Fedora (usar yum en versiones antiguas)."
+  },
+  {
+    "keywords": ["dnf", "update", "actualizar"],
+    "command": "dnf update",
+    "example": "sudo dnf update",
+    "description": "Actualiza todos los paquetes."
+  },
+  {
+    "keywords": ["dnf", "remove", "eliminar"],
+    "command": "dnf remove <paquete>",
+    "example": "sudo dnf remove vim",
+    "description": "Elimina un paquete."
+  },
+  {
+    "keywords": ["dnf", "search", "buscar"],
+    "command": "dnf search <término>",
+    "example": "dnf search editor",
+    "description": "Busca paquetes."
+  },
+  {
+    "keywords": ["snap", "snapcraft", "paquete universal", "instalar"],
+    "command": "snap install <paquete>",
+    "example": "sudo snap install vlc",
+    "description": "Instala un paquete snap (formato universal)."
+  },
+  {
+    "keywords": ["flatpak", "paquete universal", "instalar"],
+    "command": "flatpak install <remoto> <paquete>",
+    "example": "flatpak install flathub org.videolan.VLC",
+    "description": "Instala un paquete flatpak."
+  }
+]

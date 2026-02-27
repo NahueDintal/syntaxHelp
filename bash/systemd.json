@@ -1,0 +1,74 @@
+[
+  {
+    "keywords": ["systemctl", "servicio", "iniciar", "start", "systemd"],
+    "command": "systemctl start <servicio>",
+    "example": "systemctl start nginx",
+    "description": "Inicia un servicio (unidad) ahora."
+  },
+  {
+    "keywords": ["systemctl", "servicio", "detener", "stop"],
+    "command": "systemctl stop <servicio>",
+    "example": "systemctl stop nginx",
+    "description": "Detiene un servicio."
+  },
+  {
+    "keywords": ["systemctl", "servicio", "reiniciar", "restart"],
+    "command": "systemctl restart <servicio>",
+    "example": "systemctl restart nginx",
+    "description": "Reinicia un servicio."
+  },
+  {
+    "keywords": ["systemctl", "servicio", "recargar", "reload", "configuración"],
+    "command": "systemctl reload <servicio>",
+    "example": "systemctl reload nginx",
+    "description": "Recarga la configuración sin reiniciar el servicio (si lo soporta)."
+  },
+  {
+    "keywords": ["systemctl", "servicio", "estado", "status"],
+    "command": "systemctl status <servicio>",
+    "example": "systemctl status nginx",
+    "description": "Muestra el estado de un servicio, logs recientes."
+  },
+  {
+    "keywords": ["systemctl", "habilitar", "enable", "arranque", "inicio automático"],
+    "command": "systemctl enable <servicio>",
+    "example": "systemctl enable nginx",
+    "description": "Habilita el servicio para que se inicie automáticamente al arrancar."
+  },
+  {
+    "keywords": ["systemctl", "deshabilitar", "disable", "no iniciar automático"],
+    "command": "systemctl disable <servicio>",
+    "example": "systemctl disable nginx",
+    "description": "Deshabilita el inicio automático del servicio."
+  },
+  {
+    "keywords": ["systemctl", "listar", "list-units", "unidades", "servicios activos"],
+    "command": "systemctl list-units [opciones]",
+    "example": "systemctl list-units --type=service",
+    "description": "Lista las unidades (servicios, sockets, etc.) activas."
+  },
+  {
+    "keywords": ["systemctl", "list-unit-files", "archivos de unidad", "habilitados"],
+    "command": "systemctl list-unit-files [opciones]",
+    "example": "systemctl list-unit-files --type=service",
+    "description": "Lista los archivos de unidad y si están habilitados o no."
+  },
+  {
+    "keywords": ["journalctl", "logs", "registros", "systemd-journal", "ver"],
+    "command": "journalctl [opciones]",
+    "example": "journalctl -u nginx -f",
+    "description": "Consulta los logs de systemd. -u unidad, -f seguir, --since ayer."
+  },
+  {
+    "keywords": ["journalctl", "logs", "boot", "arranque actual"],
+    "command": "journalctl -b",
+    "example": "journalctl -b -1",
+    "description": "Muestra los logs del arranque actual. Con -b -1 el anterior."
+  },
+  {
+    "keywords": ["systemctl", "daemon-reload", "recargar systemd", "nuevas unidades"],
+    "command": "systemctl daemon-reload",
+    "example": "systemctl daemon-reload",
+    "description": "Recarga los archivos de unidad de systemd tras crear/modificar uno."
+  }
+]

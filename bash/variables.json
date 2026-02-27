@@ -1,0 +1,68 @@
+[
+  {
+    "keywords": ["variable", "asignar", "definir", "variable local"],
+    "command": "nombre=valor",
+    "example": "mensaje=\"Hola mundo\"",
+    "description": "Asigna un valor a una variable (sin espacios alrededor del =)."
+  },
+  {
+    "keywords": ["variable", "usar", "referencia", "$"],
+    "command": "$nombre o ${nombre}",
+    "example": "echo \"El valor es $mensaje\"",
+    "description": "Referencia el valor de una variable."
+  },
+  {
+    "keywords": ["export", "variable entorno", "global", "environment"],
+    "command": "export NOMBRE=valor",
+    "example": "export PATH=\"/usr/local/bin:$PATH\"",
+    "description": "Convierte una variable en variable de entorno para procesos hijos."
+  },
+  {
+    "keywords": ["unset", "eliminar variable", "borrar"],
+    "command": "unset nombre",
+    "example": "unset mensaje",
+    "description": "Elimina una variable o función."
+  },
+  {
+    "keywords": ["array", "arreglo", "lista", "índices"],
+    "command": "nombre=(valor1 valor2 valor3)",
+    "example": "colores=(rojo verde azul)",
+    "description": "Define un array indexado numéricamente."
+  },
+  {
+    "keywords": ["array", "elemento", "acceder", "${}"] ,
+    "command": "${nombre[índice]}",
+    "example": "echo ${colores[0]}  # rojo",
+    "description": "Accede a un elemento del array."
+  },
+  {
+    "keywords": ["array", "todos", "elementos", "${nombre[@]}", "${nombre[*]}"],
+    "command": "${nombre[@]}",
+    "example": "for color in \"${colores[@]}\"; do echo $color; done",
+    "description": "Expande todos los elementos del array. Con @ preserva palabras."
+  },
+  {
+    "keywords": ["parámetro posicional", "argumento", "$1", "$2", "$#", "$@"],
+    "command": "$0, $1, $2, ...",
+    "example": "echo \"Primer argumento: $1\"",
+    "description": "Parámetros de posición en scripts/funciones. $# número de args, $@ todos los args."
+  },
+  {
+    "keywords": ["sustitución de comando", "$()", "backticks", "comando dentro"],
+    "command": "$(comando) o `comando`",
+    "example": "fecha_actual=$(date)",
+    "description": "Ejecuta un comando y usa su salida como valor."
+  },
+  {
+    "keywords": ["expansión aritmética", "$(())", "operaciones", "cálculo"],
+    "command": "$((expresión))",
+    "example": "resultado=$((5 + 3 * 2))",
+    "description": "Evalúa una expresión aritmética entera."
+  },
+  {
+    "keywords": ["sustitución de proceso", "<()", ">()", "proceso como archivo"],
+    "command": "comando <(comando)   o   comando >(comando)",
+    "example": "diff <(ls dir1) <(ls dir2)",
+    "description": "Permite tratar la salida de un comando como un archivo."
+  }
+]

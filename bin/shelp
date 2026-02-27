@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+
+# ==============================================
+# syntax-help: Buscador de sintaxis por contexto
+# ==============================================
+
+# Directorio base: donde están las carpetas de contextos (bash, java, etc.)
+# Ahora apunta a ~/.syntaxHelp (con H mayúscula, como tienes)
+BASE_DIR="$HOME/.syntaxHelp"
+
+# --- Funciones ---
+
+# Función de búsqueda principal
+buscar() {
+  local dir="$1"
+  local query="$2"
+
+  # Tokenizar la consulta: minúsculas, solo palabras, eliminar vacías
+  local tokens=$(echo "$query" | tr '[:upper:]' '[:lower:]' | grep -oE '[a-z0-9]+' | sort -u)
+  [[ -z "$tokens" ]] && {
+    echo "No hay términos de búsqueda válidos."
+    return
+  }
+
+  # Patrón para ripgrep: buscar cualquiera de los tokens como palabra completa
+  local pattern=$(echo "$tokens" | tr '\n' '|' | sed 's/|$//')
+
+  # Buscar archivos JSON que contengan al menos un token
+  local files=()
+  while IFS= read -r file; do
+    files+=("$file")
+  done < <(rg -l -w -g '*.json' "$pattern" "$dir" 2>/dev/null)
+
+  if [[ ${#files[@]} -eq 0 ]]; then
+    echo "No se encontraron resultados para '$query'."
+    return
+  fi
+
+  # Construir filtro jq para seleccionar entradas con keywords coincidentes
+  local jq_filter='[.[] | select( any(.keywords[]; '
+  local first=1
+  for token in $tokens; do
+    if [[ $first -eq 1 ]]; then
+      jq_filter+=". == \"$token\""
+      first=0
+    else
+      jq_filter+=" or . == \"$token\""
+    fi
+  done
+  jq_filter+=' ) ) ]'
+
+  # Aplicar jq a cada archivo y mostrar resultados
+  for file in "${files[@]}"; do
+    # Mostrar nombre del archivo como categoría (opcional)
+    # echo "--- ${file##*/} ---"
+    jq -c "$jq_filter" "$file" 2>/dev/null | jq -r '.[] | "Comando: \(.command)\nEjemplo: \(.example)\nDescripción: \(.description)\n---"'
+  done
+}
+
+# --- Determinación del contexto y consulta ---
+
+# Si el script se llama como algo-help (ej. bash-help), el contexto es "bash"
+CMD=$(basename "$0")
+if [[ "$CMD" =~ ^(.+)-help$ ]]; then
+  CONTEXT="${BASH_REMATCH[1]}"
+  # Los argumentos ya son la consulta (sin contexto extra)
+  QUERY="$*"
+else
+  # Uso: shelp <contexto> <consulta>
+  CONTEXT="$1"
+  shift
+  QUERY="$*"
+fi
+
+# Mostrar ayuda si no hay contexto
+if [[ -z "$CONTEXT" || "$CONTEXT" == "-h" || "$CONTEXT" == "--help" ]]; then
+  echo "Uso: $0 <contexto> <consulta>"
+  echo "   o: <contexto>-help <consulta>"
+  echo "Contextos disponibles:"
+  ls "$BASE_DIR" 2>/dev/null || echo "  (No hay contextos instalados en $BASE_DIR)"
+  exit 1
+fi
+
+CONTEXT_DIR="$BASE_DIR/$CONTEXT"
+if [[ ! -d "$CONTEXT_DIR" ]]; then
+  echo "Error: Contexto '$CONTEXT' no encontrado en $BASE_DIR" >&2
+  exit 1
+fi
+
+# Si no hay consulta, modo interactivo
+if [[ -z "$QUERY" ]]; then
+  echo "Modo interactivo para '$CONTEXT'. Escribe 'salir' para terminar."
+  while true; do
+    read -p "$CONTEXT-help> " QUERY
+    [[ "$QUERY" == "salir" || -z "$QUERY" ]] && break
+    buscar "$CONTEXT_DIR" "$QUERY"
+  done
+  exit 0
+fi
+
+# Modo normal: ejecutar búsqueda
+buscar "$CONTEXT_DIR" "$QUERY"

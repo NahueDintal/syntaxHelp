@@ -1,0 +1,74 @@
+[
+  {
+    "keywords": ["ping", "conectividad", "latencia", "host", "reachable"],
+    "command": "ping [opciones] <host>",
+    "example": "ping -c 4 google.com",
+    "description": "Envía paquetes ICMP a un host para probar conectividad. -c número de paquetes."
+  },
+  {
+    "keywords": ["curl", "transferir", "http", "web", "url", "api"],
+    "command": "curl [opciones] <URL>",
+    "example": "curl -X GET https://api.ejemplo.com",
+    "description": "Transfiere datos desde o hacia un servidor. Soporta muchos protocolos."
+  },
+  {
+    "keywords": ["wget", "descargar", "web", "archivo", "http", "ftp"],
+    "command": "wget [opciones] <URL>",
+    "example": "wget https://ejemplo.com/archivo.zip",
+    "description": "Descarga archivos de internet. Puede hacer descargas recursivas."
+  },
+  {
+    "keywords": ["ssh", "secure shell", "conexión remota", "servidor"],
+    "command": "ssh [opciones] <usuario@host>",
+    "example": "ssh usuario@192.168.1.100",
+    "description": "Conecta a un servidor remoto mediante SSH."
+  },
+  {
+    "keywords": ["scp", "copia segura", "ssh copy", "transferir archivos"],
+    "command": "scp [opciones] <origen> <destino>",
+    "example": "scp archivo.txt usuario@host:/ruta/destino/",
+    "description": "Copia archivos entre hosts usando SSH."
+  },
+  {
+    "keywords": ["rsync", "sincronizar", "backup", "remoto", "diferencial"],
+    "command": "rsync [opciones] <origen> <destino>",
+    "example": "rsync -av /carpeta/ usuario@host:/carpeta/",
+    "description": "Sincroniza archivos y directorios (local o remoto) eficientemente."
+  },
+  {
+    "keywords": ["netstat", "estadísticas red", "puertos", "conexiones", "escuchando"],
+    "command": "netstat [opciones]",
+    "example": "netstat -tulpn",
+    "description": "Muestra conexiones de red, tablas de enrutamiento, estadísticas. -t tcp, -u udp, -l listening, -p programa, -n numérico."
+  },
+  {
+    "keywords": ["ss", "socket statistics", "puertos", "conexiones", "moderno"],
+    "command": "ss [opciones]",
+    "example": "ss -tuln",
+    "description": "Similar a netstat pero más rápido y moderno. Muestra sockets."
+  },
+  {
+    "keywords": ["ip", "dirección ip", "interfaz", "routing", "enrutamiento"],
+    "command": "ip [opciones] <objeto> <comando>",
+    "example": "ip addr show",
+    "description": "Herramienta moderna para configurar interfaces de red, rutas, etc."
+  },
+  {
+    "keywords": ["ifconfig", "interfaz red", "configuración", "antiguo"],
+    "command": "ifconfig [interfaz]",
+    "example": "ifconfig eth0",
+    "description": "Muestra o configura interfaces de red (obsoleto, usar ip)."
+  },
+  {
+    "keywords": ["nslookup", "dns", "resolver", "dominio"],
+    "command": "nslookup <dominio>",
+    "example": "nslookup google.com",
+    "description": "Consulta servidores DNS para obtener información de dominios."
+  },
+  {
+    "keywords": ["dig", "dns", "información detallada", "dominio"],
+    "command": "dig <dominio> [tipo]",
+    "example": "dig google.com MX",
+    "description": "Herramienta avanzada para consultas DNS."
+  }
+]

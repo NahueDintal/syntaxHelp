@@ -1,0 +1,56 @@
+[
+  {
+    "keywords": ["disco", "df", "espacio", "sistema de archivos", "partición"],
+    "command": "df [opciones]",
+    "example": "df -h",
+    "description": "Muestra el espacio libre en discos montados. -h legible por humanos."
+  },
+  {
+    "keywords": ["du", "disco usado", "tamaño directorio", "ocupado"],
+    "command": "du [opciones] [ruta]",
+    "example": "du -sh /home",
+    "description": "Estima el espacio usado por archivos/directorios. -s resumen, -h legible."
+  },
+  {
+    "keywords": ["memoria", "free", "RAM", "swap", "usada", "disponible"],
+    "command": "free [opciones]",
+    "example": "free -h",
+    "description": "Muestra la memoria RAM y swap usada y libre."
+  },
+  {
+    "keywords": ["sistema", "uname", "kernel", "nombre", "versión"],
+    "command": "uname [opciones]",
+    "example": "uname -a",
+    "description": "Muestra información del sistema (kernel, arquitectura, etc.). -a toda la info."
+  },
+  {
+    "keywords": ["tiempo actividad", "uptime", "encendido", "carga"],
+    "command": "uptime",
+    "example": "uptime",
+    "description": "Muestra cuánto tiempo lleva el sistema encendido y la carga promedio."
+  },
+  {
+    "keywords": ["dmesg", "kernel", "mensajes", "arranque", "boot"],
+    "command": "dmesg [opciones]",
+    "example": "dmesg | grep error",
+    "description": "Muestra los mensajes del buffer del kernel (útil para ver errores de hardware)."
+  },
+  {
+    "keywords": ["lscpu", "cpu", "procesador", "información"],
+    "command": "lscpu",
+    "example": "lscpu",
+    "description": "Muestra información detallada de la CPU."
+  },
+  {
+    "keywords": ["lsusb", "usb", "dispositivos", "conectados"],
+    "command": "lsusb",
+    "example": "lsusb",
+    "description": "Lista los dispositivos USB conectados."
+  },
+  {
+    "keywords": ["lspci", "pci", "dispositivos", "hardware"],
+    "command": "lspci",
+    "example": "lspci | grep VGA",
+    "description": "Lista los dispositivos PCI (tarjetas gráficas, etc.)."
+  }
+]

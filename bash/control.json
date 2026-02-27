@@ -1,0 +1,44 @@
+[
+  {
+    "keywords": ["if", "condicional", "si entonces", "else", "elif"],
+    "command": "if [ condición ]; then comandos; elif [ condición ]; then comandos; else comandos; fi",
+    "example": "if [ -f archivo.txt ]; then echo \"Existe\"; else echo \"No existe\"; fi",
+    "description": "Estructura condicional. Las condiciones suelen ir entre corchetes []."
+  },
+  {
+    "keywords": ["for", "bucle", "iterar", "loop", "para cada"],
+    "command": "for variable in lista; do comandos; done",
+    "example": "for i in {1..5}; do echo \"Número $i\"; done",
+    "description": "Bucle que itera sobre una lista de elementos."
+  },
+  {
+    "keywords": ["while", "bucle", "condición", "mientras"],
+    "command": "while [ condición ]; do comandos; done",
+    "example": "while [ $contador -le 10 ]; do echo $contador; ((contador++)); done",
+    "description": "Ejecuta comandos mientras se cumpla una condición."
+  },
+  {
+    "keywords": ["until", "bucle", "hasta que", "condición"],
+    "command": "until [ condición ]; do comandos; done",
+    "example": "until [ -f archivo.txt ]; do echo \"Esperando...\"; sleep 2; done",
+    "description": "Ejecuta comandos hasta que se cumpla una condición (opuesta a while)."
+  },
+  {
+    "keywords": ["case", "switch", "múltiple", "patrón", "selección"],
+    "command": "case $variable in patrón1) comandos ;; patrón2) comandos ;; *) comandos ;; esac",
+    "example": "case $opcion in start) echo \"Iniciando\";; stop) echo \"Deteniendo\";; *) echo \"Opción desconocida\";; esac",
+    "description": "Selección múltiple por patrones."
+  },
+  {
+    "keywords": ["función", "function", "definir", "subrutina"],
+    "command": "nombre() { comandos; }",
+    "example": "saludar() { echo \"Hola $1\"; }",
+    "description": "Define una función que puede ser llamada más tarde."
+  },
+  {
+    "keywords": ["select", "menú", "elegir", "opciones"],
+    "command": "select variable in lista; do comandos; done",
+    "example": "select opt in Opcion1 Opcion2 Salir; do case $opt in Salir) break;; *) echo \"Elegiste $opt\";; esac; done",
+    "description": "Genera un menú interactivo a partir de una lista."
+  }
+]

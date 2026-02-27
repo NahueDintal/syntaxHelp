@@ -1,0 +1,32 @@
+[
+  {
+    "keywords": ["permisos", "chmod", "cambiar", "modo", "rwx", "octal"],
+    "command": "chmod [opciones] <modo> <archivo>",
+    "example": "chmod 755 script.sh",
+    "description": "Cambia los permisos de un archivo/directorio. Modo en octal (ej. 755) o simbólico (u+x)."
+  },
+  {
+    "keywords": ["propietario", "chown", "dueño", "grupo", "cambiar"],
+    "command": "chown [opciones] <usuario>:<grupo> <archivo>",
+    "example": "chown usuario:grupo archivo.txt",
+    "description": "Cambia el usuario y grupo propietario de un archivo."
+  },
+  {
+    "keywords": ["grupo", "chgrp", "cambiar grupo"],
+    "command": "chgrp [opciones] <grupo> <archivo>",
+    "example": "chgrp usuarios archivo.txt",
+    "description": "Cambia solo el grupo propietario de un archivo."
+  },
+  {
+    "keywords": ["umask", "máscara", "permisos por defecto"],
+    "command": "umask [máscara]",
+    "example": "umask 022",
+    "description": "Establece la máscara de creación de archivos (los permisos que se restan por defecto)."
+  },
+  {
+    "keywords": ["setuid", "setgid", "sticky bit", "bits especiales", "permisos especiales"],
+    "command": "chmod u+s archivo   # setuid\nchmod g+s directorio # setgid\nchmod +t directorio # sticky bit",
+    "example": "chmod u+s /usr/bin/programa",
+    "description": "Bits especiales: setuid (ejecutar como propietario), setgid (heredar grupo), sticky (solo propietario borra)."
+  }
+]

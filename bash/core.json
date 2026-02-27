@@ -1,0 +1,62 @@
+[
+  {
+    "keywords": ["find", "buscar", "archivos", "directorios", "nombre", "tipo", "tamaño", "fecha"],
+    "command": "find [ruta] [expresiones] [acciones]",
+    "example": "find /home -name \"*.txt\" -type f -size +1M",
+    "description": "Busca archivos y directorios. Filtra por nombre, tipo, tamaño, fecha, etc."
+  },
+  {
+    "keywords": ["directorio", "mkdir", "crear", "carpeta", "make directory"],
+    "command": "mkdir [opciones] <directorio>",
+    "example": "mkdir -p /ruta/para/mi/directorio",
+    "description": "Crea uno o más directorios. Con -p crea también los padres si no existen."
+  },
+  {
+    "keywords": ["archivo", "touch", "crear", "vacío", "actualizar timestamp"],
+    "command": "touch [opciones] <archivo>",
+    "example": "touch archivo.txt",
+    "description": "Crea un archivo vacío o actualiza la fecha de modificación si existe."
+  },
+  {
+    "keywords": ["copiar", "cp", "archivo", "directorio", "duplicar"],
+    "command": "cp [opciones] <origen> <destino>",
+    "example": "cp -r carpeta_origen/ carpeta_destino/",
+    "description": "Copia archivos o directorios. Con -r copia recursivamente."
+  },
+  {
+    "keywords": ["mover", "mv", "renombrar", "cambiar nombre"],
+    "command": "mv [opciones] <origen> <destino>",
+    "example": "mv archivo_viejo.txt archivo_nuevo.txt",
+    "description": "Mueve o renombra archivos/directorios."
+  },
+  {
+    "keywords": ["eliminar", "rm", "borrar", "archivo", "directorio", "remove"],
+    "command": "rm [opciones] <archivo/directorio>",
+    "example": "rm -rf /ruta/no/deseada",
+    "description": "Elimina archivos o directorios. -r recursivo, -f forzar sin preguntar."
+  },
+  {
+    "keywords": ["listar", "ls", "directorio", "archivos", "contenido", "folder"],
+    "command": "ls [opciones] [ruta]",
+    "example": "ls -la /home",
+    "description": "Lista el contenido de un directorio. -l formato largo, -a incluye ocultos."
+  },
+  {
+    "keywords": ["cambiar directorio", "cd", "navegar", "entrar", "ir a"],
+    "command": "cd <directorio>",
+    "example": "cd /var/log",
+    "description": "Cambia el directorio actual de trabajo."
+  },
+  {
+    "keywords": ["ruta actual", "pwd", "directorio trabajo", "where am i"],
+    "command": "pwd",
+    "example": "pwd",
+    "description": "Muestra la ruta completa del directorio actual."
+  },
+  {
+    "keywords": ["enlazar", "ln", "enlace", "link", "hard", "simbólico", "acceso directo"],
+    "command": "ln [opciones] <target> <nombre_enlace>",
+    "example": "ln -s /ruta/original /ruta/enlace",
+    "description": "Crea enlaces. Por defecto duros; con -s crea enlaces simbólicos."
+  }
+]

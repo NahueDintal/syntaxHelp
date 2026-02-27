@@ -1,0 +1,56 @@
+[
+  {
+    "keywords": ["redirección", ">", "salida", "stdout", "archivo"],
+    "command": "comando > archivo",
+    "example": "ls > lista.txt",
+    "description": "Redirige la salida estándar a un archivo (sobrescribe)."
+  },
+  {
+    "keywords": ["redirección", ">>", "añadir", "append", "salida"],
+    "command": "comando >> archivo",
+    "example": "echo \"nueva línea\" >> archivo.txt",
+    "description": "Añade la salida estándar al final de un archivo."
+  },
+  {
+    "keywords": ["redirección", "2>", "error", "stderr"],
+    "command": "comando 2> archivo_error",
+    "example": "grep texto archivo 2> errores.log",
+    "description": "Redirige la salida de error (stderr) a un archivo."
+  },
+  {
+    "keywords": ["redirección", "&>", "todo", "ambas", "stdout y stderr"],
+    "command": "comando &> archivo",
+    "example": "script.sh &> salida_completa.log",
+    "description": "Redirige tanto stdout como stderr al mismo archivo."
+  },
+  {
+    "keywords": ["tubería", "pipe", "|", "conectar", "procesar"],
+    "command": "comando1 | comando2",
+    "example": "cat archivo.txt | grep error",
+    "description": "Conecta la salida de un comando a la entrada de otro."
+  },
+  {
+    "keywords": ["here document", "heredoc", "entrada incrustada", "EOF"],
+    "command": "comando << DELIMITADOR\n  líneas\nDELIMITADOR",
+    "example": "cat << EOF\nEsto es un heredoc\nEOF",
+    "description": "Proporciona entrada multilínea a un comando directamente en el script."
+  },
+  {
+    "keywords": ["here string", "entrada cadena", "cadena"],
+    "command": "comando <<< \"cadena\"",
+    "example": "grep error <<< \"línea con error\"",
+    "description": "Pasa una cadena como entrada a un comando (similar a echo pero sin proceso extra)."
+  },
+  {
+    "keywords": ["tee", "partir", "dividir", "ver y guardar"],
+    "command": "comando | tee [opciones] archivo",
+    "example": "ls | tee lista.txt",
+    "description": "Lee de stdin y escribe a stdout y a archivos. -a añade en vez de sobrescribir."
+  },
+  {
+    "keywords": ["descriptor", ">&", "duplicar", "fichero"],
+    "command": "n>&m",
+    "example": "comando 2>&1",
+    "description": "Duplica el descriptor de archivo n al mismo lugar que m. Muy usado para combinar errores con salida (2>&1)."
+  }
+]
