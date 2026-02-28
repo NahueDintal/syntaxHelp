@@ -8,7 +8,7 @@ La forma de uso es con:
 
 ➜ bash-help 'buscar'
 
-Comando: apt search <término>
+´´ Comando: apt search <término>
 Ejemplo: apt search editor
 Descripción: Busca paquetes que coincidan con el término.
 ---
@@ -19,5 +19,5 @@ Descripción: Busca paquetes.
 Comando: find [ruta] [expresiones] [acciones]
 Ejemplo: find /home -name "*.txt" -type f -size +1M
 Descripción: Busca archivos y directorios. Filtra por nombre, tipo, tamaño, fecha, etc.
----
+--- ´´
 
