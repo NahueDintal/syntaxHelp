@@ -6,13 +6,13 @@
     "description": "Estructura básica de un programa Java. El método main es el punto de entrada."
   },
   {
-    "keywords": ["variable", "declarar", "tipos", "int", "double", "string", "boolean"],
+    "keywords": ["variable", "declarar"],
     "command": "tipo nombreVariable = valor;",
     "example": "int edad = 25;\ndouble precio = 19.99;\nString nombre = \"Juan\";\nboolean esMayor = true;",
     "description": "Declaración e inicialización de variables. Los tipos más comunes: int, double, String, boolean."
   },
   {
-    "keywords": ["if", "else", "condicional", "si", "sino"],
+    "keywords": ["if", "else", "condicional"],
     "command": "if (condición) { // código } else if (otraCondición) { // código } else { // código }",
     "example": "if (edad >= 18) {\n    System.out.println(\"Mayor de edad\");\n} else {\n    System.out.println(\"Menor de edad\");\n}",
     "description": "Estructura condicional if-else."
@@ -42,7 +42,7 @@
     "description": "Bucle while: se ejecuta mientras la condición sea verdadera."
   },
   {
-    "keywords": ["do while", "hacer mientras"],
+    "keywords": ["do while", "hacer mientras", "bucle"],
     "command": "do { // código } while (condición);",
     "example": "int i = 0;\ndo {\n    System.out.println(i);\n    i++;\n} while (i < 10);",
     "description": "Bucle do-while: se ejecuta al menos una vez."
