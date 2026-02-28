@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# ==============================================
-# syntax-help: Buscador de sintaxis por contexto
-# Con salida coloreada
-# ==============================================
-
-# Colores ANSI
 BOLD='\033[1m'
 DIM='\033[2m'
 GREEN='\033[0;32m'
@@ -16,26 +10,20 @@ MAGENTA='\033[0;35m'
 RED='\033[0;31m'
 RESET='\033[0m'
 
-# Directorio base
 BASE_DIR="$HOME/.syntaxHelp"
-
-# --- Funciones ---
 
 buscar() {
   local dir="$1"
   local query="$2"
 
-  # Tokenizar la consulta
   local tokens=$(echo "$query" | tr '[:upper:]' '[:lower:]' | grep -oE '[a-z0-9]+' | sort -u)
   [[ -z "$tokens" ]] && {
     echo "No hay términos de búsqueda válidos."
     return
   }
 
-  # Patrón para ripgrep
   local pattern=$(echo "$tokens" | tr '\n' '|' | sed 's/|$//')
 
-  # Buscar archivos JSON que contengan al menos un token
   local files=()
   while IFS= read -r file; do
     files+=("$file")
@@ -46,8 +34,6 @@ buscar() {
     return
   fi
 
-  # Construir filtro jq para obtener cada entrada que coincida (como objetos independientes)
-  # En lugar de array, usamos .[] | select(...)
   local jq_filter='.[] | select( any(.keywords[]; '
   local first=1
   for token in $tokens; do
@@ -60,16 +46,12 @@ buscar() {
   done
   jq_filter+=' ) )'
 
-  # Procesar cada archivo
   for file in "${files[@]}"; do
-    # Ejecutar jq y leer línea por línea (cada línea es un objeto JSON completo)
     jq -c "$jq_filter" "$file" 2>/dev/null | while read -r entry; do
-      # Extraer campos con jq (ahora entry es un objeto, no un array)
       command=$(echo "$entry" | jq -r '.command')
       example=$(echo "$entry" | jq -r '.example')
       description=$(echo "$entry" | jq -r '.description')
 
-      # Mostrar con formato
       echo -e "${BOLD}${GREEN}Comando:${RESET} ${CYAN}$command${RESET}"
       echo -e "${BOLD}${YELLOW}Ejemplo:${RESET} $example"
       echo -e "${BOLD}${BLUE}Descripción:${RESET} $description"
@@ -77,8 +59,6 @@ buscar() {
     done
   done
 }
-
-# --- Determinación del contexto y consulta ---
 
 CMD=$(basename "$0")
 if [[ "$CMD" =~ ^(.+)-help$ ]]; then
@@ -90,7 +70,6 @@ else
   QUERY="$*"
 fi
 
-# Ayuda
 if [[ -z "$CONTEXT" || "$CONTEXT" == "-h" || "$CONTEXT" == "--help" ]]; then
   echo -e "${BOLD}Uso:${RESET} $0 <contexto> <consulta>"
   echo -e "   o: ${BOLD}<contexto>-help${RESET} <consulta>"
@@ -105,7 +84,6 @@ if [[ ! -d "$CONTEXT_DIR" ]]; then
   exit 1
 fi
 
-# Modo interactivo
 if [[ -z "$QUERY" ]]; then
   echo -e "${BOLD}Modo interactivo para '$CONTEXT'.${RESET} Escribe '${CYAN}salir${RESET}' para terminar."
   while true; do
@@ -116,5 +94,4 @@ if [[ -z "$QUERY" ]]; then
   exit 0
 fi
 
-# Modo normal
 buscar "$CONTEXT_DIR" "$QUERY"
