@@ -85,10 +85,12 @@ if [[ ! -d "$CONTEXT_DIR" ]]; then
 fi
 
 if [[ -z "$QUERY" ]]; then
-  echo -e "${BOLD}Modo interactivo para '$CONTEXT'.${RESET} Escribe '${CYAN}salir${RESET}' para terminar."
+  echo -e "${BOLD} Modo interactivo para '$CONTEXT'.${RESET}${BOLD} Escribe '${BOLD}salir, exit${RESET}'${BOLD} para terminar."
   while true; do
+    echo -e "${BOLD} ¿Qué sintaxis buscas?"
+    printf " > "
     read -p "$(echo -e ${GREEN}$CONTEXT-help >${RESET})" QUERY
-    [[ "$QUERY" == "salir" || -z "$QUERY" ]] && break
+    [[ "$QUERY" == "salir" || "$QUERY" == "exit" || -z "$QUERY" ]] && break
     buscar "$CONTEXT_DIR" "$QUERY"
   done
   exit 0
