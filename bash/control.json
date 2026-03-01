@@ -6,6 +6,12 @@
     "description": "Estructura condicional. Las condiciones suelen ir entre corchetes []."
   },
   {
+    "keywords": ["if", "condicional", "si entonces", "else", "elif"],
+    "command": "if [[ condición con operadores ]]; then comandos; elif [ condición con operadores]; then comandos; else comandos; fi",
+    "example": "if [[ -f archivo.txt || archivo.jpg ]]; then echo \"Existe\"; else echo \"No existe\"; fi",
+    "description": "Estructura condicional. Las condiciones suelen ir entre corchetes [[]]."
+  },
+  {
     "keywords": ["for", "bucle", "iterar", "loop", "para cada"],
     "command": "for variable in lista; do comandos; done",
     "example": "for i in {1..5}; do echo \"Número $i\"; done",
