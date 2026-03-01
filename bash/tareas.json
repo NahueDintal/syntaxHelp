@@ -1,0 +1,32 @@
+[
+  {
+    "keywords": ["cron", "crontab", "programar tareas", "periódico"],
+    "command": "crontab -e   # editar\ncrontab -l   # listar",
+    "example": "0 5 * * * /home/user/backup.sh",
+    "description": "Programa tareas recurrentes (minutos, horas, días, meses). Formato: min hora día_mes mes día_sem comando."
+  },
+  {
+    "keywords": ["at", "tarea única", "programar una vez"],
+    "command": "at <tiempo>",
+    "example": "echo 'backup.sh' | at 02:00",
+    "description": "Ejecuta un comando en un momento específico (una sola vez)."
+  },
+  {
+    "keywords": ["atq", "listar tareas at"],
+    "command": "atq",
+    "example": "atq",
+    "description": "Muestra las tareas pendientes de at."
+  },
+  {
+    "keywords": ["atrm", "eliminar tarea at"],
+    "command": "atrm <número_job>",
+    "example": "atrm 5",
+    "description": "Elimina una tarea at por su número de trabajo."
+  },
+  {
+    "keywords": ["systemd timer", "timer", "programar systemd"],
+    "command": "systemctl enable --now <timer>",
+    "example": "# crear .timer y .service\nsystemctl enable --now mi-timer.timer",
+    "description": "Temporizadores de systemd, alternativa moderna a cron."
+  }
+]

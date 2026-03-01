@@ -1,0 +1,26 @@
+[
+  {
+    "keywords": ["regex", "expresión regular", "patrón", "grep -E", "sed -E", "awk", "=~"],
+    "command": "grep -E 'patrón' archivo\n[[ $var =~ ^patrón$ ]]",
+    "example": "if [[ $email =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then",
+    "description": "Las expresiones regulares se usan en grep -E, sed -E, awk, y en bash con el operador =~ dentro de [[ ]]. Los caracteres especiales: . * ? + ^ $ [ ] { } ( ) | \\"
+  },
+  {
+    "keywords": ["regex", "clases de caracteres", "[ ]", "rangos"],
+    "command": "[a-z]  [0-9]  [A-Za-z0-9_]",
+    "example": "grep '[0-9]' archivo.txt",
+    "description": "Las clases de caracteres permiten definir conjuntos. Ej: [a-z] minúsculas, [^0-9] cualquier no dígito."
+  },
+  {
+    "keywords": ["regex", "cuantificadores", "*", "+", "?", "{n,m}"],
+    "command": "* (0 o más), + (1 o más), ? (0 o 1), {n} exactamente n, {n,} n o más, {n,m} entre n y m",
+    "example": "grep -E 'colo+r' # color, colorrr...",
+    "description": "Los cuantificadores indican repeticiones. En grep básico solo *, en grep -E todos."
+  },
+  {
+    "keywords": ["regex", "anclas", "^", "$", "principio", "final"],
+    "command": "^patrón  # principio de línea\npatrón$   # final de línea",
+    "example": "grep '^#' archivo.conf  # líneas de comentario",
+    "description": "^ ancla al principio de línea, $ al final."
+  }
+]

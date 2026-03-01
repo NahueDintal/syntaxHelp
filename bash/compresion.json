@@ -1,0 +1,44 @@
+[
+  {
+    "keywords": ["tar", "empaquetar", "comprimir", "archivar", "backup"],
+    "command": "tar [opciones] <archivo.tar> <archivos/directorios>",
+    "example": "tar -czvf archivo.tar.gz /carpeta  # comprimir\ntar -xzvf archivo.tar.gz               # extraer",
+    "description": "Empaqueta y comprime archivos. Opciones: c (crear), x (extraer), z (gzip), j (bzip2), v (verbose), f (archivo)."
+  },
+  {
+    "keywords": ["gzip", "comprimir", "descomprimir", ".gz"],
+    "command": "gzip <archivo>   # comprimir\ngunzip <archivo.gz> # descomprimir",
+    "example": "gzip archivo.txt\ngunzip archivo.txt.gz",
+    "description": "Comprime o descomprime archivos con algoritmo LZ77 (solo un archivo)."
+  },
+  {
+    "keywords": ["zip", "comprimir", "archivo zip"],
+    "command": "zip <archivo.zip> <archivos>",
+    "example": "zip -r backup.zip /carpeta",
+    "description": "Comprime archivos en formato ZIP (compatible con Windows)."
+  },
+  {
+    "keywords": ["unzip", "descomprimir", "zip"],
+    "command": "unzip <archivo.zip>",
+    "example": "unzip archivo.zip -d /destino",
+    "description": "Extrae archivos de un ZIP."
+  },
+  {
+    "keywords": ["bzip2", "bz2", "comprimir"],
+    "command": "bzip2 <archivo>",
+    "example": "bzip2 archivo.txt",
+    "description": "Comprime con algoritmo Burrows-Wheeler (mejor ratio que gzip)."
+  },
+  {
+    "keywords": ["xz", "compresión", "alta razón"],
+    "command": "xz <archivo>",
+    "example": "xz archivo.tar",
+    "description": "Compresión con muy alta razón (LZMA2)."
+  },
+  {
+    "keywords": ["7z", "7-zip", "siete zip"],
+    "command": "7z <comando> <archivo.7z> <archivos>",
+    "example": "7z a archivo.7z /carpeta",
+    "description": "Herramienta de compresión 7-Zip (alta compresión)."
+  }
+]

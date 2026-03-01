@@ -1,0 +1,50 @@
+[
+  {
+    "keywords": ["diff", "diferencias", "comparar archivos"],
+    "command": "diff [opciones] <archivo1> <archivo2>",
+    "example": "diff -u archivo1.txt archivo2.txt",
+    "description": "Compara archivos línea por línea. -u formato unificado."
+  },
+  {
+    "keywords": ["patch", "aplicar parche", "diff"],
+    "command": "patch [opciones] < archivo.patch",
+    "example": "patch -p1 < cambios.patch",
+    "description": "Aplica un archivo de diferencias (patch) a archivos."
+  },
+  {
+    "keywords": ["comm", "común", "comparar líneas", "intersección"],
+    "command": "comm [opciones] <archivo1> <archivo2>",
+    "example": "comm -12 archivo1.txt archivo2.txt",
+    "description": "Compara dos archivos ordenados y muestra líneas comunes/exclusivas."
+  },
+  {
+    "keywords": ["fmt", "formatear", "párrafos", "justificar"],
+    "command": "fmt [opciones] <archivo>",
+    "example": "fmt -w 80 texto.txt",
+    "description": "Formatea párrafos a un ancho determinado."
+  },
+  {
+    "keywords": ["pr", "paginación", "columnas", "formatear para impresión"],
+    "command": "pr [opciones] <archivo>",
+    "example": "pr -2 archivo.txt",
+    "description": "Convierte archivos para impresión (paginación, columnas)."
+  },
+  {
+    "keywords": ["fold", "dividir líneas", "ancho"],
+    "command": "fold [opciones] <archivo>",
+    "example": "fold -w 10 archivo.txt",
+    "description": "Divide líneas largas a un ancho especificado."
+  },
+  {
+    "keywords": ["expand", "tabs a espacios", "unexpand", "espacios a tabs"],
+    "command": "expand <archivo>\nunexpand <archivo>",
+    "example": "expand -t 4 archivo.txt",
+    "description": "Convierte tabs a espacios y viceversa."
+  },
+  {
+    "keywords": ["nl", "numerar líneas"],
+    "command": "nl [opciones] <archivo>",
+    "example": "nl archivo.txt",
+    "description": "Numera las líneas de un archivo."
+  }
+]

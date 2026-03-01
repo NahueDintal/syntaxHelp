@@ -70,5 +70,11 @@
     "command": "systemctl daemon-reload",
     "example": "systemctl daemon-reload",
     "description": "Recarga los archivos de unidad de systemd tras crear/modificar uno."
+  },
+  {
+    "keywords": ["tiempo de inicio", "Programas inicio", "inicio sistema", "systemd"],
+    "command": "Systemd-analyze",
+    "example": "systemd-analyze blame",
+    "description": "Muestra los tiempo de inicio de sistema y los programas."
   }
 ]

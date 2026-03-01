@@ -1,0 +1,26 @@
+[
+  {
+    "keywords": ["locate", "buscar rápido", "base datos"],
+    "command": "locate <patrón>",
+    "example": "locate bashrc",
+    "description": "Busca archivos usando una base de datos preconstruida (muy rápido)."
+  },
+  {
+    "keywords": ["which", "ubicación", "ejecutable", "path"],
+    "command": "which <comando>",
+    "example": "which python3",
+    "description": "Muestra la ruta completa de un ejecutable en el PATH."
+  },
+  {
+    "keywords": ["whereis", "binario", "fuentes", "manual"],
+    "command": "whereis <comando>",
+    "example": "whereis bash",
+    "description": "Localiza el binario, fuentes y página man de un comando."
+  },
+  {
+    "keywords": ["type", "tipo de comando", "alias", "función", "builtin"],
+    "command": "type <comando>",
+    "example": "type ls\ntype cd",
+    "description": "Muestra cómo sería interpretado un comando (alias, función, builtin, etc.)."
+  }
+]

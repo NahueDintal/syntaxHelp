@@ -1,0 +1,314 @@
+[
+  {
+    "keywords": ["#", "comentario", "comentar", "ignorar"],
+    "command": "# Esto es un comentario",
+    "example": "# Este script hace X\necho \"Hola\"  # imprime saludo",
+    "description": "Todo lo que sigue a # en una línea es ignorado (comentario)."
+  },
+  {
+    "keywords": [";", "separador", "múltiples comandos", "una línea"],
+    "command": "comando1; comando2; comando3",
+    "example": "cd /tmp; ls -la; echo 'Listo'",
+    "description": "Ejecuta varios comandos en una misma línea, secuencialmente."
+  },
+  {
+    "keywords": ["&", "background", "segundo plano", "ejecutar en fondo"],
+    "command": "comando &",
+    "example": "firefox &  # abre Firefox y devuelve el prompt",
+    "description": "Ejecuta el comando en segundo plano, devolviendo el control inmediatamente."
+  },
+  {
+    "keywords": ["&&", "AND lógico", "encadenar con éxito"],
+    "command": "comando1 && comando2",
+    "example": "mkdir nueva_carpeta && cd nueva_carpeta",
+    "description": "Ejecuta comando2 solo si comando1 tiene éxito (código de retorno 0)."
+  },
+  {
+    "keywords": ["||", "OR lógico", "fallback", "alternativa"],
+    "command": "comando1 || comando2",
+    "example": "cd /tmp || echo 'No se pudo acceder a /tmp'",
+    "description": "Ejecuta comando2 solo si comando1 falla (código de retorno distinto de 0)."
+  },
+  {
+    "keywords": ["|", "pipe", "tubería", "conectar"],
+    "command": "comando1 | comando2",
+    "example": "cat archivo.txt | grep 'error' | wc -l",
+    "description": "Conecta la salida estándar de comando1 con la entrada estándar de comando2."
+  },
+  {
+    "keywords": ["&>", "redirigir ambos", "stdout y stderr"],
+    "command": "comando &> archivo",
+    "example": "make &> build.log",
+    "description": "Redirige tanto stdout como stderr al mismo archivo (atajo)."
+  },
+  {
+    "keywords": [">&2", "stderr", "error"],
+    "command": "echo 'mensaje' >&2",
+    "example": "if [ ! -f archivo ]; then echo 'Error: no existe' >&2; exit 1; fi",
+    "description": "Envía la salida a stderr en lugar de stdout."
+  },
+  {
+    "keywords": ["2>&1", "fusionar stderr a stdout"],
+    "command": "comando > archivo 2>&1",
+    "example": "grep -r texto / 2>/dev/null  # o 2>&1 para ver ambos",
+    "description": "Redirige stderr al mismo destino que stdout (importante el orden)."
+  },
+  {
+    "keywords": ["/dev/null", "agujero negro", "desechar"],
+    "command": "comando > /dev/null 2>&1",
+    "example": "find / -name '*.log' 2>/dev/null",
+    "description": "Desecha toda la salida (stdout y stderr) enviándola al dispositivo nulo."
+  },
+  {
+    "keywords": ["$(comando)", "sustitución de comando", "backticks", "`"],
+    "command": "variable=$(comando)   # o variable=`comando`",
+    "example": "fecha=$(date +%Y-%m-%d)\necho 'Hoy es $fecha'",
+    "description": "Ejecuta el comando y guarda su salida en una variable (o la usa en línea)."
+  },
+  {
+    "keywords": ["$((expresión))", "aritmética", "operaciones matemáticas"],
+    "command": "resultado=$((expresión))",
+    "example": "suma=$((5 + 3 * 2))\necho $suma  # 11",
+    "description": "Evalúa expresiones aritméticas enteras (+, -, *, /, %, **, etc.)."
+  },
+  {
+    "keywords": ["${variable}", "expansión de variable", "llaves"],
+    "command": "${variable} o ${variable:-default}",
+    "example": "nombre='Juan'\necho \"Hola ${nombre} Pérez\"\necho ${noexiste:-'por defecto'}",
+    "description": "Expande el valor de la variable. Las llaves son necesarias para concatenar o usar modificadores."
+  },
+  {
+    "keywords": ["${variable:-valor}", "valor por defecto", "si no existe"],
+    "command": "${variable:-valor_por_defecto}",
+    "example": "echo ${EDITOR:-nano}  # muestra 'nano' si EDITOR no está definido",
+    "description": "Si la variable no está definida o es nula, usa el valor por defecto."
+  },
+  {
+    "keywords": ["${variable:=valor}", "asignar por defecto"],
+    "command": "${variable:=valor_por_defecto}",
+    "example": "echo ${PATH:=/usr/bin}  # asigna si no existe",
+    "description": "Si la variable no está definida, la asigna con ese valor y luego la expande."
+  },
+  {
+    "keywords": ["${variable:+valor}", "alternativa si existe"],
+    "command": "${variable:+valor}",
+    "example": "echo ${USER:+'usuario definido'}  # muestra el texto si USER existe",
+    "description": "Expande a 'valor' si la variable está definida y no es nula; si no, a vacío."
+  },
+  {
+    "keywords": ["${#variable}", "longitud de cadena"],
+    "command": "${#variable}",
+    "example": "cadena='hola'; echo ${#cadena}  # 4",
+    "description": "Devuelve la longitud de la cadena contenida en la variable."
+  },
+  {
+    "keywords": ["${variable:posición:longitud}", "subcadena", "slicing"],
+    "command": "${variable:posición:longitud}",
+    "example": "texto='programación'\necho ${texto:0:4}  # prog",
+    "description": "Extrae una subcadena desde 'posición' (base 0) y de 'longitud' caracteres."
+  },
+  {
+    "keywords": ["${variable/patrón/reemplazo}", "reemplazar primera ocurrencia"],
+    "command": "${variable/patrón/reemplazo}",
+    "example": "frase='hola mundo'\necho ${frase/mundo/amigo}  # hola amigo",
+    "description": "Reemplaza la primera ocurrencia del patrón por el reemplazo."
+  },
+  {
+    "keywords": ["${variable//patrón/reemplazo}", "reemplazar todas"],
+    "command": "${variable//patrón/reemplazo}",
+    "example": "texto='a b a b'\necho ${texto//a/x}  # x b x b",
+    "description": "Reemplaza todas las ocurrencias del patrón."
+  },
+  {
+    "keywords": ["$*", "$@", "parámetros posicionales", "todos los argumentos"],
+    "command": "$* o $@",
+    "example": "#!/bin/bash\necho 'Argumentos: $*'",
+    "description": "$* expande todos los argumentos como una sola palabra (IFS). $@ expande cada argumento como palabra separada."
+  },
+  {
+    "keywords": ["$#", "número de argumentos"],
+    "command": "$#",
+    "example": "if [ $# -eq 0 ]; then echo 'No hay argumentos'; fi",
+    "description": "Número de argumentos pasados al script."
+  },
+  {
+    "keywords": ["$0", "nombre del script"],
+    "command": "$0",
+    "example": "echo \"Ejecutando script: $0\"",
+    "description": "Nombre del script o shell actual."
+  },
+  {
+    "keywords": ["$1, $2, ...", "argumentos posicionales"],
+    "command": "$1, $2, ...",
+    "example": "primer_arg=$1\nsegundo_arg=$2",
+    "description": "Primer, segundo, etc., argumento pasado al script."
+  },
+  {
+    "keywords": ["$?", "código de retorno", "último comando"],
+    "command": "$?",
+    "example": "ls /no/existe\necho $?  # 1 (error)",
+    "description": "Código de salida del último comando ejecutado (0 = éxito, otro = error)."
+  },
+  {
+    "keywords": ["$$", "PID del script", "proceso actual"],
+    "command": "$$",
+    "example": "echo \"Mi PID es $$\"",
+    "description": "ID del proceso actual (el shell o script)."
+  },
+  {
+    "keywords": ["$!", "PID del último proceso en background"],
+    "command": "$!",
+    "example": "firefox &\necho \"Firefox corriendo con PID $!\"",
+    "description": "PID del último comando ejecutado en segundo plano (&)."
+  },
+  {
+    "keywords": ["~", "home", "directorio personal"],
+    "command": "cd ~  # va al home\ncd ~usuario  # va al home de usuario",
+    "example": "ls ~/Documentos",
+    "description": "Expansión de tilde: representa el directorio home del usuario."
+  },
+  {
+    "keywords": ["*", "comodín", "wildcard", "cualquier cadena"],
+    "command": "ls *.txt  # todos los archivos .txt",
+    "example": "cp *.conf /backup/",
+    "description": "Coincide con cualquier cadena (incluyendo vacía) en expansión de rutas."
+  },
+  {
+    "keywords": ["?", "comodín", "un carácter"],
+    "command": "ls archivo?.txt",
+    "example": "ls imagen?.jpg  # imagen1.jpg, imagen2.jpg, etc.",
+    "description": "Coincide con un solo carácter en expansión de rutas."
+  },
+  {
+    "keywords": ["[ ]", "rango", "conjunto de caracteres", "wildcard"],
+    "command": "ls [abc]*  # archivos que empiezan con a, b o c",
+    "example": "ls [0-9]*.log  # archivos de log que empiezan con dígito",
+    "description": "Coincide con un carácter del conjunto o rango especificado."
+  },
+  {
+    "keywords": ["{ }", "llaves", "expansión de llaves", "brace expansion"],
+    "command": "echo {a,b,c}  # a b c",
+    "example": "mkdir {2023,2024,2025}/{ene,feb,mar}  # crea subdirectorios",
+    "description": "Genera combinaciones de cadenas. Muy útil para crear múltiples archivos/directorios."
+  },
+  {
+    "keywords": ["{1..10}", "secuencia", "rango numérico"],
+    "command": "echo {1..5}  # 1 2 3 4 5",
+    "example": "for i in {1..10}; do echo $i; done",
+    "description": "Expande a una secuencia de números."
+  },
+  {
+    "keywords": ["{a..z}", "rango alfabético"],
+    "command": "echo {a..d}  # a b c d",
+    "example": "touch archivo_{a..e}.txt",
+    "description": "Expande a una secuencia de letras."
+  },
+  {
+    "keywords": ["' '", "comillas simples", "texto literal"],
+    "command": "'texto literal'",
+    "example": "echo 'El valor de $HOME es $HOME'  # no expande variables",
+    "description": "Las comillas simples preservan el valor literal de todos los caracteres (sin expansión)."
+  },
+  {
+    "keywords": ["\" \"", "comillas dobles", "texto con expansión"],
+    "command": "\"texto con $variable\"",
+    "example": "nombre='Juan'; echo \"Hola $nombre\"  # expande variable",
+    "description": "Las comillas dobles permiten expansión de variables y comandos, pero preservan espacios."
+  },
+  {
+    "keywords": ["\\", "escape", "carácter literal"],
+    "command": "\\caracter",
+    "example": "echo \"El precio es \\$100\"  # muestra $100",
+    "description": "Escapa el siguiente carácter, evitando su interpretación especial."
+  },
+  {
+    "keywords": ["<<", "here document", "documento incrustado"],
+    "command": "cat << EOF\n...\nEOF",
+    "example": "cat << FIN > archivo.txt\nLínea 1\nLínea 2\nFIN",
+    "description": "Permite introducir bloques de texto multilínea como entrada a un comando."
+  },
+  {
+    "keywords": ["<<<", "here string", "cadena como entrada"],
+    "command": "comando <<< \"cadena\"",
+    "example": "grep 'error' <<< \"Esto es un error: algo falló\"",
+    "description": "Pasa una cadena como entrada estándar al comando (alternativa a echo)."
+  },
+  {
+    "keywords": ["<(comando)", "sustitución de proceso", "process substitution"],
+    "command": "comando1 <(comando2)",
+    "example": "diff <(ls dir1) <(ls dir2)",
+    "description": "Ejecuta comando2 y lo trata como un archivo temporal para pasarlo como argumento."
+  },
+  {
+    "keywords": [">(comando)", "process substitution a la salida"],
+    "command": "comando1 >(comando2)",
+    "example": "tee >(grep error > errores.txt) >(grep warning > warnings.txt) < archivo.log",
+    "description": "Redirige la salida de comando1 a la entrada de comando2 como si fuera un archivo."
+  },
+  {
+    "keywords": ["[[]]", "test mejorado", "condiciones bash"],
+    "command": "[[ expresión ]]",
+    "example": "if [[ $nombre == Juan && $edad -gt 18 ]]; then ... fi",
+    "description": "Versión mejorada de test (más características y menos problemas de sintaxis)."
+  },
+  {
+    "keywords": ["=~", "expresión regular", "regex", "comparar con patrón"],
+    "command": "[[ $variable =~ ^patrón.*$ ]]",
+    "example": "if [[ $email =~ ^[a-z]+@[a-z]+\\.com$ ]]; then echo 'válido'; fi",
+    "description": "Comprueba si la variable coincide con una expresión regular extendida."
+  },
+  {
+    "keywords": ["let", "aritmética", "evaluar expresión"],
+    "command": "let expresión",
+    "example": "let i++  # incrementa i en 1\nlet suma=5+3",
+    "description": "Evalúa expresiones aritméticas (similar a $((...)) pero sin el $)."
+  },
+  {
+    "keywords": ["declare", "typeset", "atributos de variable"],
+    "command": "declare [opciones] nombre=valor",
+    "example": "declare -r CONST=42  # solo lectura\ndeclare -i entero=10    # entero\ndeclare -a array         # array",
+    "description": "Define variables con atributos (entero, array, solo lectura, etc.)."
+  },
+  {
+    "keywords": ["local", "variable local", "función"],
+    "command": "local variable=valor",
+    "example": "funcion() { local var='dentro'; echo $var; }",
+    "description": "Declara una variable con ámbito local dentro de una función."
+  },
+  {
+    "keywords": ["export", "variable de entorno", "global"],
+    "command": "export NOMBRE=valor",
+    "example": "export PATH=\"/usr/local/bin:$PATH\"",
+    "description": "Hace que la variable esté disponible para procesos hijos."
+  },
+  {
+    "keywords": ["readonly", "constante", "inmutable"],
+    "command": "readonly variable",
+    "example": "readonly PI=3.1416",
+    "description": "Marca una variable como solo lectura (no se puede modificar)."
+  },
+  {
+    "keywords": ["shift", "desplazar argumentos"],
+    "command": "shift [n]",
+    "example": "while [ $# -gt 0 ]; do echo $1; shift; done",
+    "description": "Desplaza los parámetros posicionales: $2 pasa a $1, $3 a $2, etc."
+  },
+  {
+    "keywords": ["getopts", "opciones de línea de comandos", "parámetros"],
+    "command": "getopts 'ab:c:' opt",
+    "example": "while getopts 'ab:c:' opt; do case $opt in a) ...;; b) ...;; esac; done",
+    "description": "Analiza opciones de línea de comandos estilo POSIX (con o sin argumento)."
+  },
+  {
+    "keywords": ["trap", "capturar señales", "limpieza"],
+    "command": "trap 'comandos' SEÑAL",
+    "example": "trap 'rm -f /tmp/tempfile' EXIT INT TERM",
+    "description": "Ejecuta comandos cuando se recibe una señal o al salir del script."
+  },
+  {
+    "keywords": ["wait", "esperar procesos", "background"],
+    "command": "wait [PID]",
+    "example": "comando1 &\nPID=$!\ncomando2 &\nwait $PID  # espera a que termine comando1",
+    "description": "Espera a que terminen los procesos en segundo plano (o uno específico)."
+  }
+]

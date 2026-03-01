@@ -1,0 +1,32 @@
+[
+  {
+    "keywords": ["shebang", "#!/bin/bash", "intérprete", "primera línea"],
+    "command": "#!/bin/bash\n#!/usr/bin/env bash",
+    "example": "#!/usr/bin/env bash\necho 'Hola'",
+    "description": "La primera línea del script indica el intérprete a usar. Con env se busca en el PATH."
+  },
+  {
+    "keywords": ["encabezado", "cabecera", "documentación script"],
+    "command": "#!/bin/bash\n# Script: nombre\n# Autor: ...\n# Descripción: ...",
+    "example": "#!/bin/bash\n# Script: backup.sh\n# Autor: Juan\n# Descripción: Realiza backup de /home",
+    "description": "Buenas prácticas: incluir metadatos al inicio del script."
+  },
+  {
+    "keywords": ["set -euo pipefail", "opciones estrictas", "seguridad"],
+    "command": "set -euo pipefail",
+    "example": "#!/bin/bash\nset -euo pipefail",
+    "description": "Activa opciones: -e (error para), -u (variables indefinidas), -o pipefail (errores en tuberías)."
+  },
+  {
+    "keywords": ["uso de script", "help", "mostrar ayuda"],
+    "command": "if [ \"$1\" = \"-h\" ] || [ \"$1\" = \"--help\" ]; then ...",
+    "example": "usage() { echo \"Uso: $0 [opciones] archivo\" >&2; exit 1; }",
+    "description": "Convención: mostrar ayuda con -h o --help."
+  },
+  {
+    "keywords": ["códigos de salida", "exit 0", "exit 1", "éxito", "error"],
+    "command": "exit 0  # éxito\nexit 1  # error genérico",
+    "example": "if [ -f archivo ]; then exit 0; else exit 1; fi",
+    "description": "Los scripts deben retornar 0 si todo fue bien, distinto de 0 si hubo error."
+  }
+]

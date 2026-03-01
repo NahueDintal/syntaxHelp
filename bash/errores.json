@@ -1,0 +1,32 @@
+[
+  {
+    "keywords": ["try catch", "manejo errores", "trampa", "set -e"],
+    "command": "set -e; set -u; set -o pipefail",
+    "example": "#!/bin/bash\nset -euo pipefail",
+    "description": "Opciones estrictas: -e (error para), -u (variables indefinidas), -o pipefail (errores en tuberías)."
+  },
+  {
+    "keywords": ["||", "OR lógico", "fallback"],
+    "command": "comando1 || comando2",
+    "example": "mkdir /directorio || echo 'No se pudo crear'",
+    "description": "Ejecuta comando2 solo si comando1 falla (código distinto de 0)."
+  },
+  {
+    "keywords": ["&&", "AND lógico", "encadenar"],
+    "command": "comando1 && comando2",
+    "example": "cd /tmp && ls -la",
+    "description": "Ejecuta comando2 solo si comando1 tiene éxito (código 0)."
+  },
+  {
+    "keywords": ["funciones", "function", "return"],
+    "command": "funcion() { comandos; return código; }",
+    "example": "error() { echo 'Error: $1' >&2; return 1; }",
+    "description": "Define una función que puede retornar un código de error."
+  },
+  {
+    "keywords": [">&2", "stderr", "mensaje error"],
+    "command": "echo 'mensaje' >&2",
+    "example": "if [ ! -f archivo ]; then echo 'no existe' >&2; exit 1; fi",
+    "description": "Envía un mensaje a la salida de error estándar."
+  }
+]

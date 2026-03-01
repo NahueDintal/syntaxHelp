@@ -1,0 +1,110 @@
+[
+  {
+    "keywords": ["git", "clone", "clonar", "repositorio", "descargar"],
+    "command": "git clone <url> [directorio]",
+    "example": "git clone https://github.com/usuario/repo.git",
+    "description": "Clona un repositorio remoto en un nuevo directorio."
+  },
+  {
+    "keywords": ["git", "init", "inicializar", "nuevo repositorio"],
+    "command": "git init [nombre-directorio]",
+    "example": "git init mi-proyecto",
+    "description": "Crea un nuevo repositorio Git vacío."
+  },
+  {
+    "keywords": ["git", "add", "añadir", "staging", "área", "preparar"],
+    "command": "git add <archivo>",
+    "example": "git add .\ngit add archivo.txt",
+    "description": "Añade cambios al área de staging (preparación para commit)."
+  },
+  {
+    "keywords": ["git", "commit", "confirmar", "guardar", "snapshot"],
+    "command": "git commit -m \"mensaje\"",
+    "example": "git commit -m \"Añadida nueva funcionalidad\"",
+    "description": "Guarda los cambios del área de staging en el repositorio."
+  },
+  {
+    "keywords": ["git", "status", "estado", "cambios"],
+    "command": "git status",
+    "example": "git status",
+    "description": "Muestra el estado del working directory y staging area."
+  },
+  {
+    "keywords": ["git", "log", "historial", "commits"],
+    "command": "git log [opciones]",
+    "example": "git log --oneline --graph --all",
+    "description": "Muestra el historial de commits."
+  },
+  {
+    "keywords": ["git", "diff", "diferencias", "cambios sin stage"],
+    "command": "git diff [archivo]",
+    "example": "git diff",
+    "description": "Muestra las diferencias entre el working directory y el staging."
+  },
+  {
+    "keywords": ["git", "branch", "rama", "crear", "listar"],
+    "command": "git branch [nombre-rama]",
+    "example": "git branch\n  # lista ramas\ngit branch nueva-rama",
+    "description": "Lista, crea o elimina ramas."
+  },
+  {
+    "keywords": ["git", "checkout", "cambiar rama", "descartar cambios"],
+    "command": "git checkout <rama>",
+    "example": "git checkout main\ngit checkout -b nueva-rama  # crea y cambia",
+    "description": "Cambia de rama o restaura archivos."
+  },
+  {
+    "keywords": ["git", "merge", "fusionar", "combinar ramas"],
+    "command": "git merge <rama>",
+    "example": "git merge feature",
+    "description": "Fusiona otra rama en la rama actual."
+  },
+  {
+    "keywords": ["git", "pull", "traer", "actualizar", "remoto"],
+    "command": "git pull [remoto] [rama]",
+    "example": "git pull origin main",
+    "description": "Trae cambios del repositorio remoto y los fusiona."
+  },
+  {
+    "keywords": ["git", "push", "enviar", "subir", "remoto"],
+    "command": "git push [remoto] [rama]",
+    "example": "git push origin main",
+    "description": "Envía commits locales al repositorio remoto."
+  },
+  {
+    "keywords": ["git", "remote", "remoto", "origen"],
+    "command": "git remote -v",
+    "example": "git remote add origin <url>",
+    "description": "Gestiona repositorios remotos."
+  },
+  {
+    "keywords": ["git", "fetch", "descargar", "remoto sin fusionar"],
+    "command": "git fetch [remoto]",
+    "example": "git fetch origin",
+    "description": "Descarga cambios del remoto sin fusionarlos."
+  },
+  {
+    "keywords": ["git", "reset", "deshacer", "revertir", "staging"],
+    "command": "git reset [opciones] [commit]",
+    "example": "git reset HEAD~1  # deshace el último commit",
+    "description": "Deshace cambios, mueve el HEAD o saca archivos del staging."
+  },
+  {
+    "keywords": ["git", "revert", "revertir commit", "seguro"],
+    "command": "git revert <commit>",
+    "example": "git revert HEAD",
+    "description": "Crea un nuevo commit que deshace los cambios de un commit anterior."
+  },
+  {
+    "keywords": ["git", "stash", "guardar temporalmente", "esconder"],
+    "command": "git stash",
+    "example": "git stash save \"trabajo en progreso\"\ngit stash pop",
+    "description": "Guarda cambios temporalmente para trabajar en otra cosa."
+  },
+  {
+    "keywords": ["git", "tag", "etiqueta", "versión"],
+    "command": "git tag <nombre>",
+    "example": "git tag v1.0.0\ngit push origin v1.0.0",
+    "description": "Crea, lista o elimina etiquetas (tags) para marcar versiones."
+  }
+]

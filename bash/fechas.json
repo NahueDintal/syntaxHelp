@@ -1,0 +1,26 @@
+[
+  {
+    "keywords": ["date", "fecha", "hora", "actual", "formato"],
+    "command": "date [opciones] [+FORMATO]",
+    "example": "date +%Y-%m-%d  # 2026-03-01",
+    "description": "Muestra o establece la fecha/hora del sistema. Con +FORMATO se personaliza."
+  },
+  {
+    "keywords": ["cal", "calendario", "mes", "año"],
+    "command": "cal [mes] [año]",
+    "example": "cal 12 2025",
+    "description": "Muestra un calendario del mes o año especificado."
+  },
+  {
+    "keywords": ["timedatectl", "zona horaria", "timezone", "systemd"],
+    "command": "timedatectl [comando]",
+    "example": "timedatectl list-timezones\ntimedatectl set-timezone America/Argentina/Buenos_Aires",
+    "description": "Controla la fecha/hora del sistema y la zona horaria (systemd)."
+  },
+  {
+    "keywords": ["hwclock", "reloj hardware", "cmos"],
+    "command": "hwclock [opciones]",
+    "example": "sudo hwclock --systohc",
+    "description": "Consulta o establece el reloj hardware (CMOS)."
+  }
+]

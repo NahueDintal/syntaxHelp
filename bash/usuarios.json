@@ -1,0 +1,68 @@
+[
+  {
+    "keywords": ["useradd", "crear usuario", "añadir usuario"],
+    "command": "useradd [opciones] <nombre>",
+    "example": "sudo useradd -m -G wheel juan",
+    "description": "Crea un nuevo usuario. -m crea home, -G grupos secundarios."
+  },
+  {
+    "keywords": ["usermod", "modificar usuario", "cambiar"],
+    "command": "usermod [opciones] <usuario>",
+    "example": "sudo usermod -aG docker juan",
+    "description": "Modifica un usuario existente. -aG añade a grupos."
+  },
+  {
+    "keywords": ["userdel", "eliminar usuario", "borrar"],
+    "command": "userdel [opciones] <usuario>",
+    "example": "sudo userdel -r juan",
+    "description": "Elimina un usuario. -r elimina también su home y mail."
+  },
+  {
+    "keywords": ["passwd", "contraseña", "cambiar"],
+    "command": "passwd [usuario]",
+    "example": "passwd\nsudo passwd juan",
+    "description": "Cambia la contraseña del usuario actual u otro (con sudo)."
+  },
+  {
+    "keywords": ["groupadd", "crear grupo", "nuevo grupo"],
+    "command": "groupadd <grupo>",
+    "example": "sudo groupadd desarrolladores",
+    "description": "Crea un nuevo grupo."
+  },
+  {
+    "keywords": ["groupmod", "modificar grupo"],
+    "command": "groupmod [opciones] <grupo>",
+    "example": "sudo groupmod -n nuevo_nombre viejo_nombre",
+    "description": "Modifica un grupo (cambiar nombre, etc.)."
+  },
+  {
+    "keywords": ["groupdel", "eliminar grupo"],
+    "command": "groupdel <grupo>",
+    "example": "sudo groupdel desarrolladores",
+    "description": "Elimina un grupo."
+  },
+  {
+    "keywords": ["groups", "ver grupos", "pertenece"],
+    "command": "groups [usuario]",
+    "example": "groups juan",
+    "description": "Muestra los grupos a los que pertenece un usuario."
+  },
+  {
+    "keywords": ["id", "identidad", "uid", "gid", "usuario"],
+    "command": "id [usuario]",
+    "example": "id",
+    "description": "Muestra información de usuario (UID, GID, grupos)."
+  },
+  {
+    "keywords": ["who", "usuarios conectados"],
+    "command": "who [opciones]",
+    "example": "who",
+    "description": "Muestra quién está conectado al sistema."
+  },
+  {
+    "keywords": ["w", "usuarios conectados detallado"],
+    "command": "w",
+    "example": "w",
+    "description": "Muestra quién está conectado y qué está haciendo."
+  }
+]

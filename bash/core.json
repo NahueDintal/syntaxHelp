@@ -58,5 +58,47 @@
     "command": "ln [opciones] <target> <nombre_enlace>",
     "example": "ln -s /ruta/original /ruta/enlace",
     "description": "Crea enlaces. Por defecto duros; con -s crea enlaces simbólicos."
+  },
+  {
+    "keywords": ["exit", "código salida", "terminar script", "$?"],
+    "command": "exit [código]",
+    "example": "if [ -f archivo ]; then exit 0; else exit 1; fi",
+    "description": "Termina el script con un código de retorno (0 = éxito, distinto de 0 = error)."
+  },
+  {
+    "keywords": ["$?", "código retorno", "último comando"],
+    "command": "echo $?",
+    "example": "ls /no/existe\necho $?   # muestra 1 (error)",
+    "description": "Variable que contiene el código de salida del último comando ejecutado."
+  },
+  {
+    "keywords": ["set -e", "exit on error", "detener en error"],
+    "command": "set -e",
+    "example": "#!/bin/bash\nset -e\ncomando1  # si falla, el script termina",
+    "description": "Hace que el script termine inmediatamente si algún comando falla (código distinto de 0)."
+  },
+  {
+    "keywords": ["set -x", "debug", "traza", "mostrar comandos"],
+    "command": "set -x",
+    "example": "#!/bin/bash\nset -x\necho 'debug'  # muestra cada comando antes de ejecutarlo",
+    "description": "Activa modo debug: imprime cada comando y sus argumentos al ejecutarse."
+  },
+  {
+    "keywords": ["trap", "capturar señal", "limpieza", "exit"],
+    "command": "trap 'comandos' SIGNAL",
+    "example": "trap 'rm -f /tmp/tempfile' EXIT",
+    "description": "Ejecuta comandos cuando el script recibe una señal o termina (EXIT, INT, TERM...)."
+  },
+  {
+    "keywords": ["test", "[ ]", "condiciones", "if"],
+    "command": "if [ condición ]; then ... fi",
+    "example": "if [ -f archivo ] && [ -r archivo ]; then echo 'legible'; fi",
+    "description": "Comando para evaluar condiciones (archivos, números, cadenas)."
+  },
+  {
+    "keywords": ["-f", "-d", "-e", "test archivos"],
+    "command": "[ -f archivo ]  # verdadero si es archivo\n[ -d directorio ] # verdadero si es directorio\n[ -e archivo ]    # verdadero si existe",
+    "example": "if [ -d /tmp ]; then echo 'tmp existe'; fi",
+    "description": "Operadores de test para archivos."
   }
 ]

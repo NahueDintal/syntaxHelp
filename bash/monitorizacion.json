@@ -1,0 +1,32 @@
+[
+  {
+    "keywords": ["iostat", "estadísticas E/S", "disco", "rendimiento"],
+    "command": "iostat [opciones] [intervalo] [contador]",
+    "example": "iostat -x 2",
+    "description": "Muestra estadísticas de CPU y E/S de discos."
+  },
+  {
+    "keywords": ["vmstat", "memoria virtual", "estadísticas sistema"],
+    "command": "vmstat [intervalo] [contador]",
+    "example": "vmstat 1 5",
+    "description": "Información de memoria, procesos, paginación, CPU."
+  },
+  {
+    "keywords": ["mpstat", "estadísticas CPU", "multiprocesador"],
+    "command": "mpstat [intervalo] [contador]",
+    "example": "mpstat -P ALL 1",
+    "description": "Muestra estadísticas de cada CPU/procesador."
+  },
+  {
+    "keywords": ["sar", "monitorización histórica", "sysstat"],
+    "command": "sar [opciones] [intervalo] [contador]",
+    "example": "sar -u 1 3",
+    "description": "Recoge y muestra información de actividad del sistema."
+  },
+  {
+    "keywords": ["pidstat", "estadísticas por proceso"],
+    "command": "pidstat [intervalo] [contador]",
+    "example": "pidstat -u 1",
+    "description": "Muestra estadísticas de CPU, memoria, E/S por proceso."
+  }
+]

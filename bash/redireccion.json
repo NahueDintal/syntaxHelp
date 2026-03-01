@@ -1,56 +1,38 @@
 [
   {
-    "keywords": ["redirección", ">", "salida", "stdout", "archivo"],
-    "command": "comando > archivo",
-    "example": "ls > lista.txt",
-    "description": "Redirige la salida estándar a un archivo (sobrescribe)."
+    "keywords": ["redirección", "stdout", "stderr", ">", ">>", "2>", "&>"],
+    "command": "comando > archivo    # redirige stdout\ncomando 2> archivo  # redirige stderr\ncomando &> archivo   # redirige ambos\ncomando >> archivo   # añade al final",
+    "example": "ls -la > lista.txt 2> errores.txt\nfind / -name '*.conf' 2>/dev/null",
+    "description": "Redirige la salida estándar (stdout) y/o error (stderr) a un archivo."
   },
   {
-    "keywords": ["redirección", ">>", "añadir", "append", "salida"],
-    "command": "comando >> archivo",
-    "example": "echo \"nueva línea\" >> archivo.txt",
-    "description": "Añade la salida estándar al final de un archivo."
+    "keywords": ["/dev/null", "null", "agujero negro", "desechar salida"],
+    "command": "comando > /dev/null 2>&1",
+    "example": "grep -r 'texto' /carpeta/ 2>/dev/null",
+    "description": "Desecha toda la salida (stdout y stderr) enviándola al dispositivo nulo."
   },
   {
-    "keywords": ["redirección", "2>", "error", "stderr"],
-    "command": "comando 2> archivo_error",
-    "example": "grep texto archivo 2> errores.log",
-    "description": "Redirige la salida de error (stderr) a un archivo."
+    "keywords": ["2>&1", "fusionar salidas", "stdout y stderr"],
+    "command": "comando > archivo 2>&1   # primero stdout a archivo, luego stderr al mismo sitio",
+    "example": "./script.sh > salida.log 2>&1",
+    "description": "Redirige stderr al mismo lugar que stdout (deben ir en ese orden)."
   },
   {
-    "keywords": ["redirección", "&>", "todo", "ambas", "stdout y stderr"],
+    "keywords": ["&>", "redirigir ambos", "bash"],
     "command": "comando &> archivo",
-    "example": "script.sh &> salida_completa.log",
-    "description": "Redirige tanto stdout como stderr al mismo archivo."
+    "example": "make &> build.log",
+    "description": "Redirige tanto stdout como stderr al archivo (equivalente a '> archivo 2>&1' pero más corto)."
   },
   {
-    "keywords": ["tubería", "pipe", "|", "conectar", "procesar"],
+    "keywords": ["pipe", "tubería", "|", "conectar comandos"],
     "command": "comando1 | comando2",
-    "example": "cat archivo.txt | grep error",
-    "description": "Conecta la salida de un comando a la entrada de otro."
+    "example": "cat archivo.txt | grep 'error' | wc -l",
+    "description": "Conecta la salida de un comando con la entrada del siguiente."
   },
   {
-    "keywords": ["here document", "heredoc", "entrada incrustada", "EOF"],
-    "command": "comando << DELIMITADOR\n  líneas\nDELIMITADOR",
-    "example": "cat << EOF\nEsto es un heredoc\nEOF",
-    "description": "Proporciona entrada multilínea a un comando directamente en el script."
-  },
-  {
-    "keywords": ["here string", "entrada cadena", "cadena"],
-    "command": "comando <<< \"cadena\"",
-    "example": "grep error <<< \"línea con error\"",
-    "description": "Pasa una cadena como entrada a un comando (similar a echo pero sin proceso extra)."
-  },
-  {
-    "keywords": ["tee", "partir", "dividir", "ver y guardar"],
-    "command": "comando | tee [opciones] archivo",
-    "example": "ls | tee lista.txt",
-    "description": "Lee de stdin y escribe a stdout y a archivos. -a añade en vez de sobrescribir."
-  },
-  {
-    "keywords": ["descriptor", ">&", "duplicar", "fichero"],
-    "command": "n>&m",
-    "example": "comando 2>&1",
-    "description": "Duplica el descriptor de archivo n al mismo lugar que m. Muy usado para combinar errores con salida (2>&1)."
+    "keywords": ["tee", "dividir salida", "ver y guardar"],
+    "command": "comando | tee archivo",
+    "example": "echo 'hola' | tee salida.txt   # muestra y guarda",
+    "description": "Lee de stdin y escribe a stdout y a uno o más archivos."
   }
 ]
