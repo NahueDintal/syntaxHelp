@@ -11,7 +11,6 @@ if [[ -t 1 ]]; then
   RED='\033[0;31m'
   RESET='\033[0m'
 else
-  # Sin colores si no es terminal (por ejemplo, redirección a archivo)
   BOLD=''
   DIM=''
   GREEN=''
@@ -101,7 +100,7 @@ if [[ -z "$QUERY" ]]; then
   echo -e "${BOLD} Modo interactivo para '$CONTEXT'.${RESET}${BOLD} Escribe '${BOLD}salir, exit${RESET}'${BOLD} para terminar."
   while true; do
     echo -e "${BOLD} ¿Qué sintaxis buscas?"
-    printf " > "
+    printf "    > "
     read -p "$(echo -e ${GREEN}$CONTEXT-help >${RESET})" QUERY
     [[ "$QUERY" == "salir" || "$QUERY" == "exit" || -z "$QUERY" ]] && break
     buscar "$CONTEXT_DIR" "$QUERY"
