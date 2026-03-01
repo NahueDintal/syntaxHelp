@@ -1,0 +1,44 @@
+[
+  {
+    "keywords": ["anotación", "annotation", "@Override", "@Deprecated", "@SuppressWarnings"],
+    "command": "@Override\npublic void metodo() { ... }",
+    "example": "@Override\npublic String toString() { return \"...\"; }",
+    "description": "@Override indica que el método sobrescribe uno de la superclase."
+  },
+  {
+    "keywords": ["@Deprecated", "deprecated", "obsoleto"],
+    "command": "@Deprecated\npublic void metodoViejo() { ... }",
+    "example": "@Deprecated\npublic void usarEste() { ... }\n// En javadoc: @deprecated explicación",
+    "description": "Marca un elemento como obsoleto, generando advertencias al usarlo."
+  },
+  {
+    "keywords": ["@SuppressWarnings", "suprimir advertencias"],
+    "command": "@SuppressWarnings(\"unchecked\")\npublic void metodo() { ... }",
+    "example": "@SuppressWarnings(\"unchecked\")\nList<String> lista = (List<String>) objeto;",
+    "description": "Suprime advertencias específicas del compilador."
+  },
+  {
+    "keywords": ["@FunctionalInterface", "interfaz funcional"],
+    "command": "@FunctionalInterface\ninterface MiFuncion { void ejecutar(); }",
+    "example": "@FunctionalInterface\ninterface Calculadora {\n    int operar(int a, int b);\n}\n// Puede usarse con lambda",
+    "description": "Indica que la interfaz tiene un solo método abstracto (puede tener métodos default)."
+  },
+  {
+    "keywords": ["@SafeVarargs", "varargs seguro"],
+    "command": "@SafeVarargs\npublic static <T> void metodo(T... args) { ... }",
+    "example": "@SafeVarargs\npublic static <T> List<T> list(T... items) { return Arrays.asList(items); }",
+    "description": "Suprime advertencias sobre operaciones inseguras con varargs genéricos."
+  },
+  {
+    "keywords": ["anotación personalizada", "crear anotación", "@interface"],
+    "command": "public @interface NombreAnotacion { tipo valor() default algo; }",
+    "example": "public @interface Autor {\n    String nombre();\n    int fecha() default 2025;\n}\n\n@Autor(nombre = \"Juan\")\npublic class MiClase {}",
+    "description": "Definición de una anotación personalizada con elementos."
+  },
+  {
+    "keywords": ["meta-anotaciones", "@Retention", "@Target", "@Documented", "@Inherited"],
+    "command": "@Retention(RetentionPolicy.RUNTIME)\n@Target(ElementType.METHOD)\npublic @interface MiAnotacion {}",
+    "example": "@Retention(RetentionPolicy.RUNTIME) // disponible en runtime\n@Target({ElementType.METHOD, ElementType.TYPE}) // se puede usar en métodos y clases\npublic @interface Info { String valor(); }",
+    "description": "Meta-anotaciones: definen cómo se comporta la anotación (retención, objetivos, etc.)."
+  }
+]

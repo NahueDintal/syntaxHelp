@@ -1,0 +1,14 @@
+[
+  {
+    "keywords": ["Properties", "propiedades", "archivo .properties"],
+    "command": "Properties props = new Properties();\nprops.load(new FileInputStream(\"config.properties\"));",
+    "example": "Properties props = new Properties();\nprops.setProperty(\"url\", \"jdbc:mysql://localhost/db\");\nprops.setProperty(\"user\", \"root\");\ntry (FileOutputStream out = new FileOutputStream(\"config.properties\")) {\n    props.store(out, \"Configuración DB\");\n}",
+    "description": "Clase para manejar pares clave-valor, típicamente de archivos .properties."
+  },
+  {
+    "keywords": ["Preferences", "preferencias", "sistema", "usuario"],
+    "command": "Preferences prefs = Preferences.userNodeForPackage(MiClase.class);",
+    "example": "Preferences prefs = Preferences.userNodeForPackage(MiApp.class);\nprefs.put(\"ventanaX\", \"100\");\nString valor = prefs.get(\"ventanaX\", \"0\");",
+    "description": "Almacenamiento de preferencias específicas del usuario o del sistema, persistente entre ejecuciones."
+  }
+]

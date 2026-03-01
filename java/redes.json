@@ -1,0 +1,32 @@
+[
+  {
+    "keywords": ["Socket", "cliente", "TCP", "conexión"],
+    "command": "Socket socket = new Socket(\"host\", puerto);",
+    "example": "try (Socket socket = new Socket(\"ejemplo.com\", 80)) {\n    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);\n    out.println(\"GET / HTTP/1.1\");\n    out.println(\"Host: ejemplo.com\");\n    out.println(\"Connection: close\");\n    out.println();\n    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));\n    String linea;\n    while ((linea = in.readLine()) != null) System.out.println(linea);\n}",
+    "description": "Socket cliente para comunicación TCP."
+  },
+  {
+    "keywords": ["ServerSocket", "servidor", "TCP", "aceptar conexiones"],
+    "command": "ServerSocket server = new ServerSocket(puerto);\nSocket cliente = server.accept();",
+    "example": "try (ServerSocket server = new ServerSocket(8080)) {\n    System.out.println(\"Esperando cliente...\");\n    try (Socket cliente = server.accept()) {\n        BufferedReader in = new BufferedReader(new InputStreamReader(cliente.getInputStream()));\n        PrintWriter out = new PrintWriter(cliente.getOutputStream(), true);\n        out.println(\"Hola cliente\");\n        System.out.println(in.readLine());\n    }\n}",
+    "description": "Servidor TCP que acepta conexiones de clientes."
+  },
+  {
+    "keywords": ["URL", "URLConnection", "HTTP", "abrir conexión"],
+    "command": "URL url = new URL(\"https://ejemplo.com\");\nURLConnection conn = url.openConnection();",
+    "example": "URL url = new URL(\"https://api.github.com/users/octocat\");\nHttpURLConnection conn = (HttpURLConnection) url.openConnection();\nconn.setRequestMethod(\"GET\");\ntry (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {\n    br.lines().forEach(System.out::println);\n}",
+    "description": "Clase URL para acceder a recursos web. HttpURLConnection para HTTP."
+  },
+  {
+    "keywords": ["DatagramSocket", "UDP", "paquetes", "sin conexión"],
+    "command": "DatagramSocket socket = new DatagramSocket(puerto);",
+    "example": "// Enviar\nbyte[] buffer = \"Hola\".getBytes();\nInetAddress addr = InetAddress.getByName(\"localhost\");\nDatagramPacket packet = new DatagramPacket(buffer, buffer.length, addr, 5000);\nDatagramSocket socket = new DatagramSocket();\nsocket.send(packet);\n\n// Recibir\nbyte[] buffer = new byte[1024];\nDatagramPacket packet = new DatagramPacket(buffer, buffer.length);\nDatagramSocket socket = new DatagramSocket(5000);\nsocket.receive(packet);\nString msg = new String(packet.getData(), 0, packet.getLength());",
+    "description": "Comunicación UDP sin conexión mediante datagramas."
+  },
+  {
+    "keywords": ["InetAddress", "IP", "host", "resolver"],
+    "command": "InetAddress addr = InetAddress.getByName(\"ejemplo.com\");",
+    "example": "InetAddress[] direcciones = InetAddress.getAllByName(\"google.com\");\nfor (InetAddress ia : direcciones) System.out.println(ia.getHostAddress());",
+    "description": "Representa una dirección IP y permite resolución de nombres."
+  }
+]

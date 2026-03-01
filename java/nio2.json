@@ -1,0 +1,68 @@
+[
+  {
+    "keywords": ["Path", "Paths", "ruta", "archivo", "directorio"],
+    "command": "Path ruta = Paths.get(\"ruta/archivo.txt\");",
+    "example": "Path archivo = Paths.get(\"/home/usuario/documento.txt\");\nPath relativo = Paths.get(\"carpeta\", \"subcarpeta\", \"archivo.txt\");",
+    "description": "Representa una ruta en el sistema de archivos."
+  },
+  {
+    "keywords": ["Files", "walk", "recorrer árbol", "buscar archivos"],
+    "command": "Stream<Path> stream = Files.walk(ruta);",
+    "example": "try (Stream<Path> paths = Files.walk(Paths.get(\"/home\"))) {\n    paths.filter(Files::isRegularFile)\n         .forEach(System.out::println);\n}",
+    "description": "Recorre recursivamente un directorio, devolviendo un Stream de Paths."
+  },
+  {
+    "keywords": ["Files", "find", "buscar con filtro"],
+    "command": "Stream<Path> find = Files.find(ruta, profundidad, (path, attrs) -> condición);",
+    "example": "Files.find(Paths.get(\"/home\"), Integer.MAX_VALUE,\n    (path, attrs) -> attrs.isRegularFile() && path.toString().endsWith(\".java\"))\n    .forEach(System.out::println);",
+    "description": "Busca archivos aplicando un predicado sobre el Path y los atributos."
+  },
+  {
+    "keywords": ["Files", "list", "listar directorio"],
+    "command": "Stream<Path> stream = Files.list(ruta);",
+    "example": "try (Stream<Path> entries = Files.list(Paths.get(\"/home\"))) {\n    entries.forEach(System.out::println);\n}",
+    "description": "Lista el contenido de un directorio (no recursivo)."
+  },
+  {
+    "keywords": ["Files", "readAttributes", "leer atributos", "BasicFileAttributes"],
+    "command": "BasicFileAttributes attrs = Files.readAttributes(ruta, BasicFileAttributes.class);",
+    "example": "BasicFileAttributes attrs = Files.readAttributes(path, BasicFileAttributes.class);\nSystem.out.println(\"Creado: \" + attrs.creationTime());\nSystem.out.println(\"Tamaño: \" + attrs.size());",
+    "description": "Obtiene atributos del archivo como fecha creación, último acceso, tamaño, etc."
+  },
+  {
+    "keywords": ["Files", "copy", "copiar archivo", "CopyOption"],
+    "command": "Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);",
+    "example": "Files.copy(Paths.get(\"a.txt\"), Paths.get(\"b.txt\"), StandardCopyOption.REPLACE_EXISTING);",
+    "description": "Copia un archivo o directorio. Se pueden especificar opciones como REPLACE_EXISTING, COPY_ATTRIBUTES."
+  },
+  {
+    "keywords": ["Files", "move", "mover", "renombrar"],
+    "command": "Files.move(origen, destino, StandardCopyOption.ATOMIC_MOVE);",
+    "example": "Files.move(Paths.get(\"temp.txt\"), Paths.get(\"final.txt\"), StandardCopyOption.REPLACE_EXISTING);",
+    "description": "Mueve o renombra un archivo/directorio."
+  },
+  {
+    "keywords": ["Files", "delete", "eliminar", "deleteIfExists"],
+    "command": "Files.delete(ruta); o Files.deleteIfExists(ruta);",
+    "example": "Files.deleteIfExists(Paths.get(\"basura.txt\")); // no lanza excepción si no existe",
+    "description": "Elimina un archivo o directorio vacío."
+  },
+  {
+    "keywords": ["Files", "createDirectories", "crear directorios"],
+    "command": "Files.createDirectories(ruta);",
+    "example": "Files.createDirectories(Paths.get(\"/home/usuario/nueva/carpeta/anidada\"));",
+    "description": "Crea directorios, incluyendo los padres si no existen."
+  },
+  {
+    "keywords": ["Files", "probeContentType", "tipo MIME"],
+    "command": "String contentType = Files.probeContentType(ruta);",
+    "example": "String tipo = Files.probeContentType(Paths.get(\"imagen.jpg\")); // image/jpeg",
+    "description": "Intenta determinar el tipo MIME del archivo."
+  },
+  {
+    "keywords": ["Files", "lines", "leer líneas como Stream"],
+    "command": "Stream<String> lines = Files.lines(ruta);",
+    "example": "try (Stream<String> lines = Files.lines(Paths.get(\"datos.txt\"))) {\n    lines.filter(l -> l.contains(\"error\")).forEach(System.out::println);\n}",
+    "description": "Lee todas las líneas como un Stream, cerrando automáticamente el archivo."
+  }
+]

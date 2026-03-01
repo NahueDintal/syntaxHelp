@@ -1,0 +1,20 @@
+[
+  {
+    "keywords": ["Locale", "localización", "idioma", "país"],
+    "command": "Locale locale = new Locale(\"es\", \"ES\");\nLocale defaultLocale = Locale.getDefault();",
+    "example": "Locale loc = new Locale(\"es\", \"MX\");\nSystem.out.println(loc.getDisplayLanguage()); // español",
+    "description": "Representa una región geográfica, política o cultural."
+  },
+  {
+    "keywords": ["ResourceBundle", "recursos", "textos localizados"],
+    "command": "ResourceBundle bundle = ResourceBundle.getBundle(\"Mensajes\", locale);",
+    "example": "// Archivo Mensajes_es.properties: saludo=Hola\nResourceBundle bundle = ResourceBundle.getBundle(\"Mensajes\", new Locale(\"es\"));\nString saludo = bundle.getString(\"saludo\");",
+    "description": "Carga recursos específicos para un locale desde archivos .properties o clases."
+  },
+  {
+    "keywords": ["MessageFormat", "formato mensajes", "argumentos"],
+    "command": "String mensaje = MessageFormat.format(\"Hola {0}, hoy es {1}\", nombre, fecha);",
+    "example": "String patron = \"El resultado es {0,number,integer}\";\nString msg = MessageFormat.format(patron, 42);",
+    "description": "Formatea mensajes con marcadores de posición para argumentos (números, fechas)."
+  }
+]

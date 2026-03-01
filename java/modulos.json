@@ -1,0 +1,44 @@
+[
+  {
+    "keywords": ["módulo", "module", "module-info.java", "JPMS"],
+    "command": "module nombre.modulo { requires ...; exports ...; }",
+    "example": "module com.ejemplo.miModulo {\n    requires java.sql;\n    exports com.ejemplo.miModulo.api;\n}",
+    "description": "Archivo module-info.java que declara un módulo, sus dependencias (requires) y paquetes exportados (exports)."
+  },
+  {
+    "keywords": ["requires", "dependencia módulo", "necesita"],
+    "command": "requires <modulo>;",
+    "example": "requires java.desktop; // para usar Swing/AWT",
+    "description": "Declara que el módulo depende de otro."
+  },
+  {
+    "keywords": ["exports", "exportar paquete", "visible"],
+    "command": "exports <paquete>;",
+    "example": "exports com.ejemplo.miModulo.api;",
+    "description": "Exporta un paquete para que otros módulos puedan usarlo."
+  },
+  {
+    "keywords": ["opens", "abrir paquete", "reflexión"],
+    "command": "opens <paquete>;",
+    "example": "opens com.ejemplo.miModulo.interno; // permite acceso por reflexión",
+    "description": "Abre un paquete para reflexión en tiempo de ejecución (útil para frameworks)."
+  },
+  {
+    "keywords": ["uses", "provee", "servicio", "ServiceLoader"],
+    "command": "uses <interfaz>;\nprovides <interfaz> with <implementación>;",
+    "example": "module miModulo {\n    uses com.ejemplo.MiServicio;\n    provides com.ejemplo.MiServicio with com.ejemplo.impl.MiServicioImpl;\n}",
+    "description": "Declaración de servicios: 'uses' indica que el módulo consume un servicio; 'provides' que provee una implementación."
+  },
+  {
+    "keywords": ["requires transitive", "dependencia transitiva"],
+    "command": "requires transitive <modulo>;",
+    "example": "requires transitive java.sql; // cualquier módulo que requiera este también obtiene java.sql",
+    "description": "Dependencia transitiva: los módulos que requieran este, también requerirán el módulo transitivo."
+  },
+  {
+    "keywords": ["requires static", "dependencia opcional", "compile-time"],
+    "command": "requires static <modulo>;",
+    "example": "requires static java.annotation; // solo necesaria en compilación",
+    "description": "Dependencia opcional en tiempo de compilación, no necesaria en runtime."
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "keywords": ["ReentrantLock", "lock", "cerrojo", "exclusión mutua"],
+    "command": "Lock lock = new ReentrantLock();\nlock.lock();\ntry { ... } finally { lock.unlock(); }",
+    "example": "class Contador {\n    private int count = 0;\n    private final Lock lock = new ReentrantLock();\n    public void incrementar() {\n        lock.lock();\n        try { count++; } finally { lock.unlock(); }\n    }\n}",
+    "description": "Cerrojo reentrante más flexible que synchronized. Debe liberarse en finally."
+  },
+  {
+    "keywords": ["Condition", "condición", "await", "signal"],
+    "command": "Condition cond = lock.newCondition();\ncond.await();\ncond.signal();",
+    "example": "class BoundedBuffer {\n    final Lock lock = new ReentrantLock();\n    final Condition notFull  = lock.newCondition(); \n    final Condition notEmpty = lock.newCondition(); \n    // ... await/signal cuando el buffer está lleno/vacío\n}",
+    "description": "Condiciones asociadas a un Lock para esperar/notificar de forma más específica."
+  },
+  {
+    "keywords": ["AtomicInteger", "AtomicLong", "AtomicReference", "operaciones atómicas"],
+    "command": "AtomicInteger ai = new AtomicInteger(0);\nai.incrementAndGet();\nai.addAndGet(5);",
+    "example": "AtomicInteger contador = new AtomicInteger();\nint valor = contador.incrementAndGet(); // equivalente a ++contador",
+    "description": "Variables atómicas que soportan operaciones sin usar sincronización."
+  },
+  {
+    "keywords": ["ConcurrentHashMap", "mapa concurrente"],
+    "command": "ConcurrentHashMap<String, Integer> mapa = new ConcurrentHashMap<>();",
+    "example": "ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();\nmap.put(\"clave\", 1);\nmap.computeIfAbsent(\"otra\", k -> 2);",
+    "description": "Implementación de HashMap segura para concurrencia, con mejor rendimiento que sincronizar manualmente."
+  },
+  {
+    "keywords": ["CopyOnWriteArrayList", "lista concurrente", "copia al escribir"],
+    "command": "CopyOnWriteArrayList<String> lista = new CopyOnWriteArrayList<>();",
+    "example": "CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();\nfor (String s : list) { ... } // seguro, no lanza ConcurrentModificationException",
+    "description": "Lista donde las operaciones de modificación crean una copia interna. Ideal para lecturas frecuentes."
+  },
+  {
+    "keywords": ["BlockingQueue", "cola bloqueante", "productor-consumidor"],
+    "command": "BlockingQueue<Tipo> cola = new LinkedBlockingQueue<>();\ncola.put(elemento);\nTipo elem = cola.take();",
+    "example": "BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);\nproductor: queue.put(1);\nconsumidor: int valor = queue.take(); // espera si vacía",
+    "description": "Cola que soporta operaciones que esperan hasta que haya espacio o elementos."
+  }
+]

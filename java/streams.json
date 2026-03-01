@@ -1,5 +1,17 @@
 [
   {
+    "keywords": ["groupingBy", "agrupar", "collect"],
+    "command": "Map<K, List<T>> map = stream.collect(Collectors.groupingBy(función));",
+    "example": "Map<String, List<Persona>> porCiudad = personas.stream()\n    .collect(Collectors.groupingBy(Persona::getCiudad));",
+    "description": "Agrupa elementos según una función clasificadora."
+  },
+  {
+    "keywords": ["partitioningBy", "particionar", "por verdadero/falso"],
+    "command": "Map<Boolean, List<T>> map = stream.collect(Collectors.partitioningBy(predicado));",
+    "example": "Map<Boolean, List<Integer>> particion = numeros.stream()\n    .collect(Collectors.partitioningBy(n -> n % 2 == 0)); // pares e impares",
+    "description": "Divide el stream en dos grupos según un predicado."
+  },
+  {
     "keywords": ["stream", "api stream", "filter", "map", "collect"],
     "command": "lista.stream().operaciones().collect(...)",
     "example": "List<Integer> numeros = Arrays.asList(1,2,3,4,5);\nList<Integer> pares = numeros.stream()\n    .filter(n -> n % 2 == 0)\n    .collect(Collectors.toList());",

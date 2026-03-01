@@ -46,5 +46,11 @@
     "command": "CompletableFuture.supplyAsync(() -> { ... }).thenApply(...).thenAccept(...)",
     "example": "CompletableFuture.supplyAsync(() -> {\n    return \"Hola\";\n}).thenApply(String::toUpperCase)\n .thenAccept(System.out::println);",
     "description": "Futuro que puede completarse manualmente y permite encadenar tareas asíncronas."
+  },
+  {
+    "keywords": ["ThreadLocal", "variable por hilo", "aislada"],
+    "command": "ThreadLocal<Tipo> tl = ThreadLocal.withInitial(() -> valor);",
+    "example": "ThreadLocal<Integer> tl = ThreadLocal.withInitial(() -> 0);\ntl.set(tl.get() + 1); // cada hilo tiene su propio valor",
+    "description": "Proporciona variables locales a cada hilo, independientes entre sí."
   }
 ]

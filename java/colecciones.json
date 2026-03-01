@@ -70,5 +70,23 @@
     "command": "List<tipo> lista = Arrays.asList(array);",
     "example": "String[] arr = {\"a\",\"b\"};\nList<String> list = Arrays.asList(arr);",
     "description": "Convertir un array a lista (lista de tamaño fijo)."
+  },
+  {
+    "keywords": ["Queue", "cola", "LinkedList", "PriorityQueue"],
+    "command": "Queue<Tipo> cola = new LinkedList<>();\ncola.offer(elemento);\nTipo primero = cola.poll();",
+    "example": "Queue<String> cola = new LinkedList<>();\ncola.offer(\"primero\");\ncola.offer(\"segundo\");\nString atender = cola.poll();",
+    "description": "Interfaz Queue para colas FIFO. LinkedList implementa Queue."
+  },
+  {
+    "keywords": ["Deque", "doble cola", "ArrayDeque"],
+    "command": "Deque<Tipo> deque = new ArrayDeque<>();\ndeque.addFirst();\ndeque.addLast();\ndeque.removeFirst();",
+    "example": "Deque<String> pila = new ArrayDeque<>();\npila.push(\"elemento\"); // addFirst\nString cima = pila.pop(); // removeFirst",
+    "description": "Interfaz para colas dobles (FIFO y LIFO). ArrayDeque es eficiente."
+  },
+  {
+    "keywords": ["Collections", "utilidad", "shuffle", "reverse", "sort"],
+    "command": "Collections.shuffle(lista);\nCollections.reverse(lista);\nCollections.frequency(lista, objeto);",
+    "example": "List<Integer> nums = Arrays.asList(1,2,3);\nCollections.shuffle(nums);\nint count = Collections.frequency(nums, 1);",
+    "description": "Métodos estáticos de utilidad para colecciones."
   }
 ]

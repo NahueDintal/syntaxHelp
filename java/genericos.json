@@ -1,0 +1,44 @@
+[
+  {
+    "keywords": ["genérico", "generic", "tipo parametrizado", "<T>", "type parameter"],
+    "command": "public class NombreClase<T> { private T atributo; ... }",
+    "example": "public class Caja<T> {\n    private T contenido;\n    public void guardar(T item) { this.contenido = item; }\n    public T obtener() { return contenido; }\n}\n\nCaja<String> caja = new Caja<>();\ncaja.guardar(\"Hola\");",
+    "description": "Clase genérica con un parámetro de tipo T."
+  },
+  {
+    "keywords": ["método genérico", "generic method", "<T> en método"],
+    "command": "public <T> T metodo(T parametro) { ... }",
+    "example": "public static <T> T primerElemento(List<T> lista) {\n    return lista.get(0);\n}",
+    "description": "Método genérico que define su propio parámetro de tipo."
+  },
+  {
+    "keywords": ["wildcard", "comodín", "?", "desconocido"],
+    "command": "List<?> lista = ...; // lista de tipo desconocido",
+    "example": "public void imprimir(List<?> lista) {\n    for (Object o : lista) System.out.println(o);\n}",
+    "description": "Comodín '?' para tipo desconocido. Solo se puede leer como Object, no añadir elementos."
+  },
+  {
+    "keywords": ["bounded wildcard", "límite superior", "extends", "<? extends T>"],
+    "command": "List<? extends Number> lista; // puede ser List<Integer>, List<Double>, etc.",
+    "example": "public double sumar(List<? extends Number> nums) {\n    double total = 0;\n    for (Number n : nums) total += n.doubleValue();\n    return total;\n}",
+    "description": "Comodín con límite superior: acepta cualquier tipo que herede de T (o T mismo)."
+  },
+  {
+    "keywords": ["bounded wildcard", "límite inferior", "super", "<? super T>"],
+    "command": "List<? super Integer> lista; // puede ser List<Integer>, List<Number>, List<Object>",
+    "example": "public void añadirNumeros(List<? super Integer> lista) {\n    lista.add(10);\n    lista.add(20);\n}",
+    "description": "Comodín con límite inferior: acepta cualquier tipo que sea superclase de T."
+  },
+  {
+    "keywords": ["type erasure", "borrado de tipo", "runtime"],
+    "command": "Los genéricos solo existen en tiempo de compilación; en runtime se borran.",
+    "example": "// En compilación: List<String>\n// En runtime: List (raw type)\n// No se puede hacer: if (lista instanceof List<String>)",
+    "description": "Explicación del borrado de tipos: la información genérica no está disponible en runtime."
+  },
+  {
+    "keywords": ["raw type", "tipo crudo", "sin genérico"],
+    "command": "List lista = new ArrayList(); // raw type (evitar)",
+    "example": "List raw = new ArrayList(); // permite añadir cualquier cosa, pero no hay verificación de tipo",
+    "description": "Tipo crudo: uso de una clase genérica sin parámetros. No recomendado, puede dar advertencias."
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "keywords": ["Serializable", "serializar", "interfaz marcadora"],
+    "command": "public class MiClase implements Serializable { ... }",
+    "example": "import java.io.Serializable;\npublic class Persona implements Serializable {\n    private String nombre;\n    private transient int edad; // no se serializa\n}",
+    "description": "Marca una clase como serializable. Todas sus variables de instancia se serializan a menos que sean transient."
+  },
+  {
+    "keywords": ["ObjectOutputStream", "escribir objeto", "serializar"],
+    "command": "ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(\"archivo.ser\"));\noos.writeObject(objeto);\noos.close();",
+    "example": "Persona p = new Persona(\"Juan\", 25);\ntry (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(\"persona.ser\"))) {\n    oos.writeObject(p);\n}",
+    "description": "Escribe un objeto serializado a un flujo (archivo, red)."
+  },
+  {
+    "keywords": ["ObjectInputStream", "leer objeto", "deserializar"],
+    "command": "ObjectInputStream ois = new ObjectInputStream(new FileInputStream(\"archivo.ser\"));\nObjeto obj = (Objeto) ois.readObject();\nois.close();",
+    "example": "try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(\"persona.ser\"))) {\n    Persona p = (Persona) ois.readObject();\n    System.out.println(p.getNombre());\n}",
+    "description": "Lee un objeto serializado de un flujo y lo reconstruye."
+  },
+  {
+    "keywords": ["transient", "transitorio", "no serializar"],
+    "command": "private transient tipo campo;",
+    "example": "private transient Logger logger; // no se guarda",
+    "description": "Marca un campo para que no sea serializado. Al deserializar, se inicializa con valor por defecto."
+  },
+  {
+    "keywords": ["serialVersionUID", "UID", "versión serial"],
+    "command": "private static final long serialVersionUID = 1L;",
+    "example": "private static final long serialVersionUID = 123456789L;",
+    "description": "Identificador de versión para controlar la compatibilidad de serialización. Se recomienda declararlo explícitamente."
+  },
+  {
+    "keywords": ["readObject", "writeObject", "métodos personalizados", "serialización"],
+    "command": "private void writeObject(ObjectOutputStream oos) throws IOException { ... }\nprivate void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException { ... }",
+    "example": "private void writeObject(ObjectOutputStream oos) throws IOException {\n    oos.defaultWriteObject(); // serializa lo normal\n    oos.writeObject(extraData); // datos adicionales\n}",
+    "description": "Métodos personalizados para controlar el proceso de serialización/deserialización."
+  }
+]
