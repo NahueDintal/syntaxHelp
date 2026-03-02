@@ -46,5 +46,11 @@
     "command": "select variable in lista; do comandos; done",
     "example": "select opt in Opcion1 Opcion2 Salir; do case $opt in Salir) break;; *) echo \"Elegiste $opt\";; esac; done",
     "description": "Genera un menú interactivo a partir de una lista."
+  },
+  {
+    "keywords": ["dormir", "sleep", "esperar", "tiempo", "minutos", "horas"],
+    "command": "sleep 1 [m = minutos] [h = horas] [d = dias]",
+    "example": "sleep 5 m (esperar 5 min)",
+    "description": "Tiempo de espera, temporizador por así decirlo"
   }
 ]
