@@ -7,4 +7,7 @@ enlace con un micro script para enlazar con el escript en el directorio...
 echo '#!/bin/bash\n~/.syntaxHelp/bin/shelp "$@"' > ~/.local/bin/sy
 chmod +x ~/.local/bin/sy
 
+para verificar si están bien escritos los archivos .json
+
+jq empty busqueda.json && echo "OK" || echo "Error"
 

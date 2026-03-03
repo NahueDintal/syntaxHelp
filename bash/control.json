@@ -21,7 +21,7 @@
     "keywords": ["while", "bucle", "condición", "mientras"],
     "command": "while [ condición ]; do comandos; done",
     "example": "while [ $contador -le 10 ]; do echo $contador; ((contador++)); done",
-    "description": "Ejecuta comandos mientras se cumpla una condición."
+    "description": "Ejecuta comandos mientras se cumpla una condición usa (()) para operadores aritmeticos."
   },
   {
     "keywords": ["until", "bucle", "hasta que", "condición"],
