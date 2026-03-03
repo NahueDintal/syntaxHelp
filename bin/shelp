@@ -101,7 +101,7 @@ if [[ -z "$QUERY" ]]; then
   while true; do
     echo -e "${BOLD} ¿Qué sintaxis buscas?"
     printf "    > "
-    read -p "$(echo -e ${GREEN}$CONTEXT-help >${RESET})" QUERY
+    read -p "" QUERY
     [[ "$QUERY" == "salir" || "$QUERY" == "exit" || -z "$QUERY" ]] && break
     buscar "$CONTEXT_DIR" "$QUERY"
   done
