@@ -1,0 +1,2 @@
+1|ver error, cuando es en modo interactivo se crear un archivo en carpeta personal; 
+|02/03/2026|Sin descripción|Sin tipo|media

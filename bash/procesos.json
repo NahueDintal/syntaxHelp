@@ -12,6 +12,12 @@
     "description": "Muestra procesos en tiempo real (interactivo)."
   },
   {
+    "keywords": ["cantidad", "procesos", "lineas", "contador"],
+    "command": "wc -l",
+    "example": "ps aux | wc -l",
+    "description": "Muestra la cantidad de procesos."
+  },
+  {
     "keywords": ["kill", "terminar", "matar", "señal", "PID"],
     "command": "kill [opciones] <PID>",
     "example": "kill -9 1234",
