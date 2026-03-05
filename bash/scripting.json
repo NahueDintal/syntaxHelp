@@ -1,9 +1,20 @@
 [
+
   {
     "keywords": ["shebang", "#!/bin/bash", "intérprete", "primera línea"],
     "command": "#!/bin/bash\n#!/usr/bin/env bash",
     "example": "#!/usr/bin/env bash\necho 'Hola'",
     "description": "La primera línea del script indica el intérprete a usar. Con env se busca en el PATH."
+  },
+  {
+    "keywords": ["set -x", "set", "muestra cada paso", "paso a paso"],
+    "command": "set -x",
+    "example": "set -x 
+                echo 'aqui un comando'
+                aqui un comando
+                echo 'aqui otro comando'
+                aqui otro comando",
+    "description": "Va mostrando comando por comando ejecutado."
   },
   {
     "keywords": ["encabezado", "cabecera", "documentación script"],
