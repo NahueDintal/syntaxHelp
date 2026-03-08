@@ -1,5 +1,11 @@
 [
   {
+    "keywords": ["redes", "puertos", "ports"],
+    "command": "-p 8080:80",
+    "example": "podman pod create --name webpod -p 8080:80"
+    "description": "Con esto, cualquier petición a la IP del host en el puerto 8080 llegará al puerto 80 del pod, y de ahí al contenedor nginx."
+  },
+  {
     "keywords": ["redes", "network", "listar redes"],
     "command": "podman network ls",
     "example": "podman network ls",
