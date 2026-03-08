@@ -12,7 +12,7 @@
     "description": "Lista los contenedores (con -a, todos; sin -a, solo en ejecución)."
   },
   {
-    "keywords": ["detener", "stop", "parar"],
+    "keywords": ["detener", "stop", "parar", "cerrar contenedor"],
     "command": "podman stop <contenedor>",
     "example": "podman stop web",
     "description": "Detiene uno o más contenedores en ejecución."

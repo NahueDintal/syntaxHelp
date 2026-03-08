@@ -18,7 +18,7 @@
     "description": "Construye una imagen a partir de un Dockerfile o Containerfile."
   },
   {
-    "keywords": ["eliminar imagen", "rmi", "remove image", "borrar"],
+    "keywords": ["eliminar imagen", "rm imagen", "remove image", "borrar"],
     "command": "podman rmi <imagen>[:tag]",
     "example": "podman rmi nginx:alpine",
     "description": "Elimina una o más imágenes locales."
