@@ -9,11 +9,7 @@
   {
     "keywords": ["set -x", "set", "muestra cada paso", "paso a paso"],
     "command": "set -x",
-    "example": "set -x 
-                echo 'aqui un comando'
-                aqui un comando
-                echo 'aqui otro comando'
-                aqui otro comando",
+    "example": "set -x echo 'aqui un comando' aqui un comando echo 'aqui otro comando' aqui otro comando",
     "description": "Va mostrando comando por comando ejecutado."
   },
   {

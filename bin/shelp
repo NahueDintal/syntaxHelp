@@ -59,6 +59,10 @@ buscar() {
   jq_filter+=' ) )'
 
   for file in "${files[@]}"; do
+    if ! jq empty "$file" 2>/dev/null; then
+      echo -e "${YELLOW}Advertencia:${RESET} Archivo JSON inválido, se omite: $file" >&2
+      continue
+    fi
     jq -c "$jq_filter" "$file" 2>/dev/null | while read -r entry; do
       command=$(echo "$entry" | jq -r '.command')
       example=$(echo "$entry" | jq -r '.example')

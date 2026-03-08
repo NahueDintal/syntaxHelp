@@ -6,6 +6,12 @@
     "description": "Compara archivos línea por línea. -u formato unificado."
   },
   {
+    "keywords": ["vim", "set", "commandos vim", "terminal vim"],
+    "command": "set -o vi",
+    "example": "set -o vi",
+    "description": "Podes usar comandos vim en terminal, si lo agreagar al .bashrc quedan permanentes."
+  },
+  {
     "keywords": ["patch", "aplicar parche", "diff"],
     "command": "patch [opciones] < archivo.patch",
     "example": "patch -p1 < cambios.patch",
