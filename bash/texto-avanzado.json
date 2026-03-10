@@ -1,5 +1,11 @@
 [
   {
+    "keywords": [">>", "agreagar texto", "cambiar texto", "mudar texto"],
+    "command": ">>, >",
+    "example": "echo 'Hola!' >> archovo.txt",
+    "description": " >> Agrega texto al archivo, > cambia texto del archivo por el nuevo."
+  },
+  {
     "keywords": ["diff", "diferencias", "comparar archivos"],
     "command": "diff [opciones] <archivo1> <archivo2>",
     "example": "diff -u archivo1.txt archivo2.txt",
