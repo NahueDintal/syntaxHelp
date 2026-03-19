@@ -6,6 +6,12 @@
     "description": "Busca archivos usando una base de datos preconstruida (muy rápido)."
   },
   {
+    "keywords": ["tree", "directorios", "árbol", "buscar archivo", "ruta jerárquica"],
+    "command": "tree -P 'init.lua'",
+    "example": "tree -P 'init.lua'\n.\n└── home\n    └── usuario\n        └── proyecto\n            └── src\n                └── init.lua",
+    "description": "Muestra el árbol de directorios filtrando por patrón, resaltando la ruta hasta el archivo."
+  },
+  {
     "keywords": ["which", "ubicación", "ejecutable", "path"],
     "command": "which <comando>",
     "example": "which python3",
