@@ -6,6 +6,12 @@
     "description": "Muestra información de procesos. aux es una combinación común."
   },
   {
+    "keywords": ["pstree", "procesos", "arbol", "cadena de procesos", "show parents"],
+    "command": "pstree",
+    "example": " pstree 2422 -a --show-parents\n                  systemd splash\n                  └─systemd --user\n                     └─tmux: server new -s Tmux\n                        └─bash\n                          └─cava\n                            └─3*[{cava}]",
+    "description": "Muestra donde el proceso está funcionando en el sistema"
+  },
+  {
     "keywords": ["top", "procesos", "monitor", "tiempo real", "htop"],
     "command": "top",
     "example": "top",
