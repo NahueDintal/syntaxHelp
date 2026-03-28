@@ -1,0 +1,104 @@
+[
+  {
+    "keywords": ["create table", "tabla", "crear", "ddl"],
+    "command": "CREATE TABLE nombre ( col1 tipo [NOT NULL], col2 tipo, ... )",
+    "example": "CREATE TABLE empleados (id INT IDENTITY(1,1) PRIMARY KEY, nombre VARCHAR(100) NOT NULL, salario DECIMAL(10,2))",
+    "description": "Crea una nueva tabla con sus columnas, tipos y restricciones."
+  },
+  {
+    "keywords": ["alter table", "modificar", "agregar columna", "cambiar tipo"],
+    "command": "ALTER TABLE table ADD columna tipo / ALTER COLUMN columna tipo / DROP COLUMN columna",
+    "example": "ALTER TABLE empleados ADD email VARCHAR(100) NULL; ALTER TABLE empleados ALTER COLUMN salario DECIMAL(12,2);",
+    "description": "Modifica la estructura de una tabla existente (agregar, cambiar o eliminar columnas)."
+  },
+  {
+    "keywords": ["drop table", "borrar", "eliminar tabla"],
+    "command": "DROP TABLE table",
+    "example": "DROP TABLE empleados_antiguos",
+    "description": "Elimina permanentemente una tabla y todos sus datos."
+  },
+  {
+    "keywords": ["create index", "índice", "performance", "clustered", "nonclustered"],
+    "command": "CREATE [UNIQUE] [CLUSTERED|NONCLUSTERED] INDEX nombre ON table (columnas)",
+    "example": "CREATE NONCLUSTERED INDEX idx_empleados_departamento ON empleados (departamento)",
+    "description": "Crea un índice para mejorar la velocidad de búsqueda en una tabla."
+  },
+  {
+    "keywords": ["create view", "vista", "virtual"],
+    "command": "CREATE VIEW nombre AS SELECT ...",
+    "example": "CREATE VIEW empleados_it AS SELECT nombre, salario FROM empleados WHERE departamento = 'IT'",
+    "description": "Define una tabla virtual basada en el resultado de una consulta."
+  },
+  {
+    "keywords": ["create procedure", "procedimiento", "stored procedure", "sp"],
+    "command": "CREATE PROCEDURE nombre (@param tipo) AS BEGIN ... END",
+    "example": "CREATE PROCEDURE sp_empleados_por_departamento @departamento VARCHAR(50) AS SELECT * FROM empleados WHERE departamento = @departamento",
+    "description": "Crea un procedimiento almacenado que puede aceptar parámetros y contener lógica compleja."
+  },
+  {
+    "keywords": ["create function", "función", "scalar", "table-valued"],
+    "command": "CREATE FUNCTION nombre (@param tipo) RETURNS tipo AS BEGIN ... END",
+    "example": "CREATE FUNCTION dbo.obtener_salario_anual (@salario DECIMAL) RETURNS DECIMAL AS BEGIN RETURN @salario * 12 END",
+    "description": "Crea una función escalar o de tabla que devuelve un valor o una tabla."
+  },
+  {
+    "keywords": ["create trigger", "trigger", "disparador"],
+    "command": "CREATE TRIGGER nombre ON table AFTER|INSTEAD OF INSERT, UPDATE, DELETE AS BEGIN ... END",
+    "example": "CREATE TRIGGER tr_empleados_audit ON empleados AFTER INSERT, UPDATE AS INSERT INTO auditoria (fecha, tabla) VALUES (GETDATE(), 'empleados')",
+    "description": "Crea un disparador que se ejecuta automáticamente ante eventos DML sobre una tabla."
+  },
+  {
+    "keywords": ["foreign key", "llave foránea", "referencia", "referential integrity", "fk", "constraint"],
+    "command": "CREATE TABLE tabla ( columna tipo, FOREIGN KEY (columna) REFERENCES tabla_ref (columna_ref) [ON DELETE {NO ACTION | CASCADE | SET NULL | SET DEFAULT}] [ON UPDATE {NO ACTION | CASCADE | SET NULL | SET DEFAULT}] )",
+    "example": "-- Inline en CREATE TABLE\nCREATE TABLE pedidos (\n  id INT PRIMARY KEY,\n  cliente_id INT,\n  FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE\n);\n\n-- Con CONSTRAINT explícito\nCREATE TABLE pedidos (\n  id INT PRIMARY KEY,\n  cliente_id INT,\n  CONSTRAINT FK_pedidos_clientes FOREIGN KEY (cliente_id) REFERENCES clientes(id)\n);\n\n-- Agregar después de la tabla\nALTER TABLE pedidos\nADD CONSTRAINT FK_pedidos_clientes\nFOREIGN KEY (cliente_id) REFERENCES clientes(id);",
+    "description": "Define una llave foránea que asegura la integridad referencial entre dos tablas. Puede crearse al momento de crear la tabla o agregarse después con ALTER TABLE. Las opciones ON DELETE y ON UPDATE controlan el comportamiento en cascada: NO ACTION (por defecto), CASCADE (propaga cambios), SET NULL o SET DEFAULT."
+  },
+  {
+    "keywords": ["alter table add column", "agregar columna", "añadir columna", "add column", "nueva columna"],
+    "command": "ALTER TABLE tabla ADD nombre_columna tipo_dato [NULL | NOT NULL] [CONSTRAINT nombre DEFAULT valor]",
+    "example": "-- Agregar una columna de fecha con valor por defecto (fecha actual)\nALTER TABLE empleados ADD fecha_ingreso DATE NOT NULL DEFAULT GETDATE();\n\n-- Agregar una columna datetime con null permitido\nALTER TABLE pedidos ADD fecha_entrega DATETIME NULL;\n\n-- Agregar columna de solo fecha (date) sin hora\nALTER TABLE facturas ADD fecha_emision DATE NOT NULL;",
+    "description": "Agrega una nueva columna a una tabla existente. Los tipos de fecha comunes en SQL Server son: DATE (solo fecha), DATETIME (fecha y hora), SMALLDATETIME, DATETIME2, TIME. Se puede definir un valor por defecto con DEFAULT."
+  },
+  {
+    "keywords": ["create table date", "crear tabla fecha", "tabla con fecha"],
+    "command": "CREATE TABLE nombre_tabla ( columna1 tipo, columna_fecha DATE [NOT NULL] DEFAULT GETDATE(), ... )",
+    "example": "CREATE TABLE empleados (\n  id INT IDENTITY(1,1) PRIMARY KEY,\n  nombre VARCHAR(100) NOT NULL,\n  fecha_nacimiento DATE,\n  fecha_contratacion DATETIME DEFAULT GETDATE()\n);",
+    "description": "Crea una tabla incluyendo columnas de tipo fecha. DATE almacena solo fecha (YYYY-MM-DD), DATETIME incluye hora. GETDATE() puede usarse como valor por defecto para la fecha actual."
+  },
+  {
+    "keywords": ["alter table drop column", "eliminar columna", "borrar columna", "drop column"],
+    "command": "ALTER TABLE tabla DROP COLUMN nombre_columna",
+    "example": "ALTER TABLE empleados DROP COLUMN fecha_nacimiento;",
+    "description": "Elimina permanentemente una columna de una tabla. Precaución: también se borran todos los datos de esa columna."
+  },
+  {
+    "keywords": ["alter table modify column", "cambiar tipo columna", "alter column", "modificar columna"],
+    "command": "ALTER TABLE tabla ALTER COLUMN nombre_columna nuevo_tipo [NULL | NOT NULL]",
+    "example": "-- Cambiar una columna de DATE a DATETIME\nALTER TABLE empleados ALTER COLUMN fecha_contratacion DATETIME NOT NULL;\n\n-- Cambiar una columna de VARCHAR(50) a VARCHAR(100)\nALTER TABLE clientes ALTER COLUMN direccion VARCHAR(100) NULL;",
+    "description": "Modifica la definición de una columna existente: tipo de datos, nulabilidad, etc. No puede renombrar la columna (para eso se usa sp_rename)."
+  },
+  {
+    "keywords": ["add default constraint", "valor por defecto", "default", "default constraint"],
+    "command": "ALTER TABLE tabla ADD CONSTRAINT nombre DEFAULT valor FOR columna",
+    "example": "-- Agregar una restricción DEFAULT para que la fecha de creación se establezca automáticamente\nALTER TABLE pedidos ADD CONSTRAINT DF_pedidos_fecha DEFAULT GETDATE() FOR fecha_creacion;",
+    "description": "Añade un valor por defecto a una columna existente, usando una restricción DEFAULT."
+  },
+  {
+    "keywords": ["rename column", "renombrar columna", "sp_rename"],
+    "command": "EXEC sp_rename 'tabla.antiguo_nombre', 'nuevo_nombre', 'COLUMN'",
+    "example": "EXEC sp_rename 'empleados.fecha_nacimiento', 'fecha_nac', 'COLUMN';",
+    "description": "Cambia el nombre de una columna usando el procedimiento almacenado del sistema sp_rename."
+  },
+  {
+    "keywords": ["getdate", "fecha actual", "current timestamp", "now", "current date"],
+    "command": "GETDATE(), CURRENT_TIMESTAMP, SYSDATETIME()",
+    "example": "-- Insertar con fecha actual\nINSERT INTO logs (mensaje, fecha) VALUES ('Inicio de sesión', GETDATE());\n\n-- Usar en SELECT\nSELECT GETDATE() AS ahora;",
+    "description": "Funciones que devuelven la fecha y hora actual del sistema. GETDATE() y CURRENT_TIMESTAMP retornan DATETIME; SYSDATETIME() retorna DATETIME2 con mayor precisión."
+  },
+  {
+    "keywords": ["date data types", "tipos de fecha", "datetime", "date", "time", "datetime2"],
+    "command": "DATE | DATETIME | SMALLDATETIME | DATETIME2 | TIME | DATETIMEOFFSET",
+    "example": "-- Ejemplos de uso\nCREATE TABLE fechas_ejemplo (\n  solo_fecha DATE,\n  fecha_hora DATETIME,\n  solo_hora TIME(0),\n  alta_precision DATETIME2(3),\n  con_zona DATETIMEOFFSET\n);",
+    "description": "Tipos de datos para fecha/hora en SQL Server: DATE (solo fecha), TIME (solo hora), DATETIME (fecha+hora, 3.33ms precisión), SMALLDATETIME (precisión 1 minuto), DATETIME2 (mayor rango y precisión), DATETIMEOFFSET (con zona horaria)."
+  }
+]

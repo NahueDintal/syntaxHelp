@@ -1,0 +1,74 @@
+[
+  {
+    "keywords": ["count", "contar", "aggregate"],
+    "command": "COUNT(*|column)",
+    "example": "SELECT COUNT(*) FROM empleados WHERE departamento = 'IT'",
+    "description": "Cuenta el número de filas (o valores no nulos) en un grupo."
+  },
+  {
+    "keywords": ["sum", "suma", "total"],
+    "command": "SUM(column)",
+    "example": "SELECT SUM(salario) FROM empleados",
+    "description": "Suma los valores de una columna numérica."
+  },
+  {
+    "keywords": ["avg", "average", "promedio"],
+    "command": "AVG(column)",
+    "example": "SELECT AVG(salario) FROM empleados WHERE departamento = 'IT'",
+    "description": "Calcula el promedio de los valores de una columna numérica."
+  },
+  {
+    "keywords": ["min", "max", "mínimo", "máximo"],
+    "command": "MIN(column), MAX(column)",
+    "example": "SELECT MIN(salario), MAX(salario) FROM empleados",
+    "description": "Obtiene el valor mínimo o máximo de una columna."
+  },
+  {
+    "keywords": ["getdate", "fecha actual", "current date", "now"],
+    "command": "GETDATE(), CURRENT_TIMESTAMP",
+    "example": "SELECT GETDATE() AS fecha_actual",
+    "description": "Devuelve la fecha y hora actual del sistema."
+  },
+  {
+    "keywords": ["dateadd", "sumar fecha", "restar fecha"],
+    "command": "DATEADD(datepart, number, date)",
+    "example": "SELECT DATEADD(day, 30, GETDATE()) AS fecha_futura",
+    "description": "Suma un intervalo a una fecha (años, meses, días, etc.)."
+  },
+  {
+    "keywords": ["datediff", "diferencia fechas"],
+    "command": "DATEDIFF(datepart, startdate, enddate)",
+    "example": "SELECT DATEDIFF(day, fecha_ingreso, GETDATE()) AS dias_trabajados FROM empleados",
+    "description": "Calcula la diferencia entre dos fechas en la unidad especificada."
+  },
+  {
+    "keywords": ["substring", "extraer texto", "cadena"],
+    "command": "SUBSTRING(string, start, length)",
+    "example": "SELECT SUBSTRING(nombre, 1, 3) FROM empleados",
+    "description": "Extrae una subcadena de una cadena de texto."
+  },
+  {
+    "keywords": ["len", "longitud", "length"],
+    "command": "LEN(string)",
+    "example": "SELECT LEN(nombre) FROM empleados",
+    "description": "Devuelve el número de caracteres de una cadena (excluyendo espacios finales)."
+  },
+  {
+    "keywords": ["replace", "reemplazar", "sustituir"],
+    "command": "REPLACE(string, old, new)",
+    "example": "SELECT REPLACE(nombre, 'á', 'a') FROM empleados",
+    "description": "Reemplaza todas las apariciones de una subcadena por otra."
+  },
+  {
+    "keywords": ["cast", "convert", "conversión", "tipos"],
+    "command": "CAST(expression AS type), CONVERT(type, expression [, style])",
+    "example": "SELECT CAST(salario AS INT) FROM empleados; SELECT CONVERT(DATE, fecha_texto, 103)",
+    "description": "Convierte un valor de un tipo de datos a otro."
+  },
+  {
+    "keywords": ["row_number", "numeración", "ranking"],
+    "command": "ROW_NUMBER() OVER (ORDER BY column)",
+    "example": "SELECT nombre, salario, ROW_NUMBER() OVER (ORDER BY salario DESC) AS ranking FROM empleados",
+    "description": "Asigna un número secuencial único a cada fila dentro de una partición."
+  }
+]

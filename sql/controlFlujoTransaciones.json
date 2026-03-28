@@ -1,0 +1,44 @@
+[
+  {
+    "keywords": ["begin transaction", "commit", "rollback", "transacción"],
+    "command": "BEGIN TRANSACTION; ... COMMIT TRANSACTION; ... ROLLBACK TRANSACTION;",
+    "example": "BEGIN TRY\n  BEGIN TRANSACTION\n  UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1\n  UPDATE cuentas SET saldo = saldo + 100 WHERE id = 2\n  COMMIT TRANSACTION\nEND TRY\nBEGIN CATCH\n  ROLLBACK TRANSACTION\n  THROW\nEND CATCH",
+    "description": "Define una unidad de trabajo atómica; COMMIT guarda cambios, ROLLBACK los deshace."
+  },
+  {
+    "keywords": ["try catch", "manejo errores", "exception"],
+    "command": "BEGIN TRY ... END TRY BEGIN CATCH ... END CATCH",
+    "example": "BEGIN TRY\n  SELECT 1/0\nEND TRY\nBEGIN CATCH\n  PRINT ERROR_MESSAGE()\nEND CATCH",
+    "description": "Captura errores dentro de un bloque para manejarlos sin interrumpir la ejecución."
+  },
+  {
+    "keywords": ["if else", "condicional", "branch"],
+    "command": "IF condition BEGIN ... END ELSE BEGIN ... END",
+    "example": "IF (SELECT COUNT(*) FROM empleados) > 100\n  PRINT 'Más de 100 empleados'\nELSE\n  PRINT 'Menos o igual a 100 empleados'",
+    "description": "Ejecuta un bloque de código según se cumpla o no una condición."
+  },
+  {
+    "keywords": ["while", "loop", "bucle"],
+    "command": "WHILE condition BEGIN ... END",
+    "example": "DECLARE @i INT = 1; WHILE @i <= 10 BEGIN PRINT @i; SET @i = @i + 1 END",
+    "description": "Repite un bloque mientras una condición sea verdadera."
+  },
+  {
+    "keywords": ["declare variable", "@variable", "variable"],
+    "command": "DECLARE @nombre tipo; SET @nombre = valor; SELECT @nombre = columna FROM ...",
+    "example": "DECLARE @salario_prom DECIMAL; SET @salario_prom = (SELECT AVG(salario) FROM empleados); PRINT @salario_prom",
+    "description": "Define y asigna valores a variables locales de tipo T-SQL."
+  },
+  {
+    "keywords": ["sp_executesql", "dynamic sql", "ejecutar dinámico"],
+    "command": "EXEC sp_executesql @sql, @params, @param1 = value1, ...",
+    "example": "DECLARE @sql NVARCHAR(MAX) = 'SELECT * FROM empleados WHERE departamento = @dep'; EXEC sp_executesql @sql, N'@dep VARCHAR(50)', @dep = 'IT'",
+    "description": "Ejecuta una cadena SQL dinámica con parámetros, previniendo inyección SQL."
+  },
+  {
+    "keywords": ["set nocount", "mensajes", "performance"],
+    "command": "SET NOCOUNT ON|OFF",
+    "example": "SET NOCOUNT ON; SELECT * FROM empleados; SET NOCOUNT OFF",
+    "description": "Suprime el mensaje de filas afectadas en el resultado, mejorando rendimiento en procedimientos."
+  }
+]

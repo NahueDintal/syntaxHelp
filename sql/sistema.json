@@ -1,0 +1,26 @@
+[
+  {
+    "keywords": ["sp_help", "ayuda", "metadatos", "estructura"],
+    "command": "sp_help 'nombre_objeto'",
+    "example": "sp_help 'empleados'",
+    "description": "Muestra información detallada sobre un objeto (tabla, procedimiento, etc.)."
+  },
+  {
+    "keywords": ["sp_who", "sp_who2", "sesiones", "procesos"],
+    "command": "sp_who [@loginame =] 'login'",
+    "example": "sp_who2",
+    "description": "Lista las conexiones activas y sus procesos en el servidor."
+  },
+  {
+    "keywords": ["backup database", "respaldar", "restaurar"],
+    "command": "BACKUP DATABASE nombre TO DISK = 'ruta.bak'",
+    "example": "BACKUP DATABASE MiDB TO DISK = 'C:\\Backups\\MiDB.bak' WITH FORMAT, INIT",
+    "description": "Crea una copia de seguridad de una base de datos completa o diferencial."
+  },
+  {
+    "keywords": ["restore database", "recuperar", "restaurar"],
+    "command": "RESTORE DATABASE nombre FROM DISK = 'ruta.bak'",
+    "example": "RESTORE DATABASE MiDB FROM DISK = 'C:\\Backups\\MiDB.bak' WITH REPLACE",
+    "description": "Restaura una base de datos desde un archivo de respaldo."
+  }
+]

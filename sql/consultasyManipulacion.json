@@ -1,0 +1,62 @@
+[
+  {
+    "keywords": ["select", "consulta", "query", "obtener", "retrieve"],
+    "command": "SELECT column1, column2 FROM table WHERE condition",
+    "example": "SELECT nombre, salario FROM empleados WHERE departamento = 'IT'",
+    "description": "Recupera filas de una tabla, pudiendo filtrar con WHERE, ordenar con ORDER BY, agrupar con GROUP BY, etc."
+  },
+  {
+    "keywords": ["insert", "agregar", "nuevo", "insertar", "add"],
+    "command": "INSERT INTO table (column1, column2) VALUES (value1, value2)",
+    "example": "INSERT INTO empleados (nombre, departamento, salario) VALUES ('Ana', 'IT', 55000)",
+    "description": "Inserta una o más filas en una tabla."
+  },
+  {
+    "keywords": ["update", "actualizar", "modificar", "cambiar", "update"],
+    "command": "UPDATE table SET column1 = value1 WHERE condition",
+    "example": "UPDATE empleados SET salario = 60000 WHERE nombre = 'Ana'",
+    "description": "Modifica los valores de una o más columnas en las filas que cumplan la condición."
+  },
+  {
+    "keywords": ["delete", "eliminar", "borrar", "remove"],
+    "command": "DELETE FROM table WHERE condition",
+    "example": "DELETE FROM empleados WHERE id = 5",
+    "description": "Elimina filas que cumplan la condición. ¡Cuidado con omitir WHERE!"
+  },
+  {
+    "keywords": ["join", "inner", "left", "right", "full", "cross", "unir"],
+    "command": "SELECT * FROM tabla1 JOIN tabla2 ON tabla1.col = tabla2.col",
+    "example": "SELECT e.nombre, d.nombre FROM empleados e INNER JOIN departamentos d ON e.departamento_id = d.id",
+    "description": "Combina filas de dos o más tablas basándose en una condición de igualdad u otra lógica."
+  },
+  {
+    "keywords": ["where", "filtrar", "condition", "condición"],
+    "command": "SELECT ... WHERE condition",
+    "example": "SELECT * FROM productos WHERE precio > 100 AND categoria = 'Electrónica'",
+    "description": "Filtra filas según una o más condiciones lógicas."
+  },
+  {
+    "keywords": ["group by", "agrupar", "agrupación"],
+    "command": "SELECT columna, agregado() FROM tabla GROUP BY columna",
+    "example": "SELECT departamento, AVG(salario) FROM empleados GROUP BY departamento",
+    "description": "Agrupa filas que tienen los mismos valores en una o más columnas y permite aplicar funciones de agregación."
+  },
+  {
+    "keywords": ["order by", "ordenar", "sort"],
+    "command": "SELECT ... ORDER BY columna [ASC|DESC]",
+    "example": "SELECT nombre, salario FROM empleados ORDER BY salario DESC",
+    "description": "Ordena el conjunto de resultados por una o más columnas, ascendente (ASC) o descendente (DESC)."
+  },
+  {
+    "keywords": ["top", "limitar", "limit", "first", "primeros"],
+    "command": "SELECT TOP (n) [PERCENT] columns FROM table",
+    "example": "SELECT TOP 10 nombre, salario FROM empleados ORDER BY salario DESC",
+    "description": "Devuelve las primeras n filas o el n% de filas del resultado."
+  },
+  {
+    "keywords": ["distinct", "unique", "únicos", "sin duplicados"],
+    "command": "SELECT DISTINCT column FROM table",
+    "example": "SELECT DISTINCT departamento FROM empleados",
+    "description": "Elimina filas duplicadas del resultado, dejando solo valores únicos."
+  }
+]
