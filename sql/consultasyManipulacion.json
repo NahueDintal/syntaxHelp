@@ -6,6 +6,36 @@
     "description": "Recupera filas de una tabla, pudiendo filtrar con WHERE, ordenar con ORDER BY, agrupar con GROUP BY, etc."
   },
   {
+    "keywords": ["exists", "existe", "subconsulta existencia"],
+    "command": "WHERE EXISTS (subquery)",
+    "example": "SELECT * FROM clientes c\nWHERE EXISTS (SELECT 1 FROM pedidos p WHERE p.cliente_id = c.id);",
+    "description": "Comprueba si una subconsulta devuelve al menos una fila. Suele ser más eficiente que IN cuando hay muchos resultados."
+  },
+  {
+    "keywords": ["coalesce", "primer no nulo", "nulos", "reemplazar null"],
+    "command": "COALESCE(valor1, valor2, ..., valorN)",
+    "example": "SELECT nombre, COALESCE(telefono_oficina, telefono_personal, 'Sin teléfono') AS telefono_contacto FROM empleados;",
+    "description": "Retorna el primer valor de la lista que no sea NULL. Útil para reemplazar nulos con valores por defecto."
+  },
+  {
+    "keywords": ["case", "condicional", "if en sql", "switch sql"],
+    "command": "CASE WHEN condition THEN result ELSE other END",
+    "example": "SELECT nombre,\n  CASE\n    WHEN salario < 30000 THEN 'Bajo'\n    WHEN salario BETWEEN 30000 AND 60000 THEN 'Medio'\n    ELSE 'Alto'\n  END AS nivel_salarial\nFROM empleados;",
+    "description": "Evalúa una lista de condiciones y devuelve un valor. Muy usado en SELECT, ORDER BY, etc."
+  },
+  {
+    "keywords": ["union", "unir resultados", "combinar consultas", "union all"],
+    "command": "SELECT ... UNION [ALL] SELECT ...",
+    "example": "SELECT nombre, 'Cliente' AS tipo FROM clientes\nUNION\nSELECT nombre, 'Proveedor' FROM proveedores;",
+    "description": "Combina los resultados de dos o más consultas. UNION elimina duplicados, UNION ALL los conserva (más rápido)."
+  },
+  {
+    "keywords": ["having", "filtrar grupos", "condición group by"],
+    "command": "SELECT column, AGG(func) FROM table GROUP BY column HAVING condition",
+    "example": "SELECT departamento, AVG(salario) AS salario_promedio\nFROM empleados\nGROUP BY departamento\nHAVING AVG(salario) > 50000;",
+    "description": "Filtra los resultados de una agrupación (GROUP BY) usando funciones de agregación, a diferencia de WHERE que filtra filas individuales."
+  },
+  {
     "keywords": ["insert", "agregar", "nuevo", "insertar", "add"],
     "command": "INSERT INTO table (column1, column2) VALUES (value1, value2)",
     "example": "INSERT INTO empleados (nombre, departamento, salario) VALUES ('Ana', 'IT', 55000)",

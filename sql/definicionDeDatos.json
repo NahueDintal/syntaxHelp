@@ -48,6 +48,30 @@
     "description": "Crea un disparador que se ejecuta automáticamente ante eventos DML sobre una tabla."
   },
   {
+    "keywords": ["primary key", "llave primaria", "pk", "clave primaria", "constraint primary"],
+    "command": "ALTER TABLE table ADD CONSTRAINT constraint_name PRIMARY KEY (column1, column2...) -- o inline: CREATE TABLE ... (columna tipo PRIMARY KEY)",
+    "example": "-- Durante CREATE TABLE\nCREATE TABLE empleados (\n  id INT PRIMARY KEY,\n  nombre VARCHAR(100)\n);\n\n-- Después de creada\nALTER TABLE empleados ADD CONSTRAINT PK_empleados_id PRIMARY KEY (id);",
+    "description": "Define una o más columnas como clave primaria, garantizando unicidad y no nulo. Puede crearse inline o con CONSTRAINT explícito."
+  },
+  {
+    "keywords": ["unique", "único", "constraint unique", "valor único"],
+    "command": "ALTER TABLE table ADD CONSTRAINT constraint_name UNIQUE (column); -- o inline en CREATE TABLE",
+    "example": "CREATE TABLE usuarios (\n  id INT PRIMARY KEY,\n  email VARCHAR(200) UNIQUE\n);\n\n-- O agregado después\nALTER TABLE usuarios ADD CONSTRAINT UQ_usuarios_email UNIQUE (email);",
+    "description": "Garantiza que todos los valores de una columna (o combinación) sean distintos, permitiendo un solo NULL (en SQL Server)."
+  },
+  {
+    "keywords": ["check", "validar", "restricción check", "constraint check"],
+    "command": "ALTER TABLE table ADD CONSTRAINT constraint_name CHECK (condición lógica)",
+    "example": "CREATE TABLE productos (\n  id INT PRIMARY KEY,\n  precio DECIMAL(10,2) CHECK (precio > 0)\n);\n\nALTER TABLE empleados ADD CONSTRAINT CK_empleados_edad CHECK (edad >= 18 AND edad <= 120);",
+    "description": "Define una condición que deben cumplir los valores de una o más columnas. Rechaza filas que no la cumplan."
+  },
+  {
+    "keywords": ["truncate", "vaciar tabla", "borrar todos los registros", "eliminar filas rápido"],
+    "command": "TRUNCATE TABLE table",
+    "example": "TRUNCATE TABLE empleados_temp;",
+    "description": "Elimina todas las filas de una tabla de forma rápida y sin registrar cada eliminación (reinicia contadores de identidad, no dispara triggers)."
+  },
+  {
     "keywords": ["foreign key", "llave foránea", "referencia", "referential integrity", "fk", "constraint"],
     "command": "CREATE TABLE tabla ( columna tipo, FOREIGN KEY (columna) REFERENCES tabla_ref (columna_ref) [ON DELETE {NO ACTION | CASCADE | SET NULL | SET DEFAULT}] [ON UPDATE {NO ACTION | CASCADE | SET NULL | SET DEFAULT}] )",
     "example": "-- Inline en CREATE TABLE\nCREATE TABLE pedidos (\n  id INT PRIMARY KEY,\n  cliente_id INT,\n  FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE\n);\n\n-- Con CONSTRAINT explícito\nCREATE TABLE pedidos (\n  id INT PRIMARY KEY,\n  cliente_id INT,\n  CONSTRAINT FK_pedidos_clientes FOREIGN KEY (cliente_id) REFERENCES clientes(id)\n);\n\n-- Agregar después de la tabla\nALTER TABLE pedidos\nADD CONSTRAINT FK_pedidos_clientes\nFOREIGN KEY (cliente_id) REFERENCES clientes(id);",
