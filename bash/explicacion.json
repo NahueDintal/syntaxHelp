@@ -1,9 +1,9 @@
 
 [
   {
-    "keywords": ["abriaiatura", "explicacion", "manual comandos"],
+    "keywords": ["tldr", "abriaiatura", "explicacion", "manual comandos"],
     "command": "tldr <command>",
     "example": "tldr ls",
-    "description": "Resume los comandos de un programa."
+    "description": "Resume en una lista los comandos de un programa."
   }
 ]
